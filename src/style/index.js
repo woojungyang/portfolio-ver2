@@ -8,7 +8,7 @@ export * from './common';
 
 export const font = {
   kr: `'Gowun Dodum'`,
-  en: `'Roboto Mono'`,
+  en: `'Encode Sans'`,
 };
 
 export const color = {
@@ -17,7 +17,7 @@ export const color = {
   danger: '#ff5003',
   secondary: '#FF9B6A',
   light: '#fedc97',
-  black: '#222',
+  black: '#000',
   lightBlack: '#dedede',
   success: '#fdba21',
   primary: '#219ebc',
@@ -33,11 +33,12 @@ export const size = {
 };
 
 export const media = {
-  xl: ` (max-width: ${size.xl})`,
-  lg: ` (max-width: ${size.lg})`,
-  md: ` (max-width: ${size.md})`,
-  sm: ` (max-width: ${size.sm})`,
-  xs: ` (max-width: ${size.xs})`,
+  xxl: ` screen and (max-width: ${size.xxl})`,
+  xl: ` screen and (max-width: ${size.xl})`,
+  lg: ` screen and (max-width: ${size.lg})`,
+  md: ` screen and (max-width: ${size.md})`,
+  sm: ` screen and (max-width: ${size.sm})`,
+  xs: ` screen and (max-width: ${size.xs})`,
 };
 
 export const flex = ({ w = 'nowrap', h = 'flex-start', v = 'stretch' }) => {

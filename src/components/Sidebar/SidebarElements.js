@@ -1,22 +1,23 @@
-import styled, { color, font } from '../../style';
+import styled, { color, font, media } from '../../style';
 import { Link as LinkR } from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
 
 import { FaTimes } from 'react-icons/fa';
 
 export const SidebarContainer = styled.aside`
+  font-family: ${font.en};
   position: fixed;
   z-index: 999;
   width: 100%;
   height: 100%;
-  background: ${color.info};
+  background: ${color.black};
   display: grid;
   align-items: center;
   top: 0;
   left: 0;
-  transition: 0ms.3s ease-in-out;
-  /* opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
-  top: ${({ isOpen }) => (isOpen ? '0' : '-100%')};*/
+  transition: 0.3s all ease-in-out;
+  opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
+  top: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
 `;
 
 export const CloseIcon = styled(FaTimes)`
@@ -41,7 +42,8 @@ export const SidebarMenu = styled.ul`
   grid-template-columns: 1fr;
   grid-template-rows: repeat(5, 80px);
   text-align: center;
-  @media screen and (max-width: 480px) {
+
+  @media ${media.xs} {
     grid-template-rows: repeat(5, 60px);
   }
 `;
@@ -58,7 +60,7 @@ export const SidebarLink = styled(LinkS)`
   cursor: pointer;
 
   &:hover {
-    color: ${color.light};
+    color: ${color.secondary};
     transition: 0.2s all ease-in-out;
   }
 `;
@@ -70,10 +72,10 @@ export const SideBtnWrap = styled.div`
 
 export const SidebarRoute = styled(LinkR)`
   border-radius: 50px;
-  background: ${color.light};
+  background: ${color.secondary};
   white-space: nowrap;
   padding: 1em 4em;
-  color: ${color.dark};
+  color: ${color.black};
   font-size: 1em;
   border: none;
   cursor: pointer;
