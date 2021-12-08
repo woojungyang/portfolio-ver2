@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../Button';
+import main from '../../assets/img/main.mp4';
 
 import {
   InfoContainer,
@@ -13,6 +14,7 @@ import {
   Subtitle,
   BtnWrap,
   ImgWrap,
+  VideoBg,
   Img,
 } from './InfoElements';
 
@@ -61,6 +63,7 @@ const InfoSection = ({
             </Column1>
             <Column2>
               <ImgWrap>
+                <VideoBg autoPlay loop muted src={main} type="video/mp4" />
                 <Img src={img} alt={alt} />
               </ImgWrap>
             </Column2>
