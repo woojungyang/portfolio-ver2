@@ -1,5 +1,5 @@
 export const skills = {
-  id: 'skill',
+  id: 'skills',
   lightBg: true,
   lightText: false,
   lightTextDesc: false,

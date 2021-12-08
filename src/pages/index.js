@@ -6,6 +6,8 @@ import InfoSection from '../components/InfoSection';
 import { homeObjOne, homeObjTwo } from '../components/InfoSection/Data';
 import Skillbar from '../components/Skillbar';
 import { skills } from '../components/Skillbar/Data';
+import Project from '../components/Project';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +23,8 @@ const Home = () => {
       {/* <MainSection /> */}
       <InfoSection {...homeObjOne} />
       <Skillbar {...skills} />
+      <Project />
+      <Footer />
     </>
   );
 };

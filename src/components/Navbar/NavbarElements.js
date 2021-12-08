@@ -5,7 +5,7 @@ import { Link as LinkS } from 'react-scroll';
 
 export const Nav = styled.nav`
   font-family: ${font.en};
-  background: ${color.light};
+  background: ${({ scrollNav }) => (scrollNav ? '#f9faf4' : 'transparent')};
   height: 80px;
   margin-top: -80px;
   display: flex;
