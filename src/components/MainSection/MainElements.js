@@ -9,7 +9,7 @@ export const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 30px;
-  height: 860px;
+  height: 100vh;
   position: relative;
   z-index: 1;
 
@@ -43,7 +43,7 @@ export const MainBg = styled.div`
 
 export const VideoBg = styled.video`
   width: 100%;
-  height: 860px;
+  height: 100vh;
   -o-object-fit: cover;
   object-fit: cover;
   background: ${color.light};

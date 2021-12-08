@@ -3,7 +3,7 @@ import styled, { color, font, media } from '../../style';
 export const InfoContainer = styled.div`
   font-family: ${font.en};
   color: ${color.black};
-  background: ${({ lightBg }) => (lightBg ? `white` : `#000`)};
+  background: ${({ lightBg }) => (lightBg ? `white` : `white`)};
   @media ${media.sm} {
     padding: 100px 0;
   }
@@ -12,7 +12,7 @@ export const InfoContainer = styled.div`
 export const InfoWrapper = styled.div`
   display: grid;
   z-index: 1;
-  height: 860px;
+  height: 100vh;
   width: 100%;
   max-width: 1100px;
   margin-right: auto;
@@ -52,7 +52,7 @@ export const TextWrapper = styled.div`
 `;
 
 export const TopLine = styled.p`
-  color: ${color.secondary};
+  color: ${color.dark};
   font-size: 16px;
   line-height: 16px;
   font-weight: 700;
@@ -78,7 +78,7 @@ export const Subtitle = styled.p`
   margin-bottom: 35px;
   font-size: 18px;
   line-height: 30px;
-  color: ${({ darkText }) => (darkText ? `#000` : `#fff`)};
+  color: ${({ darkText }) => (darkText ? `#000` : `#000`)};
 `;
 
 export const BtnWrap = styled.div`
@@ -87,7 +87,7 @@ export const BtnWrap = styled.div`
 `;
 
 export const ImgWrap = styled.div`
-  max-width: 400px;
+  max-width: 350px;
   height: 100%;
 `;
 

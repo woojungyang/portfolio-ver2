@@ -5,7 +5,7 @@ import { Link as LinkS } from 'react-scroll';
 
 export const Nav = styled.nav`
   font-family: ${font.en};
-  background: ${color.black};
+  background: ${color.light};
   height: 80px;
   margin-top: -80px;
   display: flex;
@@ -16,7 +16,7 @@ export const Nav = styled.nav`
   top: 0;
   z-index: 10;
   @media ${media.md} {
-    transition: 0ms.8s all ease;
+    transition: 0.2s all ease-in-out;
   }
 `;
 
@@ -27,11 +27,11 @@ export const NavbarContainer = styled.div`
   z-index: 1;
   width: 100%;
   padding: 0 24px;
-  max-width: 1100px;
+  max-width: 1200px;
 `;
 
 export const NavLogo = styled(LinkR)`
-  color: #fff;
+  color: ${color.dark};
   justify-content: flex-start;
   cursor: pointer;
   font-size: 1.2em;
@@ -50,10 +50,10 @@ export const MobileIcon = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 140%);
+    transform: translate(-100%, 150%);
     font-size: 1.2em;
     cursor: pointer;
-    color: #fff;
+    color: ${color.dark};
   }
 `;
 
@@ -72,7 +72,7 @@ export const NavItem = styled.li`
   height: 80px;
 `;
 export const NavLinks = styled(LinkS)`
-  color: #fff;
+  color: ${color.dark};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -80,8 +80,8 @@ export const NavLinks = styled(LinkS)`
   height: 100%;
   cursor: pointer;
 
-  &.active {
-    border-bottom: 3px solid ${color.secondary};
+  &:active {
+    border-bottom: 3px solid ${color.dark};
   }
 `;
 
@@ -95,20 +95,20 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(LinkR)`
   border-radius: 50px;
-  background: ${color.secondary};
+  background: ${color.dark};
   white-space: nowrap;
   padding: 10px 22px;
-  color: ${color.black};
+  color: ${color.white};
   font-size: 1em;
   outline: none;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
   text-decoration: none;
 
   &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #fff;
+    transition: 0.2s ease-in-out;
+    background: ${color.light};
     color: ${color.dark};
   }
 `;

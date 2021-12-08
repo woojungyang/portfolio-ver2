@@ -12,15 +12,14 @@ export const font = {
 };
 
 export const color = {
-  info: '#003f7d',
-  dark: '#002347',
-  danger: '#ff5003',
-  secondary: '#FF9B6A',
-  light: '#fedc97',
+  dark: '#4a6163',
+  danger: '#f17a7e',
+  secondary: '#f9a66c',
+  light: '#f9faf4',
   black: '#000',
   lightBlack: '#dedede',
-  success: '#fdba21',
-  primary: '#219ebc',
+  success: '#ffc94b',
+  white: '#FFFFFF',
 };
 
 export const size = {
