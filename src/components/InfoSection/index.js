@@ -64,7 +64,6 @@ const InfoSection = ({
             <Column2>
               <ImgWrap>
                 <VideoBg autoPlay loop muted src={main} type="video/mp4" />
-                <Img src={img} alt={alt} />
               </ImgWrap>
             </Column2>
           </InfoRow>

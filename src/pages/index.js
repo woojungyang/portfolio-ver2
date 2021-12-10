@@ -3,7 +3,7 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import MainSection from '../components/MainSection';
 import InfoSection from '../components/InfoSection';
-import { homeObjOne, homeObjTwo } from '../components/InfoSection/Data';
+import { homeObjOne } from '../components/InfoSection/Data';
 import Skillbar from '../components/Skillbar';
 import { skills } from '../components/Skillbar/Data';
 import Project from '../components/Project';
@@ -22,9 +22,9 @@ const Home = () => {
       <Navbar toggle={toggle} />
       {/* <MainSection /> */}
       <InfoSection {...homeObjOne} />
-      <InfoSection {...homeObjTwo} />
       <Skillbar {...skills} />
       <Project />
+
       <Footer />
     </>
   );

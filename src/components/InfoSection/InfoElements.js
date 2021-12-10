@@ -52,7 +52,7 @@ export const TextWrapper = styled.div`
 `;
 
 export const TopLine = styled.p`
-  color: ${color.dark};
+  color: ${color.success};
   font-size: 16px;
   line-height: 16px;
   font-weight: 700;
@@ -103,8 +103,8 @@ export const VideoBg = styled.video`
   background: ${color.light};
 `;
 
-export const Img = styled.img`
+/* export const Img = styled.img`
   width: 100%;
   margin: 0 0 30px 0;
   padding-right: 0;
-`;
+`; */

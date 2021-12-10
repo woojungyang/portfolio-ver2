@@ -90,7 +90,7 @@ const Navbar = ({ toggle }) => {
           </NavItem>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to="https://www.github.com/woojungyang">GitHub</NavBtnLink>
+          <NavBtnLink to="//github.com/woojungyang">GitHub</NavBtnLink>
         </NavBtn>
       </NavbarContainer>
     </Nav>

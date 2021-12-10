@@ -1,40 +1,24 @@
 import React from 'react';
 
-import Icon from '../../assets/img/main.png';
+import { project1, project2, project3, project4 } from './Data';
+import FilpCard from './FilpCard';
 import {
   PorjectContainer,
   ProjectH1,
   ProjectWrapper,
-  ProjectCard,
-  ProjectIcon,
-  ProjectH2,
-  ProjectP,
+  MainContainer,
 } from './ProjectElements';
 const Project = () => {
   return (
     <PorjectContainer id="project">
       <ProjectH1>Project</ProjectH1>
       <ProjectWrapper>
-        <ProjectCard>
-          <ProjectIcon src={Icon} />
-          <ProjectH2>SURF MALL</ProjectH2>
-          <ProjectP>서핑 관련 쇼핑몰 제작(판매페이지,관리자페이지)</ProjectP>
-        </ProjectCard>
-        <ProjectCard>
-          <ProjectIcon src={Icon} />
-          <ProjectH2>SURF MALL</ProjectH2>
-          <ProjectP>서핑 관련 쇼핑몰 제작(판매페이지,관리자페이지)</ProjectP>
-        </ProjectCard>
-        <ProjectCard>
-          <ProjectIcon src={Icon} />
-          <ProjectH2>SURF MALL</ProjectH2>
-          <ProjectP>서핑 관련 쇼핑몰 제작(판매페이지,관리자페이지)</ProjectP>
-        </ProjectCard>
-        <ProjectCard>
-          <ProjectIcon src={Icon} />
-          <ProjectH2>SURF MALL</ProjectH2>
-          <ProjectP>서핑 관련 쇼핑몰 제작(판매페이지,관리자페이지)</ProjectP>
-        </ProjectCard>
+        <MainContainer>
+          <FilpCard {...project1} />
+          <FilpCard {...project2} />
+          <FilpCard {...project3} />
+          <FilpCard {...project4} />
+        </MainContainer>
       </ProjectWrapper>
     </PorjectContainer>
   );
