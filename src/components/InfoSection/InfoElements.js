@@ -19,6 +19,7 @@ export const InfoWrapper = styled.div`
   margin-left: auto;
   padding: 0 24px;
   justify-content: center;
+  align-items: center;
 `;
 
 export const InfoRow = styled.div`
@@ -108,3 +109,27 @@ export const VideoBg = styled.video`
   margin: 0 0 30px 0;
   padding-right: 0;
 `; */
+
+export const File = styled.a`
+  font-family: ${font.en};
+  font-weight: 400;
+  border-radius: 50px;
+  background: ${({ primary }) => (primary ? '#4a6163' : '#ffc94b')};
+  white-space: nowrap;
+  padding: ${({ big }) => (big ? '14px 48ox' : '12px 30px')};
+  color: ${({ dark }) => (dark ? '#000' : '#fff')};
+  font-size: ${({ fontBig }) => (fontBig ? '20px' : '16px')};
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: ${({ primary }) => (primary ? '#4a6163' : '#fff')};
+    color: ${color.dark};
+  }
+`;

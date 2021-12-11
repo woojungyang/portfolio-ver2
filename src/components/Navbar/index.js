@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { animateScroll as scroll } from 'react-scroll';
 import { FaBars } from 'react-icons/fa';
+import resume from '../../assets/resume.pdf';
 import {
   Nav,
   NavbarContainer,
@@ -11,6 +12,7 @@ import {
   NavLinks,
   NavBtn,
   NavBtnLink,
+  Navfile,
 } from './NavbarElements';
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -41,8 +43,10 @@ const Navbar = ({ toggle }) => {
         </MobileIcon>
         <NavMenu>
           <NavItem>
-            <NavLinks
-              to="resume"
+            <Navfile
+              href={resume}
+              target="_blank"
+              download
               smooth={true}
               duration={500}
               spy={true}
@@ -50,7 +54,7 @@ const Navbar = ({ toggle }) => {
               offset={-80}
             >
               Résumé
-            </NavLinks>
+            </Navfile>
           </NavItem>
           <NavItem>
             <NavLinks

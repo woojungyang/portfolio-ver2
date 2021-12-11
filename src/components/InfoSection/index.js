@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '../Button';
 import main from '../../assets/img/main.mp4';
+import resume from '../../assets/resume.pdf';
 
 import {
   InfoContainer,
@@ -16,6 +17,7 @@ import {
   ImgWrap,
   VideoBg,
   Img,
+  File,
 } from './InfoElements';
 
 const InfoSection = ({
@@ -45,19 +47,18 @@ const InfoSection = ({
                 <Heading lightText={lightText}>{headline}</Heading>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
-                  <Button
-                    to="home"
+                  <File
+                    href={resume}
+                    target="_blank"
+                    download
                     smooth={true}
                     duration={500}
                     spy={true}
                     exact="true"
-                    primary={primary ? 1 : 0}
-                    dark={dark ? 1 : 0}
-                    dark2={dark2 ? 1 : 0}
                     offset={-80}
                   >
-                    {buttonLabel}
-                  </Button>
+                    Downlod Résumé
+                  </File>
                 </BtnWrap>
               </TextWrapper>
             </Column1>

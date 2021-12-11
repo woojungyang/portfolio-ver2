@@ -1,4 +1,5 @@
 import React from 'react';
+import resume from '../../assets/resume.pdf';
 import {
   SidebarContainer,
   Icon,
@@ -8,6 +9,7 @@ import {
   SidebarMenu,
   SidebarLink,
   SidebarRoute,
+  Slidefile,
 } from './SidebarElements';
 
 const Sidebar = ({ isOpen, toggle }) => {
@@ -18,9 +20,20 @@ const Sidebar = ({ isOpen, toggle }) => {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink to="resume" onClick={toggle}>
+          <Slidefile
+            href={resume}
+            target="_blank"
+            download
+            smooth={true}
+            duration={500}
+            spy={true}
+            exact="true"
+            offset={-80}
+            onClick={toggle}
+          >
             Résumé
-          </SidebarLink>
+          </Slidefile>
+
           <SidebarLink to="skills" onClick={toggle}>
             Skills
           </SidebarLink>

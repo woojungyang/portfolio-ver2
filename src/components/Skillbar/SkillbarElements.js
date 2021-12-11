@@ -3,12 +3,12 @@ import styled, { color, font, media } from '../../style';
 export const SKillContainer = styled.div`
   font-family: ${font.en};
   color: ${color.black};
-  height: 100vh;
+  height: 860px;
   width: 100%;
   max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
-  padding: 120px 24px;
+  padding: 5em 1.5em;
   background: ${({ lightBg }) => (lightBg ? `white` : `white`)};
   @media ${media.sm} {
     margin-bottom: 120px;
