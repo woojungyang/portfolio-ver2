@@ -5,7 +5,7 @@ import { Link as LinkS } from 'react-scroll';
 
 export const Nav = styled.nav`
   font-family: ${font.en};
-  background: ${({ scrollNav }) => (scrollNav ? '#f9faf4' : 'transparent')};
+  background: ${({ scrollNav }) => (scrollNav ? '#FFFFFF' : 'transparent')};
   height: 80px;
   margin-top: -80px;
   display: flex;
@@ -27,7 +27,7 @@ export const NavbarContainer = styled.div`
   z-index: 1;
   width: 100%;
   padding: 0 24px;
-  max-width: 1400px;
+  max-width: 1200px;
 `;
 
 export const NavLogo = styled(LinkR)`
@@ -37,7 +37,7 @@ export const NavLogo = styled(LinkR)`
   font-size: 1.2em;
   display: flex;
   align-items: center;
-  margin-left: 24px;
+
   font-weight: bold;
   text-decoration: none;
 `;

@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import MainSection from '../components/MainSection';
 import InfoSection from '../components/InfoSection';
 import { homeObjOne } from '../components/InfoSection/Data';
+import ConnectSection from '../components/ConnectSection';
+import { connect } from '../components/ConnectSection/Data';
 import Skillbar from '../components/Skillbar';
 import { skills } from '../components/Skillbar/Data';
 import Project from '../components/Project';
@@ -24,7 +26,7 @@ const Home = () => {
       <InfoSection {...homeObjOne} />
       <Skillbar {...skills} />
       <Project />
-
+      <ConnectSection {...connect} />
       <Footer />
     </>
   );
