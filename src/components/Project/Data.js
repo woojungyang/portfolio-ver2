@@ -19,7 +19,7 @@ export const project2 = {
   tool: 'Node.js / Vue.js / MySQL / MariaDB/SASS ',
   comment: '도서 관리 시스템',
   comment2: '(도서관리페이지 Node.js/ Vue.js)',
-  video: require('../../assets/img/23action.mp4').default,
+  video: require('../../assets/img/15action.mp4').default,
   dark: true,
   primary: true,
   darkText: true,

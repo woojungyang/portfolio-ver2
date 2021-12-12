@@ -2,17 +2,16 @@ import styled, { color, font, media } from '../../style';
 import { Link as LinkR } from 'react-router-dom';
 
 export const PorjectContainer = styled.div`
-  padding: 100px 0;
+  padding: 80px 0;
   font-family: ${font.en};
-  height: 100vh;
+  height: 860px;
   /* display: flex; */
   flex-direction: column;
   justify-content: center;
   background: ${color.light};
   @media ${media.sm} {
     padding: 100px 0;
-    height: 1800px;
-    margin: 250px 0;
+    height: 2100px;
   }
 `;
 
@@ -39,7 +38,7 @@ export const ProjectWrapper = styled.div`
 export const ProjectIcon = styled.div`
   height: 240px;
   width: 100%;
-  border: 1px solid red;
+
   margin-bottom: 5px;
   @media ${media.sm} {
     height: 200px;

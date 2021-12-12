@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from '../Button';
 import main from '../../assets/img/main.mp4';
 import resume from '../../assets/resume.pdf';
 

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import Fade from 'react-reveal/Fade';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
-import MainSection from '../components/MainSection';
+
 import InfoSection from '../components/InfoSection';
 import { homeObjOne } from '../components/InfoSection/Data';
 import ConnectSection from '../components/ConnectSection';
@@ -23,10 +24,12 @@ const Home = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       {/* <MainSection /> */}
-      <InfoSection {...homeObjOne} />
-      <Skillbar {...skills} />
-      <Project />
-      <ConnectSection {...connect} />
+      <Fade bottom>
+        <InfoSection {...homeObjOne} />
+        <Skillbar {...skills} />
+        <Project />
+        <ConnectSection {...connect} />
+      </Fade>
       <Footer />
     </>
   );

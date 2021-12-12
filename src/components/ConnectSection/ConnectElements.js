@@ -3,23 +3,22 @@ import styled, { color, font, media } from '../../style';
 export const InfoContainer = styled.div`
   font-family: ${font.en};
   color: ${color.black};
+  padding: 80px 0;
   background: ${({ lightBg }) => (lightBg ? `black` : `white`)};
-  @media ${media.sm} {
-    padding: 100px 0;
-  }
 `;
 
 export const InfoWrapper = styled.div`
   display: grid;
-  z-index: 1;
-  height: 600px;
+  height: 520px;
   width: 100%;
   max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 0 24px;
+  margin: 0 auto;
+  padding-left: 185px;
   justify-content: center;
   align-items: center;
+  @media ${media.sm} {
+    padding-left: 0px;
+  }
 `;
 
 export const InfoRow = styled.div`
@@ -31,19 +30,20 @@ export const InfoRow = styled.div`
 
   @media ${media.sm} {
     grid-template-areas: ${({ imgStart }) =>
-      imgStart ? `'col1'  'col2'` : `'col1 col1' 'col2 col2'`};
+      imgStart ? `'col1' 'col2'` : `'col1' 'col2'`};
   }
 `;
 
 export const Column1 = styled.div`
   margin-bottom: 15px;
-  padding: 0 15px;
+  padding: 0 20px;
   grid-area: col1;
 `;
 export const Column2 = styled.div`
   margin-bottom: 15px;
   padding: 0 15px;
   grid-area: col2;
+  text-align: center;
 `;
 
 export const TextWrapper = styled.div`
@@ -94,48 +94,14 @@ export const BtnWrap = styled.div`
 `;
 
 export const ImgWrap = styled.div`
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 321px;
+  max-height: 321px;
   height: 100%;
-`;
-
-export const VideoBg = styled.video`
-  width: 100%;
-  max-height: 400px;
-  max-width: 400px;
-  margin: 0 0 30px 0;
-  padding-right: 0;
-  -o-object-fit: cover;
-  object-fit: cover;
-  background: ${color.light};
-`;
-
-/* export const Img = styled.img`
-  width: 100%;
-  margin: 0 0 30px 0;
-  padding-right: 0;
-`; */
-
-export const File = styled.a`
-  font-family: ${font.en};
-  font-weight: 400;
-  border-radius: 50px;
-  background: ${({ primary }) => (primary ? '#4a6163' : '#ffc94b')};
-  white-space: nowrap;
-  padding: ${({ big }) => (big ? '14px 48ox' : '12px 30px')};
-  color: ${({ dark }) => (dark ? '#000' : '#fff')};
-  font-size: ${({ fontBig }) => (fontBig ? '20px' : '16px')};
-  outline: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    background: ${({ primary }) => (primary ? '#4a6163' : '#fff')};
-    color: ${color.dark};
+  @media ${media.sm} {
+    margin: 0 auto;
   }
+`;
+
+export const Img = styled.img`
+  width: 100%;
 `;

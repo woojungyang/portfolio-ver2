@@ -12,9 +12,10 @@ import {
   Subtitle,
   ImgWrap,
   Info,
+  Img,
 } from './ConnectElements';
 
-const InfoSection = ({
+const ConnectSection = ({
   lightBg,
   id,
   imgStart,
@@ -44,7 +45,7 @@ const InfoSection = ({
             </Column1>
             <Column2>
               <ImgWrap>
-                <img src={img} alt={alt} />
+                <Img src={img} alt={alt} />
               </ImgWrap>
             </Column2>
           </InfoRow>
@@ -54,4 +55,4 @@ const InfoSection = ({
   );
 };
 
-export default React.memo(InfoSection);
+export default React.memo(ConnectSection);

@@ -11,7 +11,7 @@ export const SKillContainer = styled.div`
   padding: 5em 1.5em;
   background: ${({ lightBg }) => (lightBg ? `white` : `white`)};
   @media ${media.sm} {
-    height: 700px;
+    height: 1000px;
   }
 `;
 

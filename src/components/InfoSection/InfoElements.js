@@ -3,10 +3,8 @@ import styled, { color, font, media } from '../../style';
 export const InfoContainer = styled.div`
   font-family: ${font.en};
   color: ${color.black};
+  padding: 80px 0;
   background: ${({ lightBg }) => (lightBg ? `black` : `white`)};
-  @media ${media.sm} {
-    padding: 100px 0;
-  }
 `;
 
 export const InfoWrapper = styled.div`
@@ -14,7 +12,7 @@ export const InfoWrapper = styled.div`
   z-index: 1;
   height: 100vh;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   padding: 0 24px;
@@ -31,7 +29,7 @@ export const InfoRow = styled.div`
 
   @media ${media.sm} {
     grid-template-areas: ${({ imgStart }) =>
-      imgStart ? `'col1'  'col2'` : `'col1 col1' 'col2 col2'`};
+      imgStart ? `'col1' 'col2'` : `'col1' 'col2'`};
   }
 `;
 
