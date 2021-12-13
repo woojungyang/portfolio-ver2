@@ -39,9 +39,7 @@ const FilpCard = ({
         </ProjectP>
       </FrontCard>
       <BackCard>
-        <div
-          style={{ height: '200px', border: '1px solid red', marginBottom: '20px;' }}
-        >
+        <div style={{ height: '200px', marginBottom: '20px;' }}>
           <ProjectH3>{devtools}</ProjectH3>
           <ProjectP>{tool}</ProjectP>
         </div>

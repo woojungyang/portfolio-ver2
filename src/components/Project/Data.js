@@ -3,7 +3,7 @@ export const project1 = {
   buttonlabel1: '//naver.com',
   buttonlabel2: 'github.com/woojungyang/2021-sc-app-32-shop',
   devtools: 'Devtools',
-  tool: 'React.js / Node.js / MySQL   SASS / Styled-component',
+  tool: 'React.js / Node.js / Sequelize  / Styled-component',
   comment: '서핑 관련 쇼핑몰',
   comment2: '(판매페이지,관리자페이지)',
   video: require('../../assets/img/23action.mp4').default,
