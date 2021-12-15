@@ -25,6 +25,7 @@ const FilpCard = ({
   buttonlabel1,
   buttonlabel2,
   video,
+  contribution,
 }) => {
   return (
     <TheCard>
@@ -39,13 +40,18 @@ const FilpCard = ({
         </ProjectP>
       </FrontCard>
       <BackCard>
-        <div style={{ height: '200px', marginBottom: '20px;' }}>
+        <div style={{ height: '300px', marginBottom: '3em;' }}>
           <ProjectH3>{devtools}</ProjectH3>
           <ProjectP>{tool}</ProjectP>
+          <ProjectP>{contribution}</ProjectP>
         </div>
         <NavBtn>
-          <NavBtnLink to="//github.com/woojungyang">GitHub</NavBtnLink>
-          <NavBtnLink to="//github.com/woojungyang">GitHub</NavBtnLink>
+          <NavBtnLink to={buttonlabel1} target="_blank">
+            Demo
+          </NavBtnLink>
+          <NavBtnLink to={buttonlabel2} target="_blank">
+            GitHub
+          </NavBtnLink>
         </NavBtn>
         {/* <SidebarRoute to={buttonlabel1} target="_blank">
           DEMO

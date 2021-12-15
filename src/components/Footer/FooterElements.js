@@ -15,7 +15,7 @@ export const FooterWrap = styled.div`
   margin: 0 auto;
 
   max-width: 1200px;
-  height: 30px;
+  height: 25px;
   margin: 0 auto;
 `;
 

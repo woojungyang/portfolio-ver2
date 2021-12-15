@@ -2,7 +2,7 @@ import styled, { color, font, media } from '../../style';
 import { Link as LinkR } from 'react-router-dom';
 
 export const PorjectContainer = styled.div`
-  padding: 80px 0;
+  padding: 4.5em 0;
   font-family: ${font.en};
   height: 860px;
   /* display: flex; */
@@ -48,8 +48,8 @@ export const ProjectIcon = styled.div`
 export const VideoBg = styled.video`
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
+  -o-object-fit: contain;
+  object-fit: contain;
 `;
 export const ProjectH1 = styled.h1`
   font-family: ${font.en};
@@ -57,7 +57,7 @@ export const ProjectH1 = styled.h1`
   font-size: 3em;
 
   color: ${color.dark};
-  margin-bottom: 64px;
+  margin-bottom: 2.5em;
 
   font-weight: 500;
 `;
@@ -81,14 +81,14 @@ export const ProjectH3 = styled.h3`
   margin-bottom: 2em;
 `;
 
-export const ProjectP = styled.p`
+export const ProjectP = styled.h4`
   text-align: center;
   font-family: ${font.kr};
   font-size: 1em;
 
   line-height: 180%;
   margin-bottom: 1em;
-  display: inline;
+  display: inline-block;
   h4 {
     margin-top: 0.5em;
     font-size: 1em;
@@ -104,7 +104,7 @@ export const MainContainer = styled.div`
   top: 0;
   left: 0;
   width: 101%;
-  height: 370px;
+  height: 450px;
   background: none;
   @media ${media.md} {
     padding: 1.5em;
@@ -210,7 +210,7 @@ export const NavBtnLink = styled(LinkR)`
   border-radius: 50px;
   background: ${color.success};
   white-space: nowrap;
-  padding: 10px 95px;
+  padding: 13px 95px;
 
   color: ${color.white};
   font-size: 1em;
@@ -220,7 +220,7 @@ export const NavBtnLink = styled(LinkR)`
   transition: 0.2s ease-in-out;
   text-decoration: none;
   :nth-child(1) {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
   }
   &:hover {
     transition: 0.2s ease-in-out;

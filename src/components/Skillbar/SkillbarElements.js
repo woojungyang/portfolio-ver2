@@ -8,15 +8,15 @@ export const SKillContainer = styled.div`
   max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
-  padding: 5em 1.5em;
+  padding: 4em 1.5em;
   background: ${({ lightBg }) => (lightBg ? `white` : `white`)};
   @media ${media.sm} {
-    height: 1000px;
+    padding: 5em 1.5em;
   }
 `;
 
 export const Heading = styled.h1`
-  margin-bottom: 1.5em;
+  margin-bottom: 0.8em;
   font-size: 3em;
   line-height: 1.1;
   font-weight: 500;

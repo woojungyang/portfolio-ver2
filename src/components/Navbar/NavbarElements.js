@@ -37,12 +37,9 @@ export const NavLogo = styled(LinkR)`
   font-size: 1.2em;
   display: flex;
   align-items: center;
-
+  margin-left: 1em;
   font-weight: bold;
   text-decoration: none;
-  @media ${media.sm} {
-    padding-left: 1em;
-  }
 `;
 
 export const MobileIcon = styled.div`
@@ -114,6 +111,7 @@ export const NavBtnLink = styled(LinkR)`
   background: ${color.success};
   white-space: nowrap;
   padding: 10px 22px;
+  margin-right: 1em;
   color: ${color.white};
   font-size: 1em;
   outline: none;

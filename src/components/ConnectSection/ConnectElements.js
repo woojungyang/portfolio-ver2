@@ -3,13 +3,13 @@ import styled, { color, font, media } from '../../style';
 export const InfoContainer = styled.div`
   font-family: ${font.en};
   color: ${color.black};
-  padding: 80px 0;
+
   background: ${({ lightBg }) => (lightBg ? `black` : `white`)};
 `;
 
 export const InfoWrapper = styled.div`
   display: grid;
-  height: 520px;
+  height: 800px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
