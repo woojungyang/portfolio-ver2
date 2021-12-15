@@ -94,7 +94,9 @@ const Navbar = ({ toggle }) => {
           </NavItem>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to="//github.com/woojungyang">GitHub</NavBtnLink>
+          <NavBtnLink to="//github.com/woojungyang" target="_blank">
+            GitHub
+          </NavBtnLink>
         </NavBtn>
       </NavbarContainer>
     </Nav>

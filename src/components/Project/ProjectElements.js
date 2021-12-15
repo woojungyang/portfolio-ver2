@@ -2,7 +2,7 @@ import styled, { color, font, media } from '../../style';
 import { Link as LinkR } from 'react-router-dom';
 
 export const PorjectContainer = styled.div`
-  padding: 4.5em 0;
+  padding: 4em 0;
   font-family: ${font.en};
   height: 860px;
   /* display: flex; */
@@ -57,9 +57,12 @@ export const ProjectH1 = styled.h1`
   font-size: 3em;
 
   color: ${color.dark};
-  margin-bottom: 2.5em;
+  margin: 2em 0;
 
   font-weight: 500;
+  @media ${media.sm} {
+    margin: 1em 0;
+  }
 `;
 
 export const ProjectH2 = styled.h2`
@@ -104,7 +107,7 @@ export const MainContainer = styled.div`
   top: 0;
   left: 0;
   width: 101%;
-  height: 450px;
+  height: 400px;
   background: none;
   @media ${media.md} {
     padding: 1.5em;
@@ -128,7 +131,7 @@ export const TheCard = styled.div`
   }
   @media ${media.md} {
     width: 48%;
-    margin: 2em 0;
+    margin: 1.5em 0;
   }
   @media ${media.sm} {
     width: 100%;
@@ -199,7 +202,7 @@ export const SidebarRoute = styled(LinkR)`
     color: black;
   }
 `;
-export const NavBtn = styled.nav`
+export const NavBtn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

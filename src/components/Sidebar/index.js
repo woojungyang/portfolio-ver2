@@ -45,7 +45,9 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute to="//github.com/woojungyang">GitHub</SidebarRoute>
+          <SidebarRoute to="//github.com/woojungyang" target="_blank">
+            GitHub
+          </SidebarRoute>
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>

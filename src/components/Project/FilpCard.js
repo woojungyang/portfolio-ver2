@@ -40,7 +40,7 @@ const FilpCard = ({
         </ProjectP>
       </FrontCard>
       <BackCard>
-        <div style={{ height: '300px', marginBottom: '3em;' }}>
+        <div style={{ height: '230px', marginBottom: '0.5em;' }}>
           <ProjectH3>{devtools}</ProjectH3>
           <ProjectP>{tool}</ProjectP>
           <ProjectP>{contribution}</ProjectP>
