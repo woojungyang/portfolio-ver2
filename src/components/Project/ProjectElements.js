@@ -111,6 +111,7 @@ export const MainContainer = styled.div`
   background: none;
   @media ${media.md} {
     padding: 1.5em;
+    height: 430px;
   }
   @media ${media.sm} {
     height: 420px;
