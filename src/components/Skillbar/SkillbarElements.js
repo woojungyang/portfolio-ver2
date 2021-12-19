@@ -5,16 +5,18 @@ export const SKillContainer = styled.div`
   color: ${color.black};
   height: 100vh;
   width: 100%;
-  max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 5em 1.5em;
+  padding: 5em 0em;
   background: ${({ lightBg }) => (lightBg ? `white` : `white`)};
   @media ${media.sm} {
     height: 950px;
   }
 `;
-
+export const SKillWrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  /* display: flex;
+  flex-wrap: wrap; */
+`;
 export const Heading = styled.h1`
   margin-bottom: 1.5em;
   font-size: 3em;

@@ -2,7 +2,7 @@ import styled, { color, font, media } from '../../style';
 import { Link as LinkR } from 'react-router-dom';
 
 export const PorjectContainer = styled.div`
-  padding: 4em 0;
+  padding: 5em 0;
   font-family: ${font.en};
   height: 100vh;
   /* display: flex; */
@@ -57,8 +57,7 @@ export const ProjectH1 = styled.h1`
   font-size: 3em;
 
   color: ${color.dark};
-  margin: 2em 0;
-
+  margin-bottom: 2.3em;
   font-weight: 500;
   @media ${media.sm} {
     margin: 1em 0;

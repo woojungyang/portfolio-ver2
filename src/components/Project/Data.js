@@ -17,7 +17,7 @@ export const project2 = {
   buttonlabel1: '//book.woojungyang.com/book',
   buttonlabel2: '//github.com/woojungyang/2021-sc-app-15-sql',
   devtools: 'Devtools',
-  tool: 'Node.js / Vue.js / Vuex / Vue-router / MySQL / MariaDB / SASS ',
+  tool: 'Node.js / Vue.js / Vuex / Vue-router / MySQL / MariaDB  ',
   contribution: '기여도 : 100%',
   comment: '도서 관리 시스템',
   comment2: '(도서관리페이지 Node.js/ Vue.js)',
