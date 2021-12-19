@@ -3,7 +3,7 @@ import styled, { color, font, media } from '../../style';
 export const SKillContainer = styled.div`
   font-family: ${font.en};
   color: ${color.black};
-  height: 860px;
+  height: 100vh;
   width: 100%;
   max-width: 1200px;
   margin-right: auto;

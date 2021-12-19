@@ -4,7 +4,7 @@ import { Link as LinkR } from 'react-router-dom';
 export const PorjectContainer = styled.div`
   padding: 4em 0;
   font-family: ${font.en};
-  height: 860px;
+  height: 100vh;
   /* display: flex; */
   flex-direction: column;
   justify-content: center;
