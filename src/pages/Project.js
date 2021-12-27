@@ -4,7 +4,6 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 
 import Project from '../components/Project';
-import Footer from '../components/Footer';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +20,6 @@ const Home = () => {
       <Fade bottom>
         <Project />
       </Fade>
-      <Footer />
     </>
   );
 };

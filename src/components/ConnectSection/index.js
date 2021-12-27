@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Fade from 'react-reveal/Fade';
+import Footer from '../Footer';
 import {
   InfoContainer,
   InfoWrapper,
@@ -30,7 +31,7 @@ const ConnectSection = ({
   alt,
 }) => {
   return (
-    <>
+    <Fade bottom>
       <InfoContainer lightBg={lightBg} id={id}>
         <InfoWrapper>
           <InfoRow imgStart={imgStart}>
@@ -51,7 +52,8 @@ const ConnectSection = ({
           </InfoRow>
         </InfoWrapper>
       </InfoContainer>
-    </>
+      <Footer />
+    </Fade>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
 import Bar from './Bar';
+import Footer from '../Footer';
 import {
   SKillContainer,
   Heading,
@@ -67,6 +68,7 @@ const Skillbar = ({
           </SkillWrap>
         </SKillWrapper>
       </SKillContainer>
+      <Footer />
     </Fade>
   );
 };

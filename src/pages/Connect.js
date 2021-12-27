@@ -6,8 +6,6 @@ import Navbar from '../components/Navbar';
 import ConnectSection from '../components/ConnectSection';
 import { connect } from '../components/ConnectSection/Data';
 
-import Footer from '../components/Footer';
-
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,7 +21,6 @@ const Home = () => {
       <Fade bottom>
         <ConnectSection {...connect} />
       </Fade>
-      <Footer />
     </>
   );
 };

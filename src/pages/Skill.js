@@ -23,7 +23,6 @@ const Home = () => {
       <Fade bottom>
         <Skillbar {...skills} />
       </Fade>
-      <Footer />
     </>
   );
 };
