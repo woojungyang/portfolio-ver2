@@ -5,6 +5,9 @@ export const InfoContainer = styled.div`
   color: ${color.black};
 
   background: ${({ lightBg }) => (lightBg ? `black` : `white`)};
+  @media ${media.sm} {
+    padding-bottom: 150px;
+  }
 `;
 
 export const InfoWrapper = styled.div`
@@ -22,6 +25,7 @@ export const InfoWrapper = styled.div`
 `;
 
 export const InfoRow = styled.div`
+  padding-top: 80px;
   display: grid;
   grid-auto-columns: minmax(auto, 1fr);
   align-items: center;
@@ -29,6 +33,7 @@ export const InfoRow = styled.div`
     imgStart ? `'col2 col1'` : `'col1 col2'`};
 
   @media ${media.sm} {
+    padding-top: 150px;
     grid-template-areas: ${({ imgStart }) =>
       imgStart ? `'col1' 'col2'` : `'col1' 'col2'`};
   }

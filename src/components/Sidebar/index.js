@@ -34,13 +34,13 @@ const Sidebar = ({ isOpen, toggle }) => {
             Résumé
           </Slidefile>
 
-          <SidebarLink to="skills" onClick={toggle}>
+          <SidebarLink to="/skill" onClick={toggle}>
             Skills
           </SidebarLink>
-          <SidebarLink to="project" onClick={toggle}>
+          <SidebarLink to="/project" onClick={toggle}>
             Project
           </SidebarLink>
-          <SidebarLink to="connect" onClick={toggle}>
+          <SidebarLink to="/connect" onClick={toggle}>
             Connect
           </SidebarLink>
         </SidebarMenu>

@@ -2,16 +2,19 @@ import styled, { color, font, media } from '../../style';
 import { Link as LinkR } from 'react-router-dom';
 
 export const PorjectContainer = styled.div`
-  padding: 5em 0;
   font-family: ${font.en};
-  height: 100vh;
+  height: 865px;
   /* display: flex; */
   flex-direction: column;
   justify-content: center;
   background: ${color.light};
+  @media ${media.md} {
+    height: 1200px;
+  }
+
   @media ${media.sm} {
     padding: 100px 0;
-    height: 2100px;
+    height: 1900px;
   }
 `;
 
@@ -23,6 +26,7 @@ export const ProjectWrapper = styled.div`
   justify-content: center;
   align-items: center;
   display: grid;
+  grid-auto-columns: minmax(auto, 1fr);
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
   top: 0;
@@ -55,12 +59,16 @@ export const ProjectH1 = styled.h1`
   font-family: ${font.en};
   text-align: center;
   font-size: 3em;
-
+  padding-top: 180px;
   color: ${color.dark};
-  margin-bottom: 2.3em;
+  margin-bottom: 1.5em;
   font-weight: 500;
+  @media ${media.md} {
+    padding-top: 170px;
+  }
   @media ${media.sm} {
-    margin: 1em 0;
+    margin-bottom: 1em 0;
+    padding-top: 0px;
   }
 `;
 
@@ -81,19 +89,24 @@ export const ProjectH3 = styled.h3`
   text-align: center;
   font-size: 1.25em;
   margin-bottom: 2em;
+  @media ${media.sm} {
+    margin-top: 0.5em;
+  }
 `;
 
 export const ProjectP = styled.h4`
   text-align: center;
   font-family: ${font.kr};
   font-size: 1em;
-
   line-height: 180%;
   margin-bottom: 1em;
-  display: inline-block;
+
   h4 {
     margin-top: 0.5em;
     font-size: 1em;
+  }
+  @media ${media.sm} {
+    margin-bottom: 0.5em;
   }
 `;
 
@@ -108,6 +121,7 @@ export const MainContainer = styled.div`
   width: 101%;
   height: 400px;
   background: none;
+  margin-bottom: 120px;
   @media ${media.md} {
     padding: 1.5em;
     height: 430px;
@@ -131,7 +145,8 @@ export const TheCard = styled.div`
   }
   @media ${media.md} {
     width: 48%;
-    margin: 1.5em 0;
+    margin-right: 1em;
+    margin-bottom: 1em;
   }
   @media ${media.sm} {
     width: 100%;
@@ -206,7 +221,7 @@ export const NavBtn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1.5em;
+  margin-top: 1em;
 `;
 
 export const NavBtnLink = styled(LinkR)`

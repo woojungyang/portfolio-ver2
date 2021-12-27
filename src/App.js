@@ -1,13 +1,20 @@
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
-import Home from './pages';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Main from './pages/Main';
+import Skill from './pages/Skill';
+import Project from './pages/Project';
+import Connect from './pages/Connect';
 
 function App() {
   return (
-    <Router>
-      <Home />
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/skill" element={<Skill />} />
+        <Route path="/project" element={<Project />} />
+        <Route path="/connect" element={<Connect />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

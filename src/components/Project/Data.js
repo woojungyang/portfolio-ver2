@@ -1,6 +1,6 @@
 export const project1 = {
   title: 'SURF MALL',
-  buttonlabel1: '//shop.woojungyang.com',
+  buttonlabel1: '//shop.woojungyang.com/admin',
   buttonlabel2: '//github.com/woojungyang/2021-sc-app-32-shop',
   devtools: 'Devtools',
   tool: 'React.js / Redux / React-Router / Node.js / Sequelize  / Styled-component',

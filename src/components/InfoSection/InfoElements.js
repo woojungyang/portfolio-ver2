@@ -3,8 +3,10 @@ import styled, { color, font, media } from '../../style';
 export const InfoContainer = styled.div`
   font-family: ${font.en};
   color: ${color.black};
-  padding: 80px 0;
   background: ${({ lightBg }) => (lightBg ? `black` : `white`)};
+  @media ${media.sm} {
+    padding-bottom: 150px;
+  }
 `;
 
 export const InfoWrapper = styled.div`
@@ -13,21 +15,22 @@ export const InfoWrapper = styled.div`
   height: 100vh;
   width: 100%;
   max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 0 24px;
+  margin: 0 auto;
+  padding: 0px 24px;
   justify-content: center;
   align-items: center;
 `;
 
 export const InfoRow = styled.div`
   display: grid;
+  padding-top: 80px;
   grid-auto-columns: minmax(auto, 1fr);
   align-items: center;
   grid-template-areas: ${({ imgStart }) =>
     imgStart ? `'col2 col1'` : `'col1 col2'`};
 
   @media ${media.sm} {
+    padding-top: 150px;
     grid-template-areas: ${({ imgStart }) =>
       imgStart ? `'col1' 'col2'` : `'col1' 'col2'`};
   }

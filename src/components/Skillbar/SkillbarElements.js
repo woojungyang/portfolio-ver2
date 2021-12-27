@@ -1,14 +1,18 @@
 import styled, { color, font, media } from '../../style';
 
 export const SKillContainer = styled.div`
+  border: 10px soild red;
   font-family: ${font.en};
-  color: ${color.black};
-  height: 100vh;
+  height: 865px;
   width: 100%;
-  padding: 5em 0em;
   background: ${({ lightBg }) => (lightBg ? `white` : `white`)};
+
+  @media ${media.md} {
+    padding: 0 1em;
+  }
   @media ${media.sm} {
-    height: 950px;
+    padding: 100px 0;
+    height: 1000px;
   }
 `;
 export const SKillWrapper = styled.div`
@@ -18,14 +22,19 @@ export const SKillWrapper = styled.div`
   flex-wrap: wrap; */
 `;
 export const Heading = styled.h1`
-  margin-bottom: 1.5em;
-  font-size: 3em;
-  line-height: 1.1;
-  font-weight: 500;
+  font-family: ${font.en};
   text-align: center;
-  color: ${({ lightText }) => (lightText ? `#fcfcfc` : `#000`)};
-  @media ${media.xs} {
-    font-size: 2em;
+  font-size: 3em;
+  padding-top: 180px;
+  color: ${color.black};
+  margin-bottom: 1.5em;
+  font-weight: 500;
+  @media ${media.md} {
+    padding-top: 170px;
+  }
+  @media ${media.sm} {
+    margin-bottom: 1em 0;
+    padding-top: 0px;
   }
 `;
 export const SkillWrap = styled.div`
