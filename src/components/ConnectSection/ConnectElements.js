@@ -12,7 +12,7 @@ export const InfoContainer = styled.div`
 
 export const InfoWrapper = styled.div`
   display: grid;
-  height: 100vh;
+  height: 865px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -71,6 +71,7 @@ export const Heading = styled.h1`
   font-size: 2.5em;
   line-height: 1.1;
   font-weight: 600;
+  font-family: ${font.kr};
   color: ${({ lightText }) => (lightText ? `#fcfcfc` : `#000`)};
   @media ${media.xs} {
     font-size: 2em;
