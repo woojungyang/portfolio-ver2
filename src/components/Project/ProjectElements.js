@@ -3,7 +3,7 @@ import { Link as LinkR } from 'react-router-dom';
 
 export const PorjectContainer = styled.div`
   font-family: ${font.en};
-  height: 100vh;
+  height: 950px;
   /* display: flex; */
   flex-direction: column;
   justify-content: center;
