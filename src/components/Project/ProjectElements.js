@@ -84,7 +84,7 @@ export const ProjectH2 = styled.h2`
 export const ProjectH3 = styled.h3`
   font-family: ${font.kr};
   line-height: 180%;
-  margin-top: 1.5em;
+  margin-top: 1em;
   font-weight: 500;
   text-align: center;
   font-size: 1.25em;
@@ -99,10 +99,8 @@ export const ProjectP = styled.h4`
   font-family: ${font.kr};
   font-size: 1em;
   line-height: 180%;
-  margin-bottom: 1em;
 
   h4 {
-    margin-top: 0.5em;
     font-size: 1em;
   }
   @media ${media.sm} {

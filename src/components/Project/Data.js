@@ -3,7 +3,7 @@ export const project1 = {
   buttonlabel1: '//shop.woojungyang.com/admin',
   buttonlabel2: '//github.com/woojungyang/2021-sc-app-32-shop',
   devtools: 'Devtools',
-  tool: 'React.js / Redux / React-Router / Node.js / Sequelize  / Styled-component',
+  tool: 'React.js / Redux / React-Router / Node.js / Sequelize  / Styled-component / JSTree',
   contribution: '기여도 : 100%',
   comment: '서핑 관련 쇼핑몰',
   comment2: '(판매페이지,관리자페이지)',
