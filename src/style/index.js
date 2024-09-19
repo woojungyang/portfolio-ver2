@@ -7,8 +7,8 @@ export { css };
 export * from './common';
 
 export const font = {
-  kr: `'Gowun Dodum'`,
-  en: `'Encode Sans'`,
+  // kr: `'Gowun Dodum'`,
+  // en: `'Encode Sans'`,
 };
 
 export const color = {
@@ -46,5 +46,6 @@ export const flex = ({ w = 'nowrap', h = 'flex-start', v = 'stretch' }) => {
     flex-wrap: ${w};
     justify-content: ${h};
     align-items: ${v};
+    background-color: pink;
   `;
 };
