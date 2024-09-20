@@ -74,15 +74,15 @@ export const Progress = styled.div`
 export const Progressdone = styled.div`
   background: linear-gradient(to left, #f9a66c, #ffc94b);
   box-shadow: 0 3px 3px -5px #f9a66c, 0 2px 5px #f9a66c;
+  height: 100%;
+  width: 0;
+  opacity: 0;
+  transition: 1s ease 0.3s;
   border-radius: 20px;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 0;
-  opacity: 0;
-  transition: 1s ease 0.3s;
   @media ${media.sm} {
     font-size: 0.8em;
   }

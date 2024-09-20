@@ -9,5 +9,5 @@ export const flex = ({ direction, justify, align, wrap }) => `
   flex-direction: ${direction ?? 'row'};
   justify-content: ${justify ?? 'center'};
   align-items: ${align ?? 'center'};  
-  flex-wrap: ${wrap ?? 'wrap'};
+  flex-wrap: ${wrap ?? 'nowrap'};
 `;
