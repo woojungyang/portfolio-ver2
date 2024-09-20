@@ -14,11 +14,7 @@ const Home = () => {
     setIsOpen(!isOpen);
   };
 
-  return (
-    <CommonLayout title="Profile">
-      <p>dfsdfsf</p>
-    </CommonLayout>
-  );
+  return <CommonLayout title="Archive"></CommonLayout>;
 };
 
 export default React.memo(Home);

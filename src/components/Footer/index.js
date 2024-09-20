@@ -17,10 +17,10 @@ const Footer = () => {
     <FooterContainer>
       <FooterWrap>
         <SocialLogo to="/" onClick={toggleHome}>
-          woojung.dev
+          woojung.archive
         </SocialLogo>
         <WebsiteRights>
-          woojung.dev ⓒ {new Date().getFullYear()} All rights reserved.
+          woojung.archive ⓒ {new Date().getFullYear()} All rights reserved.
         </WebsiteRights>
       </FooterWrap>
     </FooterContainer>

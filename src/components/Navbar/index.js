@@ -36,7 +36,7 @@ const Navbar = ({ toggle }) => {
     <Nav scrollNav={scrollNav}>
       <NavbarContainer>
         <NavLogo to="/" onClick={toggleHome}>
-          woojung.dev
+          woojung.archive
         </NavLogo>
         <MobileIcon onClick={toggle}>
           <FaBars />
@@ -57,14 +57,7 @@ const Navbar = ({ toggle }) => {
             </Navfile>
           </NavItem>
           <NavItem>
-            <NavLinks
-              to="/skill"
-              smooth={true}
-              duration={500}
-              spy={true}
-              exact="true"
-              offset={-80}
-            >
+            <NavLinks to="/skill" smooth={true} duration={500} spy={true} exact="true" offset={-80}>
               Skills
             </NavLinks>
           </NavItem>
