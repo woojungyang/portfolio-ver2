@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
 
 export const defaultPadding = css`
-  padding: 10px 16px;
+  padding: 20px 80px;
 `;

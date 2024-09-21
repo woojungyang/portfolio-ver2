@@ -39,6 +39,7 @@ import { FaUser } from 'react-icons/fa';
 import { useTheme } from 'context/themeProvider';
 import { flex } from 'style/mixin';
 import classNames from 'classnames';
+import NavBar from './NavBar';
 
 export default function CommonLayout({ children, title }) {
   const [themeMode, toggleTheme] = useTheme();
@@ -48,111 +49,20 @@ export default function CommonLayout({ children, title }) {
 
   return (
     <MainContainer>
-      <MainWrapper>
-        <StatusBar>
-          <span>
-            {new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}
-          </span>
-          <div>
-            <GiNetworkBars size="25" className="icon" />
-            <MdSignalWifi4BarLock size="25" className="icon" />
-            <FaBatteryFull size="25" className="icon" />
-          </div>
-        </StatusBar>
-        <TitleWrapper>{title}</TitleWrapper>
-        <ContentWrapper>
-          <div className="switch-wrap">
-            <SwitchContainer onClick={toggleTheme} isDay={isDayTheme}>
-              <FaMoon size={16} color="#fff" />
-              <MdWbSunny size={17} color="var(--color-primary)" />
-              <Switch isDay={isDayTheme}></Switch>
-            </SwitchContainer>
-          </div>
-          <ProfileWrapper>
-            <div>
-              <img src={require('assets/img/main2.png')} />
-            </div>
-            <div className="greetings-wrap">
-              <p>Hello {'(´>∀<｀)♡'}</p>
-              <p>Welcome to my portfolio page</p>
-              <p>I’m Woojung Yang.</p>
-              <div className="button-wrap">
-                <ProfileButton>
-                  <IoDocumentAttachOutline size="14" />
-                  &nbsp;
-                  <p>Documents</p>
-                </ProfileButton>
-                <GitButton onClick={() => window.open('https://github.com/woojungyang')}>
-                  <IoLogoGithub size="14" />
-                  &nbsp;<p>GitHub</p>
-                </GitButton>
-              </div>
-            </div>
-            {/* */}
-          </ProfileWrapper>
-          <SkillWrapper isDay={isDayTheme}>
-            <span className="section-title">Dev-Skills</span>
-            <div className="skill-tab-wrap">
-              {skillMenuList.map((tabMenu, index) => (
-                <TabMenu
-                  key={index}
-                  active={tabMenu.id == currentTab}
-                  tab={tabMenu}
-                  onClick={() => setCurrentTab(tabMenu.id)}
-                />
-              ))}
-            </div>
-
-            <div className="skill-body">
-              {currentTab == skillMenuList[0].id && (
-                <div className="skill-wrap">
-                  {develop.map(dev => (
-                    <div className="skill">
-                      {dev.icon}
-                      <p>{dev.label}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {currentTab == skillMenuList[1].id && (
-                <div className="skill-wrap">
-                  {common.map(com => (
-                    <div className="skill">
-                      {com.icon}
-                      <p>{com.label}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {currentTab == skillMenuList[2].id && (
-                <div className="skill-wrap">
-                  {cooperation.map(cop => (
-                    <div className="skill">
-                      {cop.icon}
-                      <p>{cop.label}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </SkillWrapper>
-          <SkillWrapper isDay={isDayTheme}>
-            <span className="section-title">Projects</span>
-            <div className="skill-tab-wrap">
-              {[{ id: 1, label: 'Single', icon: <FaUser /> }].map((tabMenu, index) => (
-                <TabMenu key={index} active={true} tab={tabMenu} />
-              ))}
-            </div>
-            <div className="skill-body">
-              싱글
-            </div>
-          </SkillWrapper>
-          {children}
-        </ContentWrapper>
-        <Footer isDay={isDayTheme}>
-          <p> woojung.archive ⓒ {new Date().getFullYear()} All rights reserved.</p>
-        </Footer>
-      </MainWrapper>
+      <ContentWrapper>
+        <NavBar />
+        {children}
+        <div className="switch-wrap">
+          <SwitchContainer onClick={toggleTheme} isDay={isDayTheme}>
+            <FaMoon size={16} color="#fff" />
+            <MdWbSunny size={17} color="var(--color-primary)" />
+            <Switch isDay={isDayTheme}></Switch>
+          </SwitchContainer>
+        </div>
+      </ContentWrapper>
+      <Footer isDay={isDayTheme}>
+        <p> woojung.archive ⓒ {new Date().getFullYear()} All rights reserved.</p>
+      </Footer>
     </MainContainer>
   );
 }
@@ -180,9 +90,10 @@ const sectionWrap = css`
 const MainContainer = styled.div`
   width: 100%;
   height: 100vh;
+  border: 1px solid red;
+  position: relative;
 `;
 const MainWrapper = styled.div`
-  max-width: 700px;
   width: 100%;
   height: 100vh;
   border: 1px solid red;
@@ -217,22 +128,31 @@ const ContentWrapper = styled.div`
   ${defaultPadding}
   background-color: rgba(190,195,198,0.07);
   width: 100%;
+  height: calc(100% - 40px);
+  position: relative;
   .switch-wrap {
-    width: 100%;
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    /* width: 100%;
     margin-top: 20px;
-    ${flex({ justify: 'flex-end' })};
+    ${flex({ justify: 'flex-end' })}; */
   }
   .section-title {
     font-size: 22px;
     font-weight: 600;
+  }
 `;
 
 const Footer = styled.div`
   width: 100%;
   ${defaultPadding}
-  background-color:${({ isDay }) => (isDay ? '#000' : 'hsla(var(--color-background-100), 0.2)')};
+  background-color:${({ isDay }) =>
+    isDay ? 'var(--color-skeleton)' : 'hsla(var(--color-background-100), 0.2)'};
   color: white;
   text-align: center;
+  height: 40px;
+  ${flex};
 `;
 
 const ProfileWrapper = styled.div`
@@ -357,7 +277,6 @@ const Switch = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  position: relative;
   position: absolute;
   z-index: 1;
   transition: transform 0.3s ease;
