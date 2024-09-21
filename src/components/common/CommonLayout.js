@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { MdSignalWifi4BarLock } from 'react-icons/md';
 import { FaBatteryFull } from 'react-icons/fa';
@@ -33,6 +33,8 @@ import { FaBitbucket } from 'react-icons/fa';
 import { FaSlack } from 'react-icons/fa';
 import { SiNotion } from 'react-icons/si';
 import { FaFigma } from 'react-icons/fa';
+import { FaUsers } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 
 import { useTheme } from 'context/themeProvider';
 import { flex } from 'style/mixin';
@@ -42,7 +44,7 @@ export default function CommonLayout({ children, title }) {
   const [themeMode, toggleTheme] = useTheme();
   const isDayTheme = useMemo(() => themeMode == 'day', [themeMode]);
 
-  const [currentTab, setCurrentTab] = useState(tabMenuList[0].id);
+  const [currentTab, setCurrentTab] = useState(skillMenuList[0].id);
 
   return (
     <MainContainer>
@@ -67,7 +69,9 @@ export default function CommonLayout({ children, title }) {
             </SwitchContainer>
           </div>
           <ProfileWrapper>
-            <img src={require('assets/img/main2.png')} />
+            <div>
+              <img src={require('assets/img/main2.png')} />
+            </div>
             <div className="greetings-wrap">
               <p>Hello {'(´>∀<｀)♡'}</p>
               <p>Welcome to my portfolio page</p>
@@ -84,26 +88,23 @@ export default function CommonLayout({ children, title }) {
                 </GitButton>
               </div>
             </div>
+            {/* */}
           </ProfileWrapper>
           <SkillWrapper isDay={isDayTheme}>
             <span className="section-title">Dev-Skills</span>
             <div className="skill-tab-wrap">
-              {tabMenuList.map((tabMenu, index) => (
-                <div
+              {skillMenuList.map((tabMenu, index) => (
+                <TabMenu
                   key={index}
-                  className={classNames({
-                    'tab-menu': true,
-                    'tab-menu-active': tabMenu.id == currentTab,
-                  })}
+                  active={tabMenu.id == currentTab}
+                  tab={tabMenu}
                   onClick={() => setCurrentTab(tabMenu.id)}
-                >
-                  {tabMenu.icon}
-                  <p>{tabMenu.label}</p>
-                </div>
+                />
               ))}
             </div>
+
             <div className="skill-body">
-              {currentTab == tabMenuList[0].id && (
+              {currentTab == skillMenuList[0].id && (
                 <div className="skill-wrap">
                   {develop.map(dev => (
                     <div className="skill">
@@ -113,26 +114,37 @@ export default function CommonLayout({ children, title }) {
                   ))}
                 </div>
               )}
-              {currentTab == tabMenuList[1].id && (
+              {currentTab == skillMenuList[1].id && (
                 <div className="skill-wrap">
-                  {common.map(dev => (
+                  {common.map(com => (
                     <div className="skill">
-                      {dev.icon}
-                      <p>{dev.label}</p>
+                      {com.icon}
+                      <p>{com.label}</p>
                     </div>
                   ))}
                 </div>
               )}
-              {currentTab == tabMenuList[2].id && (
+              {currentTab == skillMenuList[2].id && (
                 <div className="skill-wrap">
-                  {cooperation.map(dev => (
+                  {cooperation.map(cop => (
                     <div className="skill">
-                      {dev.icon}
-                      <p>{dev.label}</p>
+                      {cop.icon}
+                      <p>{cop.label}</p>
                     </div>
                   ))}
                 </div>
               )}
+            </div>
+          </SkillWrapper>
+          <SkillWrapper isDay={isDayTheme}>
+            <span className="section-title">Projects</span>
+            <div className="skill-tab-wrap">
+              {[{ id: 1, label: 'Single', icon: <FaUser /> }].map((tabMenu, index) => (
+                <TabMenu key={index} active={true} tab={tabMenu} />
+              ))}
+            </div>
+            <div className="skill-body">
+              싱글
             </div>
           </SkillWrapper>
           {children}
@@ -144,6 +156,26 @@ export default function CommonLayout({ children, title }) {
     </MainContainer>
   );
 }
+
+function TabMenu({ tab = {}, active = false, onClick = () => {} }) {
+  return (
+    <div
+      onClick={() => onClick?.()}
+      className={classNames({
+        'tab-menu': true,
+        'tab-menu-active': active,
+      })}
+    >
+      {tab.icon}
+      <p>{tab.label}</p>
+    </div>
+  );
+}
+
+const sectionWrap = css`
+  padding: 30px 0px;
+  border-bottom: 1px solid rgba(107, 122, 143, 0.2);
+`;
 
 const MainContainer = styled.div`
   width: 100%;
@@ -190,16 +222,11 @@ const ContentWrapper = styled.div`
     margin-top: 20px;
     ${flex({ justify: 'flex-end' })};
   }
-  /* .section-wrap {
-    margin-top: 20px; */
-
   .section-title {
     font-size: 22px;
     font-weight: 600;
-    /* border-bottom: 2px solid var(--color-dark-200); */
-  }
-  /* } */
 `;
+
 const Footer = styled.div`
   width: 100%;
   ${defaultPadding}
@@ -218,6 +245,7 @@ const ProfileWrapper = styled.div`
   background-color: var(--color-primary);
   position: relative;
   font-size: 22px;
+  margin-bottom: 20px;
   img {
     position: absolute;
     bottom: -20%;
@@ -265,11 +293,11 @@ const GitButton = styled(ProfileButton)`
 `;
 
 const SkillWrapper = styled.div`
-  margin-top: 60px;
+  ${sectionWrap}
   .skill-tab-wrap {
     margin-top: 10px;
     ${flex({ justify: 'flex-start' })};
-    border-bottom: 1px solid ${({ isDay }) => (isDay ? 'rgba(107, 122, 143, 0.2)' : 'white')};
+    border-bottom: 1px solid rgba(107, 122, 143, 0.2);
     .tab-menu {
       ${flex};
       font-size: 15px;
@@ -277,6 +305,7 @@ const SkillWrapper = styled.div`
       margin-right: 10px;
       color: var(--color-background-600);
       cursor: pointer;
+      padding-bottom: 10px;
       p {
         margin-left: 5px;
       }
@@ -286,39 +315,6 @@ const SkillWrapper = styled.div`
       border-bottom: 1.4px solid ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'white')};
       font-weight: 500;
     }
-
-    /* .skill-wrapper {
-    margin-top: 20px;
-    .skill-wrap {
-      margin-bottom: 10px;
-      font-size: 16px;
-      ${flex({ justify: 'flex-start', align: 'center' })};
-      .skill {
-        width: 100px;
-      }
-      .process-bar {
-        width: 100%;
-        background-color: var(--color-skeleton);
-
-        height: 20px;
-        margin-left: 20px;
-        position: relative;
-        .bar {
-          position: absolute;
-          z-index: 1;
-          background: linear-gradient(
-            to left,
-            rgba(107, 122, 143, 0.5),
-            rgba(167, 173, 198, 0.5)
-          ); 
-          box-shadow: 0 3px 3px -5px rgba(107, 122, 143, 0.5), 0 2px 5px rgba(167, 173, 198, 0.5); 
-          border-radius: 0 5px 5px 0px;
-          height: 100%;
-          transition: width 1s ease-in-out, opacity 0.5s ease-in-out;
-          opacity: 0.1;
-        }
-      }
-    } */
   }
   .skill-body {
     margin-top: 20px;
@@ -368,7 +364,7 @@ const Switch = styled.div`
   transform: ${({ isDay }) => (isDay ? 'translateX(0)' : 'translateX(23px)')};
 `;
 
-const tabMenuList = [
+const skillMenuList = [
   { id: 1, label: 'Develop', icon: <MdComputer /> },
   { id: 2, label: 'Common', icon: <DiNpm /> },
   { id: 3, label: 'Cooperation', icon: <FaGithubAlt /> },
@@ -403,143 +399,7 @@ const cooperation = [
   { id: 6, label: 'Figma', icon: <FaFigma /> },
 ];
 
-const skills = [
-  { id: 1, label: 'HTML', value: 90 },
-  { id: 2, label: 'JavaScript', value: 90 },
-  { id: 3, label: 'JQuery', value: 80 },
-  { id: 4, label: 'React.js', value: 90 },
-  { id: 5, label: 'React-Native', value: 80 },
-  { id: 6, label: 'Next.js', value: 80 },
-  { id: 7, label: 'React-Query', value: 80 },
-  { id: 8, label: 'Scss', value: 90 },
-  { id: 9, label: 'Styled-Components', value: 70 },
-];
-
-const badges = [
-  {
-    logo: 'HTML5',
-    logoColor: 'white',
-    badge: 'HTML',
-    tagColor: 'E34F26',
-  },
-  {
-    logo: 'JavaScript',
-    logoColor: 'white',
-    badge: 'JavaScript',
-    tagColor: 'F7DF1E',
-  },
-  {
-    logo: 'jQuery',
-    logoColor: 'white',
-    badge: 'jQuery',
-    tagColor: '0769AD',
-  },
-  {
-    logo: 'React',
-    logoColor: 'white',
-    badge: 'React',
-    tagColor: '61DAFB',
-  },
-  {
-    logo: 'React',
-    logoColor: 'white',
-    badge: 'ReactNative',
-    tagColor: '339AF0',
-  },
-  {
-    logo: 'CSS3',
-    logoColor: 'white',
-    badge: 'CSS3',
-    tagColor: '1572B6',
-  },
-  {
-    logo: 'Sass',
-    logoColor: 'white',
-    badge: 'Sass',
-    tagColor: 'CC6699',
-  },
-  {
-    logo: 'styled-components',
-    logoColor: 'white',
-    badge: 'styledcomponents',
-    tagColor: 'DB7093',
-  },
-  {
-    logo: 'Bootstrap',
-    logoColor: 'white',
-    badge: 'Bootstrap',
-    tagColor: '7952B3',
-  },
-  {
-    logo: 'Material Design',
-    logoColor: 'white',
-    badge: 'Material Design',
-    tagColor: '757575',
-  },
-  {
-    logo: 'npm',
-    logoColor: 'white',
-    badge: 'npm',
-    tagColor: 'CB3837',
-  },
-  {
-    logo: 'Yarn',
-    logoColor: 'white',
-    badge: 'Yarn',
-    tagColor: '2C8EBB',
-  },
-  {
-    logo: 'Prettier',
-    logoColor: 'white',
-    badge: 'Prettier',
-    tagColor: 'F7B93E',
-  },
-  {
-    logo: 'ESLint',
-    logoColor: 'white',
-    badge: 'ESLint',
-    tagColor: '4B32C3',
-  },
-  {
-    logo: 'Visual Studio Code',
-    logoColor: 'white',
-    badge: 'Visual Studio Code',
-    tagColor: '007ACC',
-  },
-  {
-    logo: 'GitHub',
-    logoColor: 'white',
-    badge: 'GitHub',
-    tagColor: '181717',
-  },
-  {
-    logo: 'Sourcetree',
-    logoColor: 'white',
-    badge: 'Sourcetree',
-    tagColor: '0052CC',
-  },
-  {
-    logo: 'Bitbucket',
-    logoColor: 'white',
-    badge: 'Bitbucket',
-    tagColor: '0747a6',
-  },
-  {
-    logo: 'Slack',
-    logoColor: 'white',
-    badge: 'Slack',
-    tagColor: '4A154B',
-  },
-  {
-    logo: 'Notion',
-    logoColor: 'white',
-    badge: 'Notion',
-    tagColor: '000000',
-  },
-  {
-    logo: 'Figma',
-    logoColor: 'white',
-    badge: 'Figma',
-    tagColor: 'F24E1E',
-  },
+const projectMenuList = [
+  { id: 1, label: 'Single', icon: <FaUser /> },
+  { id: 2, label: 'Collaboration', icon: <FaUsers /> },
 ];
