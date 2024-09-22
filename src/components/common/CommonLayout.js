@@ -49,20 +49,18 @@ export default function CommonLayout({ children, title }) {
 
   return (
     <MainContainer>
-      <ContentWrapper>
-        <NavBar />
-        {children}
-        <div className="switch-wrap">
-          <SwitchContainer onClick={toggleTheme} isDay={isDayTheme}>
-            <FaMoon size={16} color="#fff" />
-            <MdWbSunny size={17} color="var(--color-primary)" />
-            <Switch isDay={isDayTheme}></Switch>
-          </SwitchContainer>
-        </div>
-      </ContentWrapper>
-      <Footer isDay={isDayTheme}>
+      <NavBar />
+      <div className="content_container">{children}</div>
+      <div className="switch-wrap">
+        <SwitchContainer onClick={toggleTheme} isDay={isDayTheme}>
+          <FaMoon size={16} color="#fff" />
+          <MdWbSunny size={17} color="var(--color-primary)" />
+          <Switch isDay={isDayTheme}></Switch>
+        </SwitchContainer>
+      </div>
+      <div className="footer">
         <p> woojung.archive ⓒ {new Date().getFullYear()} All rights reserved.</p>
-      </Footer>
+      </div>
     </MainContainer>
   );
 }
@@ -89,9 +87,33 @@ const sectionWrap = css`
 
 const MainContainer = styled.div`
   width: 100%;
-  height: 100vh;
-  border: 1px solid red;
+  min-height: 100vh;
+  border: 10px solid red;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* flex-grow 추가 */
+
+  .content_container {
+    flex: 1;
+    /* background-color: pink; */
+    display: flex; /* 추가 */
+    flex-direction: column; /* 추가 */
+    height: 100%; /* 높이 100%로 설정 */
+  }
+
+  .switch-wrap {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+  }
+
+  .footer {
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    ${flex};
+  }
 `;
 const MainWrapper = styled.div`
   width: 100%;
@@ -126,9 +148,11 @@ const ContentWrapper = styled.div`
   flex: 1;
   flex-grow: 1;
   ${defaultPadding}
-  background-color: rgba(190,195,198,0.07);
+  /* background-color: rgba(190,195,198,0.07); */
+  background-color: blue;
   width: 100%;
-  height: calc(100% - 40px);
+  /* min-height: calc(100% - 40px); */
+  height: 100%;
   position: relative;
   .switch-wrap {
     position: absolute;
@@ -153,6 +177,8 @@ const Footer = styled.div`
   text-align: center;
   height: 40px;
   ${flex};
+  /* position: relative;
+  z-index: 1; */
 `;
 
 const ProfileWrapper = styled.div`

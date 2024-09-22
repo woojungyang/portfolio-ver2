@@ -28,5 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     background: ${({ theme }) => theme.bgColor};
     color: ${({ theme }) => theme.textColor};
     transition: background 1s ease, color 0.3s ease;
+    height: 100%;
+    
   }
 `;

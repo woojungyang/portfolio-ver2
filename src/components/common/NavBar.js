@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { MdOutlineMail } from 'react-icons/md';
+import { FaCode } from 'react-icons/fa';
 
 import { flex } from 'style/mixin';
 
@@ -10,9 +10,9 @@ export default function NavBar() {
     <NavBarWrapper>
       <div className="email-wrap">
         <div className="email-icon">
-          <MdOutlineMail size={20} />
+          <FaCode size={20} />
         </div>
-        <p>woojungyang1113@gmail.com</p>
+        <p>github.com/woojungyang</p>
       </div>
       <div className="menu-wrap">
         {menuList.map((menu, index) => (
