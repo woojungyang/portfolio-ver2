@@ -49,7 +49,7 @@ export default function CommonLayout({ children, title }) {
 
   return (
     <MainContainer>
-      <NavBar />
+      <NavBar isDayTheme={isDayTheme} />
       <div className="content_container">{children}</div>
       <div className="switch-wrap">
         <SwitchContainer onClick={toggleTheme} isDay={isDayTheme}>
@@ -88,18 +88,20 @@ const sectionWrap = css`
 const MainContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  border: 10px solid red;
   position: relative;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* flex-grow 추가 */
-
+  flex-grow: 1;
+  padding: 40px 80px;
+  padding-bottom: 0px;
   .content_container {
     flex: 1;
-    /* background-color: pink; */
-    display: flex; /* 추가 */
-    flex-direction: column; /* 추가 */
-    height: 100%; /* 높이 100%로 설정 */
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: var(--size-max-width);
+    margin: auto;
   }
 
   .switch-wrap {
@@ -151,16 +153,13 @@ const ContentWrapper = styled.div`
   /* background-color: rgba(190,195,198,0.07); */
   background-color: blue;
   width: 100%;
-  /* min-height: calc(100% - 40px); */
+
   height: 100%;
   position: relative;
   .switch-wrap {
     position: absolute;
     bottom: 3%;
     right: 3%;
-    /* width: 100%;
-    margin-top: 20px;
-    ${flex({ justify: 'flex-end' })}; */
   }
   .section-title {
     font-size: 22px;

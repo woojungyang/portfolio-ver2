@@ -1,19 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { FaCode } from 'react-icons/fa';
-
 import { flex } from 'style/mixin';
 
-export default function NavBar() {
+export default function NavBar({ isDayTheme }) {
   return (
     <NavBarWrapper>
-      <div className="email-wrap">
-        <div className="email-icon">
-          <FaCode size={20} />
-        </div>
-        <p>github.com/woojungyang</p>
-      </div>
+      <img src={isDayTheme ? require('assets/img/logo2.png') : require('assets/img/logo1.png')} />
+
       <div className="menu-wrap">
         {menuList.map((menu, index) => (
           <p key={index}>{menu.label}</p>
@@ -30,40 +24,25 @@ const menuList = [
 ];
 
 const NavBarWrapper = styled.div`
-  animation: slideSide 1s forwards ease-out;
   ${flex({ justify: 'space-between' })};
+  max-width: var(--size-max-width);
+  margin: auto;
+  width: 100%;
   font-size: 18px;
-  .email-wrap {
-    ${flex({ justify: 'flex-start' })};
-    font-weight: 600;
-    .email-icon {
-      border: 1px solid var(--color-background-400);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      margin-right: 15px;
-      ${flex};
-    }
+  img {
+    max-width: 150px;
+    width: 100%;
   }
   .menu-wrap {
     ${flex};
     p {
+      font-weight: 500;
       margin-right: 80px;
       cursor: pointer;
-      font-size: 20px;
+      font-size: 22px;
       &:last-child {
         margin-right: 0px;
       }
-    }
-  }
-  @keyframes slideSide {
-    0% {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
     }
   }
 `;

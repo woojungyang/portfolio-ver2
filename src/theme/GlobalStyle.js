@@ -21,6 +21,16 @@ export const GlobalStyle = createGlobalStyle`
       --color-dark-100: #264653; 
       --color-dark-200: #202A44;
       --color-dark-300: #000;
+
+      --size-mobile: 767px;
+      --size-tablet: 1024px;
+      --size-desktop: 1025px;
+
+      --size-max-width: 1500px;
+
+    
+
+
     }
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
   body {
@@ -29,6 +39,20 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.textColor};
     transition: background 1s ease, color 0.3s ease;
     height: 100%;
+
+    opacity: 0;
+    animation: fadeInAnimation 1.5s ease forwards;
+
+    @keyframes fadeInAnimation {
+      0% {
+        opacity: 0;
+        transform: translateY(20px); 
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0); 
+      }
+    } 
     
   }
 `;
