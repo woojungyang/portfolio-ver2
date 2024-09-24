@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { MdOutlineEmail } from 'react-icons/md';
 import { FaGithubAlt } from 'react-icons/fa';
@@ -10,6 +11,8 @@ import { useTheme } from 'context/themeProvider';
 import CommonLayout from 'components/common/CommonLayout';
 
 const Home = () => {
+  const navigation = useNavigate();
+
   const [themeMode] = useTheme();
   const isDayTheme = useMemo(() => themeMode == 'day', [themeMode]);
 
@@ -31,9 +34,9 @@ const Home = () => {
         <div className="description-wrap">
           <p className="description-title">ABOUT ME</p>
           <p className="description">
-            안녕하세요, 프론트엔드 개발자 양우정입니다. 사용자의 눈높이에 맞춘 매력적인 웹 경험을
-            만드는 데 깊은 애정을 가지고 있습니다. 최신 웹 기술을 통해 창의적이고 실용적인 솔루션을
-            구현하며, 코드의 품질과 사용자 경험을 최우선으로 생각합니다.
+            사용자에게 매력적이고 친숙한 웹 경험을 제공하는 데 깊은 애정을 가지고 있습니다. 최신 웹
+            기술을 활용하여 창의적이고 실용적인 솔루션을 구현하며, 코드의 품질과 사용자 경험을
+            최우선으로 생각하는 개발자입니다.
           </p>
           <div className="description-btn">MORE ➔</div>
 
@@ -44,7 +47,9 @@ const Home = () => {
             현대적인 프레임워크를 활용해 부드럽고 자연스러운 사용자 경험을 제공합니다. 제 작업은
             기능적이면서도 시각적으로도 즐거움을 주는 것을 지향합니다.
           </p>
-          <div className="description-btn">MORE ➔</div>
+          <div className="description-btn" onClick={() => navigation('/about')}>
+            MORE ➔
+          </div>
 
           <p className="description-title">CONTACT</p>
           <p
@@ -176,13 +181,14 @@ const ContentWrapper = styled.div`
     .intro-title-wrap {
       max-width: 48%;
       hr {
+        width: 180px;
         border: 5px solid
           ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
         margin-bottom: 50px;
       }
 
       .greeting-title {
-        font-size: 70px;
+        font-size: 80px;
         font-weight: 700;
         line-height: 120%;
         white-space: pre-wrap;
@@ -219,6 +225,7 @@ const ContentWrapper = styled.div`
       /* margin-top:50px; */
       max-width: 100%;
       hr {
+         width: 150px;
         border: 3px solid
           ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
         margin-bottom: 30px;

@@ -299,7 +299,7 @@ const SwitchContainer = styled.div`
   width: 57px;
   height: 30px;
   background-color: ${({ isDay }) =>
-    isDay ? 'var(--color-background-100)' : 'var(--color-dark-200)'};
+    isDay ? 'var(--color-background-100)' : 'var(--color-dark-300)'};
   border: ${({ isDay }) => (isDay ? '0px' : '1px solid rgba(225,225,225,0.2)')};
   border-radius: 50px;
   ${flex({ justify: 'space-between', align: 'center' })};
@@ -314,7 +314,7 @@ const Switch = styled.div`
   border: 2px solid
     ${({ isDay }) => (isDay ? ' var(--color-primary)' : 'var(--color-background-100)')};
   background-color: ${({ isDay }) =>
-    isDay ? 'var(--color-background-100)' : 'var(--color-dark-200)'};
+    isDay ? 'var(--color-background-100)' : 'var(--color-dark-300)'};
   width: 20px;
   height: 20px;
   border-radius: 50%;

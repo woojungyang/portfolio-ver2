@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoIosClose } from 'react-icons/io';
@@ -8,6 +9,8 @@ import { flex } from 'style/mixin';
 import { Drawer } from '@mui/material';
 
 export default function NavBar({ isDay, isMobile }) {
+  const navigation = useNavigate();
+
   const [open, setOpen] = useState(false);
 
   function toggleDrawer(newOpen) {
@@ -24,7 +27,9 @@ export default function NavBar({ isDay, isMobile }) {
         ) : (
           <div className="menu-wrap">
             {menuList.map((menu, index) => (
-              <p key={index}>{menu.label}</p>
+              <p key={index} onClick={() => navigation(menu.link)}>
+                {menu.label}
+              </p>
             ))}
           </div>
         )}
@@ -37,7 +42,9 @@ export default function NavBar({ isDay, isMobile }) {
           </div>
 
           {menuList.map((menu, index) => (
-            <p key={index}>{menu.label}</p>
+            <p key={index} onClick={() => navigation(menu.link)}>
+              {menu.label}
+            </p>
           ))}
         </DrawerContent>
       </Drawer>
@@ -46,7 +53,8 @@ export default function NavBar({ isDay, isMobile }) {
 }
 
 const menuList = [
-  { id: 1, label: 'About' },
+  { id: 0, label: 'Home', link: '/' },
+  { id: 1, label: 'About', link: '/about' },
   { id: 2, label: 'Works' },
   { id: 3, label: 'Resume' },
 ];
