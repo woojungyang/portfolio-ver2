@@ -36,6 +36,7 @@ import { FaFigma } from 'react-icons/fa';
 import { FaUsers } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
 
+import { useUserDevice } from 'hooks/useUserDevice';
 import { useTheme } from 'context/themeProvider';
 import { flex } from 'style/mixin';
 import classNames from 'classnames';
@@ -45,11 +46,11 @@ export default function CommonLayout({ children, title }) {
   const [themeMode, toggleTheme] = useTheme();
   const isDayTheme = useMemo(() => themeMode == 'day', [themeMode]);
 
-  const [currentTab, setCurrentTab] = useState(skillMenuList[0].id);
+  const isMobile = useUserDevice();
 
   return (
-    <MainContainer>
-      <NavBar isDayTheme={isDayTheme} />
+    <MainContainer isDay={isDayTheme} isMobile={isMobile}>
+      <NavBar isDay={isDayTheme} isMobile={isMobile} />
       <div className="content_container">{children}</div>
       <div className="switch-wrap">
         <SwitchContainer onClick={toggleTheme} isDay={isDayTheme}>
@@ -92,29 +93,34 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 40px 80px;
   padding-bottom: 0px;
+  /* background-color: orange; */
   .content_container {
     flex: 1;
-
+    width: 100%;
+    padding: ${({ isMobile }) => (!isMobile ? '40px 80px' : '20px 16px')};
+    padding-bottom: 0px;
     display: flex;
     flex-direction: column;
     height: 100%;
     max-width: var(--size-max-width);
     margin: auto;
+    /* background-color: pink; */
   }
 
   .switch-wrap {
-    position: absolute;
+    position: fixed;
     bottom: 3%;
     right: 3%;
+    z-index: 999; /* 요소가 다른 요소들 위에 표시되도록 함 */
   }
-
   .footer {
     width: 100%;
     text-align: center;
-    height: 40px;
+    height: ${({ isMobile }) => (isMobile ? '35px' : '40px')};
     ${flex};
+    background-color: ${({ isDay }) => (isDay ? 'var(--color-primary)' : 'var(--color-secondary)')};
+    font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
   }
 `;
 const MainWrapper = styled.div`
@@ -172,7 +178,7 @@ const Footer = styled.div`
   ${defaultPadding}
   background-color:${({ isDay }) =>
     isDay ? 'var(--color-skeleton)' : 'hsla(var(--color-background-100), 0.2)'};
-  color: white;
+  color: var(--color-background-100);
   text-align: center;
   height: 40px;
   ${flex};
@@ -256,8 +262,9 @@ const SkillWrapper = styled.div`
       }
     }
     .tab-menu-active {
-      color: ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'white')};
-      border-bottom: 1.4px solid ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'white')};
+      color: ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
+      border-bottom: 1.4px solid
+        ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
       font-weight: 500;
     }
   }
@@ -296,7 +303,8 @@ const SwitchContainer = styled.div`
 `;
 
 const Switch = styled.div`
-  border: 2px solid ${({ isDay }) => (isDay ? ' var(--color-primary)' : 'white')};
+  border: 2px solid
+    ${({ isDay }) => (isDay ? ' var(--color-primary)' : 'var(--color-background-100)')};
   background-color: ${({ isDay }) =>
     isDay ? 'var(--color-background-100)' : 'var(--color-dark-200)'};
   width: 20px;

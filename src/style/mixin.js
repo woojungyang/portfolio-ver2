@@ -14,17 +14,17 @@ export const flex = ({ direction, justify, align, wrap }) => `
 
 export const media = {
   mobile: (...args) => css`
-    @media (max-width: var(--size-mobile)) {
+    @media (max-width: 767px) {
       ${css(...args)};
     }
   `,
   tablet: (...args) => css`
-    @media (min-width: 768px) and (max-width: var(--size-tablet)) {
+    @media (min-width: 768px) and (max-width: 1024px) {
       ${css(...args)};
     }
   `,
   desktop: (...args) => css`
-    @media (min-width: var(--size-desktop)) {
+    @media (min-width: 1025px) {
       ${css(...args)};
     }
   `,

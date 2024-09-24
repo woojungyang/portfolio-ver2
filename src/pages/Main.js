@@ -3,10 +3,11 @@ import React, { useMemo } from 'react';
 import { MdOutlineEmail } from 'react-icons/md';
 import { FaGithubAlt } from 'react-icons/fa';
 
-import CommonLayout from 'components/common/CommonLayout';
 import styled from 'styled-components';
-import { flex } from 'style/mixin';
+import { flex, media } from 'style/mixin';
 import { useTheme } from 'context/themeProvider';
+
+import CommonLayout from 'components/common/CommonLayout';
 
 const Home = () => {
   const [themeMode] = useTheme();
@@ -23,26 +24,28 @@ const Home = () => {
         <div className="intro-title-wrap">
           <hr />
           <h1 className="greeting-title">
-            I'm Woojung, a<br />
+            I'm Woojung, a <br />
             Front-End Developer
           </h1>
         </div>
         <div className="description-wrap">
           <p className="description-title">ABOUT ME</p>
           <p className="description">
-            안녕하세요, 저는 프론트엔드 개발자 양우정입니다. 사용자의 눈높이에 맞춘 매력적인 웹
-            경험을 만드는 데 깊은 애정을 가지고 있습니다. 최신 웹 기술을 통해 창의적이고 실용적인
-            솔루션을 구현하며, 코드의 품질과 사용자 경험을 최우선으로 생각합니다.
+            안녕하세요, 프론트엔드 개발자 양우정입니다. 사용자의 눈높이에 맞춘 매력적인 웹 경험을
+            만드는 데 깊은 애정을 가지고 있습니다. 최신 웹 기술을 통해 창의적이고 실용적인 솔루션을
+            구현하며, 코드의 품질과 사용자 경험을 최우선으로 생각합니다.
           </p>
           <div className="description-btn">MORE ➔</div>
+
           <p className="description-title">Work</p>
           <p className="description">
-            저는 여러 프로젝트를 통해 사용자가 쉽게 접근하고 즐길 수 있는 웹사이트와 애플리케이션을
+            여러 프로젝트를 통해 사용자가 쉽게 접근하고 즐길 수 있는 웹사이트와 애플리케이션을
             설계해왔습니다. HTML, CSS, JavaScript를 기반으로 반응형 디자인을 구현하고, React와 같은
             현대적인 프레임워크를 활용해 부드럽고 자연스러운 사용자 경험을 제공합니다. 제 작업은
             기능적이면서도 시각적으로도 즐거움을 주는 것을 지향합니다.
           </p>
           <div className="description-btn">MORE ➔</div>
+
           <p className="description-title">CONTACT</p>
           <p
             className="contact"
@@ -73,14 +76,16 @@ const Home = () => {
 
 const ContentWrapper = styled.div`
   height: 100%;
-  /* border: 10px solid blue; */
+
   flex: 1;
   ${flex({ justify: 'space-between' })};
   flex-grow: 1;
+  width: 100%;
 
   position: relative;
+  margin-top: 20px;
 
-  margin: 20px 0px;
+  /* margin: 20px 0px; */
 
   .emotion-bg {
     position: absolute;
@@ -100,7 +105,7 @@ const ContentWrapper = styled.div`
   }
 
   .intro-title-wrap {
-    max-width: 50%;
+    width: 100%;
     text-align: left;
     hr {
       width: 200px;
@@ -109,9 +114,9 @@ const ContentWrapper = styled.div`
       margin-bottom: 80px;
       margin-left: 0% !important;
     }
-
     .greeting-title {
       font-size: 86px;
+
       font-weight: 700;
       line-height: 120%;
       white-space: pre-wrap;
@@ -133,16 +138,18 @@ const ContentWrapper = styled.div`
     }
     .description {
       max-width: 65%;
-      font-size: 18px;
+      font-size: 17px;
       margin-top: 20px;
       line-height: 170%;
       text-align: justify;
+      text-justify: inter-word;
     }
     .description-btn {
       border-bottom: 1px solid var(--color-skeleton);
       padding: 5px;
       font-size: 15px;
       margin: 10px 0px;
+      cursor: pointer;
       ${flex};
       p {
         margin-right: 5px;
@@ -202,6 +209,47 @@ const ContentWrapper = styled.div`
       }
     }
   }
+  ${media.mobile`
+    flex-direction:column;
+    justify-content:flex-start;
+    .emotion-bg {
+      display:none;
+    }
+    .intro-title-wrap {
+      margin-top:50px;
+      max-width: 100%;
+      hr {
+        border: 3px solid
+          ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
+        margin-bottom: 30px;
+      }
+      .greeting-title {
+        font-size: 37px;
+        font-weight: 700;
+        line-height: 120%;
+        white-space: wrap;
+      }
+    }
+    .description-wrap {
+      margin:40px 0px;
+      max-width: 100%;
+      ${flex({ direction: 'column', align: 'flex-start' })};
+      .description {
+        max-width: 100%;
+        font-size: 15px;
+        margin-top: 16px;
+      }
+      .description-btn {
+      
+        margin-left:83%;
+        font-size: 12px;
+        ${flex};
+        p {
+          margin-right: 5px;
+        }
+      }
+    }
+  `};
 `;
 
 export default React.memo(Home);
