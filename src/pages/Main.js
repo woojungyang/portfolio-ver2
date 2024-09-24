@@ -83,13 +83,13 @@ const ContentWrapper = styled.div`
   width: 100%;
 
   position: relative;
-  margin-top: 20px;
+  margin-top: 10px;
 
   /* margin: 20px 0px; */
 
   .emotion-bg {
     position: absolute;
-    bottom: 0;
+    bottom: -10%;
     left: 50%;
     transform: translate(-50%, 0);
     z-index: -1;
@@ -216,7 +216,7 @@ const ContentWrapper = styled.div`
       display:none;
     }
     .intro-title-wrap {
-      margin-top:50px;
+      /* margin-top:50px; */
       max-width: 100%;
       hr {
         border: 3px solid
@@ -224,7 +224,7 @@ const ContentWrapper = styled.div`
         margin-bottom: 30px;
       }
       .greeting-title {
-        font-size: 37px;
+        font-size: 36px;
         font-weight: 700;
         line-height: 120%;
         white-space: wrap;

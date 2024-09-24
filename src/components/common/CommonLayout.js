@@ -51,16 +51,18 @@ export default function CommonLayout({ children, title }) {
   return (
     <MainContainer isDay={isDayTheme} isMobile={isMobile}>
       <NavBar isDay={isDayTheme} isMobile={isMobile} />
-      <div className="content_container">{children}</div>
-      <div className="switch-wrap">
-        <SwitchContainer onClick={toggleTheme} isDay={isDayTheme}>
-          <FaMoon size={16} color="#fff" />
-          <MdWbSunny size={17} color="var(--color-primary)" />
-          <Switch isDay={isDayTheme}></Switch>
-        </SwitchContainer>
+      <div className="content_container">
+        {children}
+        <div className="switch-wrap">
+          <SwitchContainer onClick={toggleTheme} isDay={isDayTheme}>
+            <FaMoon size={16} color="#fff" />
+            <MdWbSunny size={17} color="var(--color-primary)" />
+            <Switch isDay={isDayTheme}></Switch>
+          </SwitchContainer>
+        </div>
       </div>
       <div className="footer">
-        <p> woojung.archive ⓒ {new Date().getFullYear()} All rights reserved.</p>
+        <p> woojungyang ⓒ {new Date().getFullYear()} All rights reserved.</p>
       </div>
     </MainContainer>
   );
@@ -95,6 +97,13 @@ const MainContainer = styled.div`
   flex-grow: 1;
   padding-bottom: 0px;
   /* background-color: orange; */
+  .test {
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-color: pink;
+  }
   .content_container {
     flex: 1;
     width: 100%;
@@ -105,14 +114,13 @@ const MainContainer = styled.div`
     height: 100%;
     max-width: var(--size-max-width);
     margin: auto;
-    /* background-color: pink; */
+    position: relative;
   }
 
   .switch-wrap {
-    position: fixed;
+    position: sticky;
     bottom: 3%;
-    right: 3%;
-    z-index: 999; /* 요소가 다른 요소들 위에 표시되도록 함 */
+    margin-left: calc(100% - 58px);
   }
   .footer {
     width: 100%;
