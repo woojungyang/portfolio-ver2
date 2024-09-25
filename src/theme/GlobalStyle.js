@@ -40,8 +40,8 @@ export const GlobalStyle = createGlobalStyle`
     transition: background 1s ease, color 0.3s ease;
     height: 100%;
 
-    opacity: 0;
-    animation: fadeInAnimation 1.5s ease forwards;
+    ${'' /* opacity: 0;
+    animation: fadeInAnimation 1.5s ease forwards; */}
 
     @keyframes fadeInAnimation {
       0% {

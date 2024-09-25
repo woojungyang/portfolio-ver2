@@ -89,6 +89,8 @@ const sectionWrap = css`
 `;
 
 const MainContainer = styled.div`
+  opacity: 0;
+  animation: fadeInAnimation 1.5s ease forwards;
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -341,7 +343,8 @@ const develop = [
   { id: 7, label: 'Sass', icon: <FaSass /> },
   { id: 8, label: 'Styled-components', icon: <SiStyledcomponents /> },
   { id: 9, label: 'Bootstrap', icon: <FaBootstrap /> },
-  { id: 10, label: 'Material Design', icon: <SiMaterialdesignicons /> },
+  { id: 10, label: 'Material UI', icon: <SiMaterialdesignicons /> },
+  { id: 10, label: 'Core Ui', icon: <SiMaterialdesignicons /> },
 ];
 const common = [
   { id: 1, label: 'Npm', icon: <DiNpm /> },

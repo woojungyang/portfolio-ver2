@@ -38,7 +38,9 @@ const About = () => {
     <CommonLayout>
       <ContentWrapper isDay={isDayTheme}>
         <div className="emotion-bg">
-          <img src={require('assets/img/main8.png')} />
+          <img
+            src={isDayTheme ? require('assets/img/main5.png') : require('assets/img/main4.png')}
+          />
         </div>
         <div className="intro-title-wrap">
           <hr />
@@ -67,21 +69,23 @@ const About = () => {
               ACTIVITY
               <br /> SUMMERY
             </p>
-            <div className="activity-section">
-              <p className="activity-number">2.6</p>
-              <p className="activity-text">
-                Years of
-                <br />
-                experience
-              </p>
-            </div>
-            <div className="activity-section">
-              <p className="activity-number">7</p>
-              <p className="activity-text">
-                Successful
-                <br />
-                projects
-              </p>
+            <div className="activity-section-wrap">
+              <div className="activity-section">
+                <p className="activity-number">2.6</p>
+                <p className="activity-text">
+                  Years of
+                  <br />
+                  experience
+                </p>
+              </div>
+              <div className="activity-section">
+                <p className="activity-number">7</p>
+                <p className="activity-text">
+                  Successful
+                  <br />
+                  projects
+                </p>
+              </div>
             </div>
           </div>
           <div className="skill-wrapper">
@@ -120,9 +124,7 @@ const ContentWrapper = styled.div`
 
   .emotion-bg {
     width: 100%;
-    border-radius: 50%;
-    position: relative;
-    aspect-ratio: 1;
+    margin-right: 50px;
 
     img {
       width: 100%;
@@ -156,21 +158,24 @@ const ContentWrapper = styled.div`
   }
   .activity-summery {
     ${flex({ justify: 'flex-start' })};
-    .activity-section {
+    .activity-section-wrap {
       ${flex({ justify: 'flex-start' })};
-      margin-right: 20px;
-      &:last-child {
-        margin-right: 0px;
-      }
-      .activity-number {
-        font-size: 40px;
-        font-weight: 800;
-        margin-right: 10px;
-        color: ${({ isDay }) => (isDay ? 'var(--color-primary)' : 'var(--color-secondary)')};
-      }
-      .activity-text {
-        font-size: 16px;
-        font-weight: 700;
+      .activity-section {
+        ${flex({ justify: 'flex-start' })};
+        margin-right: 20px;
+        &:last-child {
+          margin-right: 0px;
+        }
+        .activity-number {
+          font-size: 40px;
+          font-weight: 800;
+          margin-right: 10px;
+          color: ${({ isDay }) => (isDay ? 'var(--color-primary)' : 'var(--color-secondary)')};
+        }
+        .activity-text {
+          font-size: 16px;
+          font-weight: 700;
+        }
       }
     }
   }
@@ -215,9 +220,6 @@ const ContentWrapper = styled.div`
   }
 
   @media (max-width: 1520px) {
-    .emotion-bg {
-      max-width: 530px;
-    }
     .intro-title-wrap {
       max-width: 48%;
       hr {
@@ -241,7 +243,7 @@ const ContentWrapper = styled.div`
       display:none;
     }
     .intro-title-wrap {
-      /* margin-top:50px; */
+     
       max-width: 100%;
       hr {
         border: 3px solid
@@ -256,26 +258,26 @@ const ContentWrapper = styled.div`
       }
     }
     .description-title {
-    width: 100%;
-    font-weight: 700;
-    font-size: 20px;  
-    &:not(:first-child) {
-      margin-top: 20px;
+      width: 100%;
+      font-weight: 700;
+      font-size: 20px;  
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
     }
-  }
     .activity-summery {
-    ${flex({ direction: 'column' })};
-     .description-title {
-      br{
-        display:none;
+    ${flex({ direction: 'column', align: 'flex-start' })};
+      .description-title {
+        br{
+          display:none;
+        }
+        margin-bottom:14px;
       }
-     }
-    .activity-section {
-     
-      margin-right: 20px;
-      &:last-child {
-        margin-right: 0px;
-      }
+      .activity-section {
+        margin-right: 20px;
+        &:last-child {
+          margin-right: 0px;
+        }
       .activity-number {
         font-size: 40px;
         font-weight: 800;
@@ -287,20 +289,21 @@ const ContentWrapper = styled.div`
         font-weight: 700;
       }
     }
-  }
-    .skill-wrap {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
-    .skill {
-      padding: 10px;
-      span {
-        margin-left: 5px;
-        font-size: 13px;
+    }
+    .skill-wrapper {
+      .skill-wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        .skill {
+          padding: 10px;
+          span {
+            margin-left: 5px;
+            font-size: 13px;
+          }
+        }
       }
     }
-  }
-   
   `};
 `;
 
@@ -317,7 +320,8 @@ const develop = [
   { id: 7, label: 'Sass', icon: <FaSass /> },
   { id: 8, label: 'Styled-components', icon: <SiStyledcomponents /> },
   { id: 9, label: 'Bootstrap', icon: <FaBootstrap /> },
-  { id: 10, label: 'Material Design', icon: <SiMaterialdesignicons /> },
+  { id: 10, label: 'Material UI', icon: <SiMaterialdesignicons /> },
+  { id: 10, label: 'Core UI', icon: <SiMaterialdesignicons /> },
   { id: 11, label: 'Npm', icon: <DiNpm /> },
   { id: 12, label: 'Yarn', icon: <FaYarn /> },
   { id: 13, label: 'Prettier', icon: <SiPrettier /> },
@@ -330,7 +334,3 @@ const develop = [
   { id: 20, label: 'Notion', icon: <SiNotion /> },
   { id: 21, label: 'Figma', icon: <FaFigma /> },
 ];
-const common = [];
-const cooperation = [];
-
-const projectMenuList = [];
