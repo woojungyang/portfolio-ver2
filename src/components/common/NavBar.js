@@ -5,8 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoIosClose } from 'react-icons/io';
 
-import { flex } from 'style/mixin';
+import { flex, media } from 'style/mixin';
 import { Drawer } from '@mui/material';
+import { DeviceSize } from 'models/Device';
 
 export default function NavBar({ isDay, isMobile }) {
   const navigation = useNavigate();
@@ -17,25 +18,35 @@ export default function NavBar({ isDay, isMobile }) {
     setOpen(newOpen);
   }
 
+  const [hoverMenu, setHoverMenu] = useState('');
+  console.log(isMobile);
+
   return (
     <>
       <NavBarWrapper isMobile={isMobile} isDay={isDay}>
         <img src={isDay ? require('assets/img/logo2.png') : require('assets/img/logo1.png')} />
 
-        {isMobile ? (
-          <GiHamburgerMenu onClick={() => toggleDrawer(true)} color={isDay ? 'black' : 'white'} />
-        ) : (
-          <div className="menu-wrap">
-            {menuList.map((menu, index) => (
-              <p key={index} onClick={() => navigation(menu.link)}>
-                {menu.label}
-              </p>
-            ))}
-          </div>
-        )}
+        <GiHamburgerMenu
+          onClick={() => toggleDrawer(true)}
+          color={isDay ? 'black' : 'white'}
+          className="mobile-menu"
+        />
+
+        <div className="menu-wrap">
+          {menuList.map((menu, index) => (
+            <p
+              key={index}
+              onClick={() => navigation(menu.link)}
+              onMouseEnter={() => setHoverMenu(menu.label)}
+              onMouseLeave={() => setHoverMenu('')}
+            >
+              {menu.label}
+            </p>
+          ))}
+        </div>
       </NavBarWrapper>
       <Drawer open={open} onClose={() => toggleDrawer(false)} anchor="top">
-        <DrawerContent isDay={isDay}>
+        <DrawerContent isDay={isDay} isMobile={isMobile}>
           <div className="drawer-header">
             <img src={isDay ? require('assets/img/logo2.png') : require('assets/img/logo1.png')} />
             <IoIosClose size={32} onClick={() => toggleDrawer(false)} />
@@ -72,13 +83,13 @@ const NavBarWrapper = styled.div`
   max-width: var(--size-max-width);
   margin: auto;
   font-size: 18px;
-  /* box-shadow: 0 1px 2px
-    ${({ isMobile }) =>
-    !isMobile ? 'var(--color-background-100)' : 'var(--color-background-400)'}; */
 
   img {
     max-width: ${({ isMobile }) => (isMobile ? '120px' : '150px')};
     width: 100%;
+  }
+  .mobile-menu {
+    display: none;
   }
   .menu-wrap {
     ${flex};
@@ -92,12 +103,20 @@ const NavBarWrapper = styled.div`
       }
     }
   }
+  @media (max-width: ${DeviceSize.Tablet}px) {
+    .mobile-menu {
+      display: block;
+    }
+    .menu-wrap {
+      display: none;
+    }
+  }
 `;
 
 const DrawerContent = styled.div`
   background-color: ${({ isDay }) =>
     isDay ? 'var(--color-background-100)' : 'var(--color-dark-300)'};
-  padding: 20px 40px;
+  margin: ${({ isMobile }) => (isMobile ? '20px 40px' : '40px 80px')};
 
   height: 100vh;
   color: ${({ isDay }) => (!isDay ? 'var(--color-background-100)' : 'var(--color-dark-300)')};
@@ -108,8 +127,7 @@ const DrawerContent = styled.div`
     top: 0;
     width: 100%;
     left: 0;
-    padding: 14px 16px;
-    padding-right: 10px;
+    /* padding: 14px 16px; */
     ${flex({ justify: 'space-between' })};
     img {
       max-width: ${({ isMobile }) => (isMobile ? '120px' : '150px')};

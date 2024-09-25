@@ -38,7 +38,9 @@ const Home = () => {
             기술을 활용하여 창의적이고 실용적인 솔루션을 구현하며, 코드의 품질과 사용자 경험을
             최우선으로 생각하는 개발자입니다.
           </p>
-          <div className="description-btn">MORE ➔</div>
+          <div className="description-btn" onClick={() => navigation('/about')}>
+            <p>MORE ➔</p>
+          </div>
 
           <p className="description-title">Work</p>
           <p className="description">
@@ -47,8 +49,8 @@ const Home = () => {
             현대적인 프레임워크를 활용해 부드럽고 자연스러운 사용자 경험을 제공합니다. 제 작업은
             기능적이면서도 시각적으로도 즐거움을 주는 것을 지향합니다.
           </p>
-          <div className="description-btn" onClick={() => navigation('/about')}>
-            MORE ➔
+          <div className="description-btn">
+            <p>MORE ➔</p>
           </div>
 
           <p className="description-title">CONTACT</p>
@@ -150,14 +152,17 @@ const ContentWrapper = styled.div`
       text-justify: inter-word;
     }
     .description-btn {
-      border-bottom: 1px solid var(--color-skeleton);
-      padding: 5px;
-      font-size: 15px;
-      margin: 10px 0px;
-      cursor: pointer;
-      ${flex};
+      width: 100%;
+
       p {
+        width: 100%;
+
         margin-right: 5px;
+        padding: 5px;
+        font-size: 15px;
+        margin: 10px 0px;
+        cursor: pointer;
+        text-align: right !important;
       }
     }
     .contact {
@@ -176,7 +181,7 @@ const ContentWrapper = styled.div`
 
   @media (max-width: 1520px) {
     .emotion-bg {
-      max-width: 530px;
+      max-width: 600px;
     }
     .intro-title-wrap {
       max-width: 48%;
@@ -208,13 +213,50 @@ const ContentWrapper = styled.div`
       .description-btn {
         font-size: 14px;
         margin: 10px 0px;
-        ${flex};
+        /* ${flex}; */
         p {
           margin-right: 5px;
         }
       }
     }
   }
+  ${media.tablet`
+    ${flex({ justify: 'space-between', align: 'flex-start' })};
+    .emotion-bg {
+      left: 30%;
+      bottom:-5%;
+      max-width: 540px;
+    }
+    .intro-title-wrap {
+       width: 100%;
+      hr {
+        border: 4px solid
+          ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
+        margin-bottom: 40px;
+      }
+      .greeting-title {
+        font-size: 48px;
+      }
+    }
+    .description-wrap {
+      margin-left:40px;
+      width: 100%;
+      ${flex({ direction: 'column', align: 'flex-start' })};
+      .description {
+        max-width: 100%;
+        font-size: 16px;
+        margin-top: 16px;
+      }
+      .description-btn {
+        font-size: 12px;
+        ${flex};
+        p {
+          margin-right: 5px;
+        }
+      }
+    }
+  `}
+
   ${media.mobile`
     flex-direction:column;
     justify-content:flex-start;
@@ -222,19 +264,15 @@ const ContentWrapper = styled.div`
       display:none;
     }
     .intro-title-wrap {
-      /* margin-top:50px; */
       max-width: 100%;
       hr {
-         width: 150px;
+        width: 150px;
         border: 3px solid
           ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
         margin-bottom: 30px;
       }
       .greeting-title {
         font-size: 36px;
-        font-weight: 700;
-        line-height: 120%;
-        white-space: wrap;
       }
     }
     .description-wrap {
@@ -245,15 +283,6 @@ const ContentWrapper = styled.div`
         max-width: 100%;
         font-size: 15px;
         margin-top: 16px;
-      }
-      .description-btn {
-      
-        margin-left:83%;
-        font-size: 12px;
-        ${flex};
-        p {
-          margin-right: 5px;
-        }
       }
     }
   `};

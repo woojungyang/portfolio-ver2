@@ -1,3 +1,4 @@
+import { DeviceSize } from 'models/Device';
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
@@ -22,9 +23,9 @@ export const GlobalStyle = createGlobalStyle`
       --color-dark-200: #202A44;
       --color-dark-300: #000;
 
-      --size-mobile: 767px;
-      --size-tablet: 1024px;
-      --size-desktop: 1025px;
+      --size-mobile: ${DeviceSize.Mobile}px;
+      --size-tablet: ${DeviceSize.Tablet}px;
+      --size-desktop: ${DeviceSize.Desktop}px;
 
       --size-max-width: 1500px;
 
@@ -40,8 +41,10 @@ export const GlobalStyle = createGlobalStyle`
     transition: background 1s ease, color 0.3s ease;
     height: 100%;
 
-    ${'' /* opacity: 0;
-    animation: fadeInAnimation 1.5s ease forwards; */}
+    ${
+      '' /* opacity: 0;
+    animation: fadeInAnimation 1.5s ease forwards; */
+    }
 
     @keyframes fadeInAnimation {
       0% {

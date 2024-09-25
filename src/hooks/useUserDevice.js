@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { DeviceSize } from 'models/Device';
 
 export const useUserDevice = () => {
   function getWindowDimensions() {
     const { innerWidth: width } = window;
-    const mobileSize = 767;
-    return width <= mobileSize;
+
+    return width <= DeviceSize.Mobile;
   }
 
   const [userDevice, setUserDevice] = useState(getWindowDimensions());

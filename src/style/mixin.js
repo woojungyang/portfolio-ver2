@@ -1,3 +1,4 @@
+import { DeviceSize } from 'models/Device';
 import { css } from 'styled-components';
 
 export const baseShadow = css`
@@ -13,18 +14,18 @@ export const flex = ({ direction, justify, align, wrap }) => `
 `;
 
 export const media = {
-  mobile: (...args) => css`
-    @media (max-width: 767px) {
+  desktop: (...args) => css`
+    @media (min-width: ${DeviceSize.Desktop}px) {
       ${css(...args)};
     }
   `,
   tablet: (...args) => css`
-    @media (min-width: 768px) and (max-width: 1024px) {
+    @media (min-width: ${DeviceSize.Mobile}px) and (max-width: ${DeviceSize.Tablet}px) {
       ${css(...args)};
     }
   `,
-  desktop: (...args) => css`
-    @media (min-width: 1025px) {
+  mobile: (...args) => css`
+    @media (max-width: ${DeviceSize.Mobile - 1}px) {
       ${css(...args)};
     }
   `,

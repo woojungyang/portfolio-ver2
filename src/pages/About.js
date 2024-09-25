@@ -3,7 +3,6 @@ import classNames from 'classnames';
 
 import { IoLogoJavascript } from 'react-icons/io';
 import { FaHtml5 } from 'react-icons/fa';
-import { DiNpm } from 'react-icons/di';
 import { IoLogoGithub } from 'react-icons/io';
 import { SiJquery } from 'react-icons/si';
 import { FaReact } from 'react-icons/fa';
@@ -14,10 +13,8 @@ import { FaBootstrap } from 'react-icons/fa';
 import { SiMaterialdesignicons } from 'react-icons/si';
 import { SiNextdotjs } from 'react-icons/si';
 import { TbBrandReactNative } from 'react-icons/tb';
-import { FaYarn } from 'react-icons/fa6';
 import { SiPrettier } from 'react-icons/si';
 import { SiEslint } from 'react-icons/si';
-import { SiVisualstudiocode } from 'react-icons/si';
 import { SiSourcetree } from 'react-icons/si';
 import { FaBitbucket } from 'react-icons/fa';
 import { FaSlack } from 'react-icons/fa';
@@ -45,8 +42,7 @@ const About = () => {
         <div className="intro-title-wrap">
           <hr />
           <h1 className="greeting-title">
-            Nice to meet you,
-            <br />I Am
+            Nice to meet you, <br />I Am
           </h1>
 
           <p className="description">
@@ -114,6 +110,7 @@ const About = () => {
 
 const ContentWrapper = styled.div`
   height: 100%;
+  padding-bottom: 30px;
 
   flex: 1;
   ${flex({ justify: 'space-between' })};
@@ -158,6 +155,7 @@ const ContentWrapper = styled.div`
   }
   .activity-summery {
     ${flex({ justify: 'flex-start' })};
+
     .activity-section-wrap {
       ${flex({ justify: 'flex-start' })};
       .activity-section {
@@ -236,14 +234,58 @@ const ContentWrapper = styled.div`
       }
     }
   }
+
+  ${media.tablet`
+    ${flex({ direction: 'column' })};
+      .emotion-bg {
+        max-width:500px;
+        margin: auto;
+        
+      }
+      .intro-title-wrap {
+        max-width: 100%;
+        hr {
+          border: 4px solid
+            ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
+          margin-bottom: 30px;
+        }
+        .greeting-title {
+          br{
+            display:none;
+          }
+          font-size: 36px;
+        }
+      }
+      .description-title {
+        width: 100%;
+        font-weight: 700;
+        font-size: 20px;  
+        &:not(:first-child) {
+          margin-top: 20px;
+        }
+      }
+      .activity-summery {
+        .description-title {
+          br{
+            display:none;
+          }
+        }
+        
+      }
+      .skill-wrapper {
+        .skill-wrap {
+          grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  `};
+
   ${media.mobile`
-    flex-direction:column;
-    justify-content:flex-start;
+    ${flex({ direction: 'column' })};
     .emotion-bg {
-      display:none;
+      max-width:300px;
+      margin: auto;
     }
     .intro-title-wrap {
-     
       max-width: 100%;
       hr {
         border: 3px solid
@@ -251,15 +293,10 @@ const ContentWrapper = styled.div`
         margin-bottom: 30px;
       }
       .greeting-title {
-        font-size: 36px;
-        font-weight: 700;
-        line-height: 120%;
-        white-space: wrap;
+        font-size: 36px
       }
     }
     .description-title {
-      width: 100%;
-      font-weight: 700;
       font-size: 20px;  
       &:not(:first-child) {
         margin-top: 20px;
@@ -322,11 +359,11 @@ const develop = [
   { id: 9, label: 'Bootstrap', icon: <FaBootstrap /> },
   { id: 10, label: 'Material UI', icon: <SiMaterialdesignicons /> },
   { id: 10, label: 'Core UI', icon: <SiMaterialdesignicons /> },
-  { id: 11, label: 'Npm', icon: <DiNpm /> },
-  { id: 12, label: 'Yarn', icon: <FaYarn /> },
+  // { id: 11, label: 'Npm', icon: <DiNpm /> },
+  // { id: 12, label: 'Yarn', icon: <FaYarn /> },
   { id: 13, label: 'Prettier', icon: <SiPrettier /> },
   { id: 14, label: 'ESLint', icon: <SiEslint /> },
-  { id: 15, label: 'Visual Studio Code', icon: <SiVisualstudiocode /> },
+  // { id: 15, label: 'Visual Studio Code', icon: <SiVisualstudiocode /> },
   { id: 16, label: 'GitHub', icon: <IoLogoGithub /> },
   { id: 17, label: 'Sourcetree', icon: <SiSourcetree /> },
   { id: 18, label: 'Bitbucket', icon: <FaBitbucket /> },
