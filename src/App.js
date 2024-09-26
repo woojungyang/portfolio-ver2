@@ -7,6 +7,7 @@ import Connect from './pages/Connect';
 import { ThemeProvider } from 'context/themeProvider';
 import { GlobalStyle } from 'theme/GlobalStyle';
 import About from 'pages/About';
+import Portfolio from 'pages/Portfolio';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/about" element={<About />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/skill" element={<Skill />} />
           <Route path="/project" element={<Project />} />
           <Route path="/connect" element={<Connect />} />

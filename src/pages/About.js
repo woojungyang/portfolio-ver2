@@ -75,7 +75,7 @@ const About = () => {
                 </p>
               </div>
               <div className="activity-section">
-                <p className="activity-number">7</p>
+                <p className="activity-number">6</p>
                 <p className="activity-text">
                   Successful
                   <br />

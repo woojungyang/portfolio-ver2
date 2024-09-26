@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import classNames from 'classnames';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoIosClose } from 'react-icons/io';
 
-import { flex, media } from 'style/mixin';
+import { flex } from 'style/mixin';
 import { Drawer } from '@mui/material';
 import { DeviceSize } from 'models/Device';
 
@@ -19,7 +20,6 @@ export default function NavBar({ isDay, isMobile }) {
   }
 
   const [hoverMenu, setHoverMenu] = useState('');
-  console.log(isMobile);
 
   return (
     <>
@@ -35,6 +35,10 @@ export default function NavBar({ isDay, isMobile }) {
         <div className="menu-wrap">
           {menuList.map((menu, index) => (
             <p
+              className={classNames({
+                'active-menu': hoverMenu == menu.label,
+                'disabled-menu': !!hoverMenu && hoverMenu !== menu.label,
+              })}
               key={index}
               onClick={() => navigation(menu.link)}
               onMouseEnter={() => setHoverMenu(menu.label)}
@@ -66,7 +70,7 @@ export default function NavBar({ isDay, isMobile }) {
 const menuList = [
   { id: 0, label: 'Home', link: '/' },
   { id: 1, label: 'About', link: '/about' },
-  { id: 2, label: 'Works' },
+  { id: 2, label: 'Portfolio', link: '/portfolio' },
   { id: 3, label: 'Resume' },
 ];
 
@@ -94,13 +98,19 @@ const NavBarWrapper = styled.div`
   .menu-wrap {
     ${flex};
     p {
-      font-weight: 500;
+      /* font-weight: 500; */
       margin-right: 80px;
       cursor: pointer;
       font-size: 22px;
       &:last-child {
         margin-right: 0px;
       }
+    }
+    .active-menu {
+      font-weight: 700;
+    }
+    .disabled-menu {
+      opacity: 0.5;
     }
   }
   @media (max-width: ${DeviceSize.Tablet}px) {

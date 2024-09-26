@@ -40,11 +40,7 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.textColor};
     transition: background 1s ease, color 0.3s ease;
     height: 100%;
-
-    ${
-      '' /* opacity: 0;
-    animation: fadeInAnimation 1.5s ease forwards; */
-    }
+  
 
     @keyframes fadeInAnimation {
       0% {
@@ -56,6 +52,35 @@ export const GlobalStyle = createGlobalStyle`
         transform: translateY(0); 
       }
     } 
-    
+  }
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+  body, h1, h2, h3, h4, h5, h6, p, ul, ol, figure, blockquote {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  button {
+    background: none;
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+  }
+
+  table {
+    border-collapse: collapse;
   }
 `;

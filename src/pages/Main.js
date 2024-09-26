@@ -41,7 +41,6 @@ const Home = () => {
           <div className="description-btn" onClick={() => navigation('/about')}>
             <p>MORE ➔</p>
           </div>
-
           <p className="description-title">Work</p>
           <p className="description">
             여러 프로젝트를 통해 사용자가 쉽게 접근하고 즐길 수 있는 웹사이트와 애플리케이션을
@@ -49,7 +48,7 @@ const Home = () => {
             현대적인 프레임워크를 활용해 부드럽고 자연스러운 사용자 경험을 제공합니다. 제 작업은
             기능적이면서도 시각적으로도 즐거움을 주는 것을 지향합니다.
           </p>
-          <div className="description-btn">
+          <div className="description-btn" onClick={() => navigation('/portfolio')}>
             <p>MORE ➔</p>
           </div>
 
@@ -261,7 +260,9 @@ const ContentWrapper = styled.div`
     flex-direction:column;
     justify-content:flex-start;
     .emotion-bg {
-      display:none;
+      left: 80%;
+      bottom:-5%;
+      max-width: 200px;
     }
     .intro-title-wrap {
       max-width: 100%;
