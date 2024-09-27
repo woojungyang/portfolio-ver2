@@ -12,21 +12,3 @@ export const flex = ({ direction, justify, align, wrap }) => `
   align-items: ${align ?? 'center'};  
   flex-wrap: ${wrap ?? 'nowrap'};
 `;
-
-export const media = {
-  desktop: (...args) => css`
-    @media (min-width: ${DeviceSize.Desktop}px) {
-      ${css(...args)};
-    }
-  `,
-  tablet: (...args) => css`
-    @media (min-width: ${DeviceSize.Mobile}px) and (max-width: ${DeviceSize.Tablet}px) {
-      ${css(...args)};
-    }
-  `,
-  mobile: (...args) => css`
-    @media (max-width: ${DeviceSize.Mobile - 1}px) {
-      ${css(...args)};
-    }
-  `,
-};

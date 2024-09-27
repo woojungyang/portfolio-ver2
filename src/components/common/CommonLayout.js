@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useLayoutEffect, useMemo } from 'react';
 
 import styled, { css } from 'styled-components';
 
@@ -16,6 +16,10 @@ export default function CommonLayout({ children }) {
   const isDayTheme = useMemo(() => themeMode == 'day', [themeMode]);
 
   const isMobile = useUserDevice();
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <MainContainer isDay={isDayTheme} isMobile={isMobile}>

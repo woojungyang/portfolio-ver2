@@ -22,10 +22,11 @@ import { SiNotion } from 'react-icons/si';
 import { FaFigma } from 'react-icons/fa';
 
 import styled from 'styled-components';
-import { flex, media } from 'style/mixin';
+import { flex } from 'style/mixin';
 import { useTheme } from 'context/themeProvider';
 
 import CommonLayout from 'components/common/CommonLayout';
+import { DeviceSize } from 'models/Device';
 
 const About = () => {
   const [themeMode] = useTheme();
@@ -235,101 +236,83 @@ const ContentWrapper = styled.div`
     }
   }
 
-  ${media.tablet`
-    ${flex({ direction: 'column' })};
-      .emotion-bg {
-        max-width:500px;
-        margin: auto;
-        
-      }
-      .intro-title-wrap {
-        max-width: 100%;
-        hr {
-          border: 4px solid
-            ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
-          margin-bottom: 30px;
-        }
-        .greeting-title {
-          br{
-            display:none;
-          }
-          font-size: 36px;
-        }
-      }
-      .description-title {
-        width: 100%;
-        font-weight: 700;
-        font-size: 20px;  
-        &:not(:first-child) {
-          margin-top: 20px;
-        }
-      }
-      .activity-summery {
-        .description-title {
-          br{
-            display:none;
-          }
-        }
-        
-      }
-      .skill-wrapper {
-        .skill-wrap {
-          grid-template-columns: repeat(3, 1fr);
-      }
-    }
-  `};
-
-  ${media.mobile`
+  @media (max-width: ${DeviceSize.Tablet}px) {
     ${flex({ direction: 'column' })};
     .emotion-bg {
-      max-width:300px;
+      max-width: 500px;
       margin: auto;
+    }
+    .intro-title-wrap {
+      max-width: 100%;
+      hr {
+        border: 4px solid
+          ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
+        margin-bottom: 30px;
+      }
+      .greeting-title {
+        br {
+          display: none;
+        }
+        font-size: 36px;
+      }
+    }
+    .description-title {
+      width: 100%;
+      font-weight: 700;
+      font-size: 20px;
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+    }
+    .activity-summery {
+      .description-title {
+        br {
+          display: none;
+        }
+      }
+    }
+    .skill-wrapper {
+      .skill-wrap {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+
+  @media (max-width: ${DeviceSize.Mobile}px) {
+    .emotion-bg {
+      max-width: 300px;
     }
     .intro-title-wrap {
       max-width: 100%;
       hr {
         border: 3px solid
           ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
-        margin-bottom: 30px;
-      }
-      .greeting-title {
-        font-size: 36px
-      }
-    }
-    .description-title {
-      font-size: 20px;  
-      &:not(:first-child) {
-        margin-top: 20px;
       }
     }
     .activity-summery {
-    ${flex({ direction: 'column', align: 'flex-start' })};
+      ${flex({ direction: 'column', align: 'flex-start' })};
       .description-title {
-        br{
-          display:none;
-        }
-        margin-bottom:14px;
+        margin-bottom: 14px;
       }
       .activity-section {
         margin-right: 20px;
         &:last-child {
           margin-right: 0px;
         }
-      .activity-number {
-        font-size: 40px;
-        font-weight: 800;
-        margin-right: 10px;
-        color: ${({ isDay }) => (isDay ? 'var(--color-primary)' : 'var(--color-secondary)')};
+        .activity-number {
+          font-size: 40px;
+          font-weight: 800;
+          margin-right: 10px;
+          color: ${({ isDay }) => (isDay ? 'var(--color-primary)' : 'var(--color-secondary)')};
+        }
+        .activity-text {
+          font-size: 16px;
+          font-weight: 700;
+        }
       }
-      .activity-text {
-        font-size: 16px;
-        font-weight: 700;
-      }
-    }
     }
     .skill-wrapper {
       .skill-wrap {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 5px;
         .skill {
@@ -341,7 +324,7 @@ const ContentWrapper = styled.div`
         }
       }
     }
-  `};
+  }
 `;
 
 export default React.memo(About);

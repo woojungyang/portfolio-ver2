@@ -2,10 +2,11 @@ import React, { useMemo, useState } from 'react';
 import classNames from 'classnames';
 
 import styled from 'styled-components';
-import { flex, media } from 'style/mixin';
+import { flex } from 'style/mixin';
 import { useTheme } from 'context/themeProvider';
 
 import CommonLayout from 'components/common/CommonLayout';
+import { DeviceSize } from 'models/Device';
 
 const Portfolio = () => {
   const [themeMode] = useTheme();
@@ -183,24 +184,24 @@ const ContentWrapper = styled.div`
     }
   }
 
-  ${media.tablet`
+  @media (max-width: ${DeviceSize.Tablet}px) {
     .work-wrapper {
       grid-template-columns: repeat(1, 1fr);
       .work-wrap {
         transition: none;
-          .work-name-wrap {
-            margin: 16px 0px;
-            img {
-              width: 35px;
-            }
-            .work-name {
-              font-size: 35px;
-            }
+        .work-name-wrap {
+          margin: 16px 0px;
+          img {
+            width: 35px;
+          }
+          .work-name {
+            font-size: 35px;
+          }
         }
         .work-image {
-          /* img {
-            transform: scale(1.8);
-          } */
+          img {
+            transform: none;
+          }
         }
         &:hover {
           .work-image img {
@@ -209,14 +210,13 @@ const ContentWrapper = styled.div`
         }
         .work-description {
           line-height: 160%;
-          font-size:15px;
-        } 
-
+          font-size: 15px;
+        }
       }
     }
-  `};
+  }
 
-  ${media.mobile`
+  @media (max-width: ${DeviceSize.Mobile}px) {
     .title-hr {
       width: 10%;
       border: 2px solid
@@ -231,12 +231,11 @@ const ContentWrapper = styled.div`
     }
     .work-wrapper {
       margin-top: 30px;
-      grid-template-columns: repeat(1, 1fr);
       .work-wrap {
         .type-wrap {
           .type {
             padding: 12px;
-            font-size:14px;
+            font-size: 14px;
             &:last-child {
               margin-right: 0px;
             }
@@ -251,19 +250,13 @@ const ContentWrapper = styled.div`
             font-size: 32px;
           }
         }
-
-        .work-image {
-          img {
-            transform: scale(2);
-          }
-        }
       }
       .work-description {
         line-height: 120%;
-        font-size:14px;
+        font-size: 14px;
       }
     }
-  `};
+  }
 `;
 
 export default React.memo(Portfolio);
@@ -293,7 +286,7 @@ const works = [
     type: ['Professional', 'React JS', 'Web Development'],
     name: '사수래',
     description:
-      '사수래는 멘토링 서비스 플랫폼으로, 경력 개발을 원하는 사용자와 전문가 멘토를 연결하여 맞춤형 상담과 지도를 제공하는 플랫폼입니다.',
+      '사수래는 멘토링 서비스 제공하며, 경력 개발을 원하는 사용자와 전문가 멘토를 연결하여 맞춤형 상담과 지도를 제공하는 플랫폼입니다.',
     image: require('assets/logo/sasurea.png'),
     icon: require('assets/logo/sasurea-icon.png'),
   },
@@ -302,7 +295,7 @@ const works = [
     type: ['Professional', 'Next JS', 'Web Development'],
     name: 'EventPlus',
     description:
-      '이벤트플러스는 온라인 이벤트 관리 및 티켓팅 플랫폼으로, 사용자가 손쉽게 이벤트를 계획하고 관리할 수 있는 기능을 제공하는 플랫폼입니다.',
+      '이벤트플러스는 온라인 이벤트 관리, 티켓팅 등 사용자가 손쉽게 이벤트를 계획하고 관리할 수 있는 기능을 제공하는 플랫폼입니다.',
     image: require('assets/logo/eventplus.png'),
     icon: require('assets/logo/eventplus-icon.png'),
   },
@@ -311,7 +304,7 @@ const works = [
     type: ['Professional', 'React JS', 'React-Native', 'Web Development', 'Mobile Development'],
     name: 'FitDoc',
     description:
-      '핏닥은 개인 맞춤형 건강 관리 및 운동 프로그램을 제공하는 플랫폼으로, 사용자가 자신의 건강 상태에 맞는 운동과 식단을 계획하고 관리할 수 있도록 지원하는 플랫폼입니다.',
+      '핏닥은 개인 맞춤형 건강 관리 및 운동 프로그램을 제공하며, 사용자가 자신의 건강 상태에 맞는 운동과 식단을 계획하고 관리할 수 있도록 지원하는 플랫폼입니다.',
     image: require('assets/logo/fitdoc.png'),
     icon: require('assets/logo/fitdoc-icon.png'),
   },
@@ -329,7 +322,7 @@ const works = [
     type: ['Professional', 'Next JS', 'Web Development'],
     name: 'BIZA SWAP',
     description:
-      '비자스왑은 암호화폐의 분산형 거래소 플랫폼으로, 사용자 간의 직접 거래를 지원하여 빠르고 안전한 자산 교환을 가능하게 하는 플랫폼입니다.',
+      '비자스왑은 암호화폐의 분산형 거래소로 사용자 간의 직접 거래를 지원하여 빠르고 안전한 자산 교환을 가능하게 하는 플랫폼입니다.',
     image: require('assets/logo/bizaswap.png'),
     icon: require('assets/logo/bizaswap-icon.png'),
   },

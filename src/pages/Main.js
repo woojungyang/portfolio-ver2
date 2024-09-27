@@ -9,6 +9,7 @@ import { flex, media } from 'style/mixin';
 import { useTheme } from 'context/themeProvider';
 
 import CommonLayout from 'components/common/CommonLayout';
+import { DeviceSize } from 'models/Device';
 
 const Home = () => {
   const navigation = useNavigate();
@@ -219,15 +220,15 @@ const ContentWrapper = styled.div`
       }
     }
   }
-  ${media.tablet`
+  @media (max-width: ${DeviceSize.Tablet}px) {
     ${flex({ justify: 'space-between', align: 'flex-start' })};
     .emotion-bg {
       left: 30%;
-      bottom:-5%;
+      bottom: -5%;
       max-width: 540px;
     }
     .intro-title-wrap {
-       width: 100%;
+      width: 100%;
       hr {
         border: 4px solid
           ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
@@ -238,7 +239,7 @@ const ContentWrapper = styled.div`
       }
     }
     .description-wrap {
-      margin-left:40px;
+      margin-left: 40px;
       width: 100%;
       ${flex({ direction: 'column', align: 'flex-start' })};
       .description {
@@ -254,14 +255,14 @@ const ContentWrapper = styled.div`
         }
       }
     }
-  `}
+  }
 
-  ${media.mobile`
-    flex-direction:column;
-    justify-content:flex-start;
+  @media (max-width: ${DeviceSize.Mobile}px) {
+    flex-direction: column;
+    justify-content: flex-start;
     .emotion-bg {
       left: 80%;
-      bottom:-5%;
+      bottom: -5%;
       max-width: 200px;
     }
     .intro-title-wrap {
@@ -277,7 +278,7 @@ const ContentWrapper = styled.div`
       }
     }
     .description-wrap {
-      margin:40px 0px;
+      margin: 40px 0px;
       max-width: 100%;
       ${flex({ direction: 'column', align: 'flex-start' })};
       .description {
@@ -286,7 +287,7 @@ const ContentWrapper = styled.div`
         margin-top: 16px;
       }
     }
-  `};
+  }
 `;
 
 export default React.memo(Home);
