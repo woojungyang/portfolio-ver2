@@ -24,7 +24,10 @@ export default function NavBar({ isDay, isMobile }) {
   return (
     <>
       <NavBarWrapper isMobile={isMobile} isDay={isDay}>
-        <img src={isDay ? require('assets/img/logo2.png') : require('assets/img/logo1.png')} />
+        <img
+          src={isDay ? require('assets/img/logo2.png') : require('assets/img/logo1.png')}
+          onClick={() => navigation('/')}
+        />
 
         <GiHamburgerMenu
           onClick={() => toggleDrawer(true)}
@@ -91,6 +94,7 @@ const NavBarWrapper = styled.div`
   img {
     max-width: ${({ isMobile }) => (isMobile ? '120px' : '150px')};
     width: 100%;
+    cursor: pointer;
   }
   .mobile-menu {
     display: none;

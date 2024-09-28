@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 
 import styled from 'styled-components';
 import { flex } from 'style/mixin';
@@ -9,6 +10,8 @@ import CommonLayout from 'components/common/CommonLayout';
 import { DeviceSize } from 'models/Device';
 
 const Portfolio = () => {
+  const navigation = useNavigate();
+
   const [themeMode] = useTheme();
   const isDayTheme = useMemo(() => themeMode == 'day', [themeMode]);
 
@@ -33,6 +36,7 @@ const Portfolio = () => {
               key={index}
               onMouseEnter={() => setHoverWork(work.id)}
               onMouseLeave={() => setHoverWork('')}
+              onClick={() => navigation(`/portfolio/${work.name.toLowerCase()}`)}
             >
               <div style={{ width: '100%' }}>
                 <div className="type-wrap">
