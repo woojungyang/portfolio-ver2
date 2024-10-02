@@ -96,7 +96,7 @@ const ContentWrapper = styled.div`
 
   .emotion-bg {
     position: absolute;
-    bottom: -10%;
+    bottom: -5%;
     left: 50%;
     transform: translate(-50%, 0);
     z-index: -1;
