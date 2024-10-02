@@ -52,13 +52,7 @@ const MainContainer = styled.div`
   flex-grow: 1;
   padding-bottom: 0px;
   /* background-color: orange; */
-  .test {
-    position: sticky;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    background-color: pink;
-  }
+
   .content_container {
     flex: 1;
     width: 100%;

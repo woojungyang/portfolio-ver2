@@ -43,7 +43,10 @@ export default function NavBar({ isDay, isMobile }) {
                 'disabled-menu': !!hoverMenu && hoverMenu !== menu.label,
               })}
               key={index}
-              onClick={() => navigation(menu.link)}
+              onClick={() => {
+                if (menu.label == 'Resume') window.location.href = require('assets/resume.pdf');
+                else navigation(menu.link);
+              }}
               onMouseEnter={() => setHoverMenu(menu.label)}
               onMouseLeave={() => setHoverMenu('')}
             >

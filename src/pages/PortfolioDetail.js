@@ -15,7 +15,7 @@ const PortfolioDetail = () => {
 
   const { projectName } = useParams();
   const currentProject = useMemo(
-    () => works.find(e => e.name.toLowerCase() == projectName) ?? {},
+    () => works.find(e => e.name.toLowerCase() == projectName),
     [projectName]
   );
 
@@ -24,6 +24,7 @@ const PortfolioDetail = () => {
   useLayoutEffect(() => {
     if (!currentProject?.name) navigation(-1);
   }, [currentProject]);
+
   return (
     <CommonLayout>
       <ContentWrapper isDay={isDayTheme}>
@@ -46,21 +47,29 @@ const PortfolioDetail = () => {
         <p className="description-title">{currentProject?.name}</p>
         <p className="description">{currentProject?.description}</p>
         <div style={{ width: '100%' }}>
-          <img src={currentProject.image} className="project-image" />
+          <div
+            className="project-image-wrap"
+            style={{
+              backgroundColor:
+                currentProject.name == 'Driven' || currentProject.name == 'WOOTEEK' ? 'black' : '',
+            }}
+          >
+            <img src={currentProject?.image} className="project-image" />
+          </div>
           <div className="project-detail-wrapper">
             <div className="project-side-bar">
               <div className="side-bar-wrap">
                 <p className="side-bar-title">CLIENT</p>
-                <p className="side-bar-content">{currentProject.client}</p>
+                <p className="side-bar-content">{currentProject?.client}</p>
               </div>
               <div className="side-bar-wrap">
                 <p className="side-bar-title">SERVIECES</p>
-                <p className="side-bar-content">{currentProject.service}</p>
+                <p className="side-bar-content">{currentProject?.service}</p>
               </div>
               <div className="side-bar-wrap" style={{ marginBottom: '-40px' }}>
                 <p className="side-bar-title">Stacks</p>
                 <div className="technology-wrap">
-                  {currentProject.stacks.map((stack, index) => (
+                  {currentProject?.stacks.map((stack, index) => (
                     <p className="technology" key={index}>
                       {stack}
                     </p>
@@ -72,15 +81,15 @@ const PortfolioDetail = () => {
                 <p
                   className="side-bar-content"
                   style={{ cursor: 'pointer' }}
-                  onClick={() => window.open(currentProject.webSite, '_blank')}
+                  onClick={() => window.open(currentProject?.webSite, '_blank')}
                 >
-                  {currentProject.webSite}
+                  {currentProject?.webSite}
                 </p>
               </div>
               <div className="side-bar-wrap">
                 <p className="side-bar-title">FRONT-END PERSONNEL</p>
                 <p className="side-bar-content">
-                  {currentProject.personnel}
+                  {currentProject?.personnel}
                   {currentProject?.personnel < 2 ? ' person' : ' people'}
                 </p>
               </div>
@@ -94,7 +103,7 @@ const PortfolioDetail = () => {
                     <div>
                       <p className="info-title">Development Period</p>
                       <div>
-                        {currentProject.developmentPeriod.map((e, index) => (
+                        {currentProject?.developmentPeriod.map((e, index) => (
                           <p key={index}>
                             *{index + 1}차 : {e}{' '}
                           </p>
@@ -104,7 +113,7 @@ const PortfolioDetail = () => {
                     <div>
                       <p className="info-title">Repository(Users)</p>
                       <div>
-                        {currentProject.repositories.map((e, index) => (
+                        {currentProject?.repositories.map((e, index) => (
                           <span key={index}>
                             {e} {index + 1 < currentProject?.repositories.length && ','}
                           </span>
@@ -206,10 +215,15 @@ const ContentWrapper = styled.div`
       }
     }
   }
-  .project-image {
+  .project-image-wrap {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    ${flex};
+    .project-image {
+      width: 60%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
   .project-detail-wrapper {
     margin-top: 80px;
@@ -787,7 +801,7 @@ const works = [
     ],
     publicAvailability: '운영확인불가',
     developmentPeriod: ['2023.06.02 ~ 2023.08.01'],
-    repositories: '단일 레파지토리',
+    repositories: ['Single Repository'],
     goalOfProject:
       'BIZA SWAP 프로젝트는 암호화폐와 관련된 금전 거래를 지원하는 플랫폼으로, 데이터의 정확성과 보안을 극대화하는 것이 핵심 목표였습니다. 특히 글로벌 사용자들이 쉽게 접근할 수 있도록 다국어 지원을 포함하며, 이를 통해 사용자의 편의성과 국제적 확장성을 동시에 추구했습니다. 또한 사용자들이 복잡한 프로세스를 최소한의 절차로 안전하게 처리할 수 있도록 UI와 UX 디자인에 중점을 두었습니다.',
     projectExecution: {

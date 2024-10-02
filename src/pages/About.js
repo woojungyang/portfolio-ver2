@@ -68,7 +68,7 @@ const About = () => {
             </p>
             <div className="activity-section-wrap">
               <div className="activity-section">
-                <p className="activity-number">2.6</p>
+                <p className="activity-number">2.3</p>
                 <p className="activity-text">
                   Years of
                   <br />
