@@ -63,7 +63,13 @@ export default function NavBar({ isDay, isMobile }) {
           </div>
 
           {menuList.map((menu, index) => (
-            <p key={index} onClick={() => navigation(menu.link)}>
+            <p
+              key={index}
+              onClick={() => {
+                if (menu.label == 'Resume') window.location.href = require('assets/resume.pdf');
+                else navigation(menu.link);
+              }}
+            >
               {menu.label}
             </p>
           ))}
