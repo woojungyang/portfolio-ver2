@@ -287,6 +287,24 @@ const works = [
   },
   {
     id: 2,
+    type: ['Professional', 'Next JS', 'Web Development'],
+    name: 'ONEMOVE',
+    description:
+      '원무브는  개인의 운동 수행능력을 더욱 섬세하게 고려한 맞춤형 운동 프로그램을 제공 경력 개발을 원하는 사용자와 전문가 멘토를 연결하여 맞춤형 상담과 지도를 제공하는 운동센터 입니다.',
+    image: require('assets/logo/onemove.png'),
+    icon: require('assets/logo/sasurea-icon.png'),
+  },
+  {
+    id: 3,
+    type: ['Professional', 'Next JS', 'Web Development'],
+    name: '같이운동',
+    description:
+      '같이운동은 건강하고 행복한 삶을 위해 최적의 운동 환경과 프로그램을 제공하며, 운동을 삶의 중요한 부분으로 만들어주는 운동센터입니다.',
+    image: require('assets/logo/together.png'),
+    icon: require('assets/logo/together-icon.png'),
+  },
+  {
+    id: 4,
     type: ['Professional', 'React JS', 'Web Development'],
     name: '사수래',
     description:
@@ -295,7 +313,7 @@ const works = [
     icon: require('assets/logo/sasurea-icon.png'),
   },
   {
-    id: 3,
+    id: 5,
     type: ['Professional', 'Next JS', 'Web Development'],
     name: 'EventPlus',
     description:
@@ -304,7 +322,7 @@ const works = [
     icon: require('assets/logo/eventplus-icon.png'),
   },
   {
-    id: 4,
+    id: 6,
     type: ['Professional', 'React JS', 'React-Native', 'Web Development', 'Mobile Development'],
     name: 'FitDoc',
     description:
@@ -313,7 +331,7 @@ const works = [
     icon: require('assets/logo/fitdoc-icon.png'),
   },
   {
-    id: 5,
+    id: 7,
     type: ['Professional', 'HTML/JQUERY', 'Responsive', 'Web Development'],
     name: 'Driven',
     description:
@@ -322,7 +340,7 @@ const works = [
     icon: require('assets/logo/driven-icon.png'),
   },
   {
-    id: 6,
+    id: 8,
     type: ['Professional', 'Next JS', 'Web Development'],
     name: 'BIZA SWAP',
     description:

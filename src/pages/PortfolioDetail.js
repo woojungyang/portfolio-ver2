@@ -19,8 +19,6 @@ const PortfolioDetail = () => {
     [projectName]
   );
 
-  console.log(currentProject?.projectExecution?.execution);
-
   useLayoutEffect(() => {
     if (!currentProject?.name) navigation(-1);
   }, [currentProject]);
@@ -242,7 +240,7 @@ const ContentWrapper = styled.div`
       width: 100%;
       height: 100%;
       p {
-        font-size: 20px;
+        font-size: 16px;
       }
       .side-bar-wrap {
         width: 100%;
@@ -296,12 +294,12 @@ const ContentWrapper = styled.div`
         &:first-child {
           margin-top: 0px;
           .project-section-title {
-            font-size: 38px;
+            font-size: 34px;
           }
         }
       }
       .project-section-title {
-        font-size: 30px;
+        font-size: 27px;
         font-weight: 600;
         margin-bottom: 20px;
       }
@@ -325,7 +323,7 @@ const ContentWrapper = styled.div`
           }
         }
         line-height: 180%;
-        font-size: 17px;
+        font-size: 15px;
         text-align: justify;
         text-justify: inter-word;
         .task-wrap {
@@ -507,7 +505,7 @@ const works = [
     id: 1,
     type: ['Toy'],
     name: 'WOOTEEK',
-    description: '다양한 브랜드와 트렌드를 한곳에서 즐기는 가상의 복합 쇼핑 플랫폼입니다.',
+    description: '다양한 브랜드와 트렌드를 한곳에서 즐기는 가상의 복합 쇼핑 반응형 웹 어플리케이션',
     image: require('assets/logo/wooteek.png'),
     icon: require('assets/logo/wooteek-icon.png'),
     client: 'WOOTEEK',
@@ -556,9 +554,105 @@ const works = [
   {
     id: 2,
     type: ['Professional'],
+    name: 'ONEMOVE',
+    description:
+      '지점 관리자가 운영 업무, 수업 및 회원 관리를 효율적으로 수행할 수 있도록 지원하는 운동센터 관리 웹 어플리케이션.',
+    image: require('assets/logo/onemove.png'),
+    icon: require('assets/logo/wooteek-icon.png'),
+    client: '주식회사 9052두',
+    service: 'Web Responsive Development',
+    stacks: ['Next.js', 'Typescript', 'React-Query', 'Tailwindcss', 'Shadcn'],
+    webSite: 'https://onemove.co.kr/',
+    personnel: 2,
+    aboutProject:
+      'ONEMOVE 프로젝트의 목표는 지점 관리자가 운영을 보다 체계적으로 관리할 수 있도록 돕는 것이었습니다. 회원, 강사, 수업 등의 데이터를 효율적으로 관리할 수 있도록 기능을 설계하였으며, 일정 관리 및 예약 시스템을 통해 강사 및 회원의 스케줄을 원활하게 조율할 수 있도록 구현했습니다.\n또한, React-Big-Calendar를 활용하여 강사의 수업 일정을 한눈에 확인하고 조정할 수 있도록 구성하였으며, 필터링 및 정렬 기능을 추가하여 원하는 데이터를 빠르게 검색할 수 있도록 했습니다. 이를 통해 관리자의 업무 부담을 줄이고, 보다 편리하고 효율적인 운영이 가능하도록 지원하는 것이 프로젝트의 주요 목표였습니다.\nUI 디자인 측면에서는 TailwindCSS와 Shadcn을 사용하여 일관된 스타일 가이드를 적용하고, 관리자가 직관적으로 데이터를 확인하고 수정할 수 있도록 UX를 최적화했습니다. 또한, Next.js와 TypeScript 기반으로 개발하여 유지보수성과 확장성을 고려했으며, React-Query를 활용하여 실시간 데이터 관리가 가능하도록 구현하여 운영의 효율성을 극대화했습니다.',
+    mainTasks: [
+      {
+        label: '웹 퍼블리싱',
+        program: 'Tailwindcss, Shadcn',
+      },
+      {
+        label: 'API 연동',
+        program: 'Axios, React-Query',
+      },
+      {
+        label: '프론트 개발',
+        program: 'Next.js',
+      },
+    ],
+    publicAvailability: '비공개',
+    developmentPeriod: ['2025.01.24 ~ 2025.02.28'],
+    repositories: ['Single Repository'],
+    goalOfProject:
+      'ONEMOVE 프로젝트의 목표는 운동 센터의 관리 시스템을 디지털화하고, 사용자 경험을 극대화하는 것이었습니다. 지점, 회원 및 수업 관리 시스템을 웹 기반으로 전환하여, 지점 관리자가 보다 효율적으로 전체 지점을 운영하고, 회원을 관리하며, 수업과 강사의 일정을 조정할 수 있도록 하는 것이 핵심 목표였습니다.\n또한, 데이터 필터링 및 정렬 기능을 추가하여 검색 편의성을 높였으며, 관리자가 원하는 정보를 더욱 빠르고 정확하게 확인할 수 있도록 했습니다. 이를 통해 관리자의 업무 부담을 줄이고, 운영 효율성을 향상시키는 것에 초점을 맞추었습니다. ',
+    projectExecution: {
+      approaches:
+        'ONEMOVE 프로젝트는 수업, 회원 및 강사 관리 시스템을 구축하는 데 집중하였으며, React-Query를 활용하여 실시간으로 데이터를 관리할 수 있도록 했습니다. 이를 통해 관리자가 변경 사항을 즉시 확인할 수 있도록 했으며, API 호출 최적화를 통해 불필요한 리렌더링을 최소화하여 성능을 향상시켰습니다.\nUI 디자인 측면에서는 TailwindCSS와 Shadcn을 사용하여 스타일을 체계적으로 관리하고, 일관된 스타일 가이드를 적용하여 유지보수성을 높였습니다. 이를 통해 각 화면에서 일관된 UI를 유지하면서도, 사용자가 직관적으로 데이터를 확인하고 관리할 수 있도록 구현하였습니다.',
+      execution:
+        'Next.js와 TypeScript 기반으로 개발하여 코드의 안정성과 확장성을 고려했습니다. 반응형 웹 디자인을 적용하여 다양한 디바이스에서도 최적의 UX를 제공할 수 있도록 했으며, Redux 없이 React-Query를 활용해 상태 관리를 간결하게 구현했습니다. 또한, 강사 스케줄 관리 기능을 추가하여, 사용자들이 강사의 일정을 한눈에 파악하고 편리하게 예약할 수 있도록 했습니다.',
+      challenges:
+        '디자인 가이드에서 요구한 0.5px border 적용이 기술적으로 불가능해 대체 방법을 고민해야 했습니다. CSS의 기본 제한 사항 때문에 실제 렌더링에서는 1px로 표현되는 문제가 있었으며, 이를 해결하기 위해 Drop-shadow 효과 등을 시도했으나 확대 시 품질이 저하되는 한계가 있었습니다. \n결국 기획자와 협의하여 디자인을 조정하고, 실제 사용자 경험에 영향을 주지 않는 방식으로 해결하는 방향을 선택했습니다. 이를 통해, 기술적 한계를 극복하고 최적의 결과를 도출하는 과정에서 협업과 커뮤니케이션의 중요성을 다시 한번 실감할 수 있었습니다.',
+    },
+  },
+  {
+    id: 3,
+    type: ['Professional'],
+    name: '같이운동',
+    description:
+      '지점 관리자가 운영 업무, 수업 및 회원 관리를 효율적으로 수행할 수 있도록 지원하는 운동센터 관리 웹 어플리케이션.',
+    image: require('assets/logo/together.png'),
+    icon: require('assets/logo/together-icon.png'),
+    client: '같이운동',
+    service: 'Web Responsive Development',
+    stacks: [
+      'Next.js',
+      'Typescript',
+      'Tailwindcss',
+      'React-Query',
+      'Axios',
+      'Shadcn',
+      'Radix-UI',
+      'ApexCharts',
+      'React-Big-Calendar',
+    ],
+    webSite: '',
+    personnel: 2,
+    aboutProject:
+      '같이운동은 지점 관리자가 회원, 강사, 수업 및 매출을 효율적으로 관리할 수 있도록 설계된 웹 어플리케이션입니다. 이 프로젝트는 다양한 운동센터의 운영 방식을 반영하여, 관리자들이 보다 체계적으로 업무를 수행할 수 있도록 지원하는 것을 목표로 했습니다. \n\n주요 기능으로는 회원 및 강사 관리, 일정 예약 시스템, 결제 내역 관리, 수업 진행 상태 확인 등이 있으며, React-Big-Calendar를 활용하여 수업 스케줄을 직관적으로 확인할 수 있도록 구현했습니다. 또한, ApexCharts를 이용한 데이터 시각화를 적용하여, 매출 현황을 한눈에 파악할 수 있도록 했습니다.',
+    mainTasks: [
+      {
+        label: '웹 퍼블리싱',
+        program: 'Tailwindcss, Shadcn',
+      },
+      {
+        label: 'API 연동',
+        program: 'Axios, React-Query',
+      },
+      {
+        label: '프론트 개발',
+        program: 'Next.js',
+      },
+    ],
+    publicAvailability: '비공개',
+    developmentPeriod: ['2024.10.15 ~ 2025.02.28'],
+    repositories: ['Single Repository'],
+    goalOfProject:
+      '같이운동 프로젝트의 목표는 지점 관리자가 운영을 보다 체계적으로 관리할 수 있도록 돕는 것이었습니다. 지점 내 회원, 강사, 수업 및 매출 등의 데이터를 효율적으로 관리할 수 있도록 기능을 설계하였으며, 일정 관리 및 예약 시스템을 통해 강사 및 회원과의 스케줄 조율을 원활하게 진행할 수 있도록 했습니다.\n또한, React-Big-Calendar를 활용하여 수업 일정을 한눈에 확인하고 조정할 수 있도록 구성하였으며, ApexCharts를 활용한 데이터 시각화 기능을 통해 매출 및 운영 현황을 직관적으로 분석할 수 있도록 구현하였습니다. 이를 통해 관리자의 업무 부담을 줄이고, 보다 편리하고 효율적인 운영이 가능하도록 지원하는 것이 프로젝트의 주요 목표였습니다.',
+    projectExecution: {
+      approaches:
+        '같이운동 프로젝트는 지점 운영을 효과적으로 관리할 수 있도록, 데이터 시각화 및 일정 관리 기능을 최적화하는 데 집중하였습니다. 지점 관리자가 운영 상태를 보다 직관적으로 파악할 수 있도록 ApexCharts를 활용한 데이터 시각화를 적용하였으며, React-Big-Calendar를 이용하여 강사 및 수업 일정을 쉽게 조정할 수 있도록 설계했습니다.\n또한, Next.js와 TypeScript 기반으로 개발하여 유지보수성과 확장성을 고려했으며, TailwindCSS와 Shadcn을 활용하여 일관된 디자인 시스템을 구축하였습니다. 이를 통해 UI의 통일성을 유지하면서도, 사용자가 필요한 정보를 빠르게 확인하고 관리할 수 있도록 했습니다.\n데이터 처리 측면에서는 React-Query를 활용하여 실시간 데이터 관리가 가능하도록 했으며, API 호출 최적화를 통해 불필요한 데이터 요청을 줄이고 성능을 향상시켰습니다. 관리자가 원하는 정보를 더욱 빠르고 정확하게 검색할 수 있도록 필터링 및 정렬 기능을 추가하여 데이터 접근성을 높이고 운영의 효율성을 극대화하는 것에 초점을 맞추었습니다.',
+      execution:
+        'Next.js와 TypeScript를 활용하여 안정적인 구조를 유지하면서도 확장 가능성을 고려하여 개발을 진행했습니다. TailwindCSS와 Shadcn을 사용하여 UI를 모듈화하고, 유지보수성을 높이는 데 초점을 맞췄습니다.',
+      challenges:
+        '기존 TypeScript 코드에 적응하는 과정에서 엄격한 타입 시스템으로 인해 많은 에러가 발생했으며, API 데이터 모델을 체계적으로 분리하는 작업이 필요했습니다. 또한, 캘린더 UI를 사용자가 직관적으로 활용할 수 있도록 조정하는 과정에서 디자인과 개발 간의 협업이 필요했습니다.',
+    },
+  },
+  {
+    id: 4,
+    type: ['Professional'],
     name: '사수래',
     description:
-      '사수래는 멘토링 서비스 제공하며, 경력 개발을 원하는 사용자와 전문가 멘토를 연결하여 맞춤형 상담과 지도를 제공하는 플랫폼입니다.',
+      '사수래는 멘토링 서비스 제공하며, 경력 개발을 원하는 사용자와 전문가 멘토를 연결하여 맞춤형 상담과 지도를 제공하는 웹 어플리케이션.',
     image: require('assets/logo/sasurea.png'),
     icon: require('assets/logo/sasurea-icon.png'),
     client: '(주)인트윈',
@@ -609,11 +703,11 @@ const works = [
     },
   },
   {
-    id: 3,
+    id: 5,
     type: ['Professional'],
     name: 'EventPlus',
     description:
-      '이벤트플러스는 온라인 이벤트 관리, 티켓팅 등 사용자가 손쉽게 이벤트를 계획하고 관리할 수 있는 기능을 제공하는 플랫폼입니다.',
+      '이벤트플러스는 온라인 이벤트 관리, 티켓팅 등 사용자가 손쉽게 이벤트를 계획하고 관리할 수 있는 기능을 제공하는 웹 어플리케이션.',
     image: require('assets/logo/eventplus.png'),
     icon: require('assets/logo/eventplus-icon.png'),
     client: '(주)플러스닷',
@@ -656,11 +750,11 @@ const works = [
     },
   },
   {
-    id: 4,
+    id: 6,
     type: ['Professional'],
     name: 'FitDoc',
     description:
-      '핏닥은 개인 맞춤형 건강 관리 및 운동 프로그램을 제공하며, 사용자가 자신의 건강 상태에 맞는 운동과 식단을 계획하고 관리할 수 있도록 지원하는 플랫폼입니다.',
+      '핏닥은 개인 맞춤형 건강 관리 및 운동 프로그램을 제공하며, 사용자가 자신의 건강 상태에 맞는 운동과 식단을 계획하고 관리할 수 있도록 지원하는 웹,웹/앱 어플리케이션.',
     image: require('assets/logo/fitdoc.png'),
     icon: require('assets/logo/fitdoc-icon.png'),
     client: '핏닥',
@@ -728,46 +822,50 @@ const works = [
     },
   },
   {
-    id: 5,
+    id: 7,
     type: ['Professional'],
-    name: 'Driven',
+    name: 'DRIVEN',
     description:
-      '드리븐은 AI 기반의 데이터 분석 및 비즈니스 인사이트를 제공하며 사용자가 데이터를 효율적으로 분석하고 실시간으로 비즈니스 성과를 모니터링할 수 있도록 지원하는 플랫폼입니다.',
+      '빅데이터 마케팅 웹 애플리케이션의 다국어 지원 기능을 보수하고, 번역으로 인한 UI 문제를 해결한 프로젝트입니다.',
     image: require('assets/logo/driven.png'),
     icon: require('assets/logo/driven-icon.png'),
-    client: '(주)드리븐',
-    service: 'Web Responsive Development',
-    stacks: ['HTML', 'jQuery', 'css'],
-    webSite: 'https://www.driven.co.kr/',
+    client: 'DRIVEN',
+    service: 'Web Maintenance & Localization',
+    stacks: ['HTML5', 'CSS', 'JavaScript'],
+    webSite: '',
     personnel: 1,
     aboutProject:
-      'Driven은 AI를 활용한 데이터 분석 플랫폼으로, 비즈니스 인사이트를 실시간으로 제공하여 사용자가 데이터를 보다 효율적으로 분석하고 모니터링할 수 있도록 지원합니다. 이 플랫폼은 대시보드를 통해 다양한 데이터 분석 결과를 시각적으로 제공하며, 데이터 기반 의사 결정을 돕습니다. 또한, 여러 데이터 소스를 통합하여 사용자가 보다 심층적인 분석을 수행할 수 있도록 설계되었습니다. Driven은 기업이 실시간으로 비즈니스 성과를 추적하고 최적화할 수 있는 맞춤형 분석 도구를 제공합니다.',
+      'DRIVEN 프로젝트는 빅데이터 기반 마케팅 웹 애플리케이션의 다국어 지원 기능을 보수하는 작업을 진행한 프로젝트입니다. 기존의 UI는 영어 버전을 기준으로 설계되어 있었기 때문에 한국어 적용 시 일부 화면이 깨지는 문제가 발생했고, 번역된 콘텐츠가 UI를 벗어나거나 디자인이 망가지는 문제가 있었습니다. 이를 해결하기 위해 번역본을 적용하면서 UI가 정상적으로 표시될 수 있도록 조정하는 작업을 수행했습니다.',
     mainTasks: [
       {
-        label: 'UX/UI',
-        program: 'Css',
+        label: '다국어 지원 개선',
+        program: 'HTML, CSS, JavaScript',
       },
       {
-        label: '다국어 번역',
-        program: 'Html/JQuery',
+        label: 'UI 퍼블리싱 수정',
+        program: 'CSS',
+      },
+      {
+        label: '기획서 기반 번역본 반영',
+        program: 'JavaScript',
       },
     ],
-    publicAvailability: '홈페이지 리뉴얼 이슈로 확인불가',
-    developmentPeriod: ['2022.09.22 ~ 2022.10.05'],
+    publicAvailability: '비공개',
+    developmentPeriod: ['2022.09.23 ~ 2022.10.05'],
     repositories: ['Single Repository'],
     goalOfProject:
-      'Driven 프로젝트는 다국어 지원을 통한 글로벌 사용자 확장이 목표였습니다. 사용자들이 언어 장벽 없이 서비스를 이용할 수 있도록 하고, 번역 품질을 유지하면서도 UI/UX에 영향을 주지 않도록 세심하게 관리해야 했습니다. 특히 번역 과정에서 발생할 수 있는 디자인 및 레이아웃의 변형을 최소화하는 것이 주요 과제였습니다.',
+      'DRIVEN 프로젝트의 목표는 기존 마케팅 웹 애플리케이션의 다국어 지원을 원활하게 개선하는 것이었습니다. 번역본 적용 후 UI가 깨지거나 텍스트가 레이아웃을 벗어나는 문제를 해결하는 것이 핵심이었으며, 사용자 경험을 유지하면서도 다국어 콘텐츠가 자연스럽게 표시될 수 있도록 보수 작업을 진행했습니다.',
     projectExecution: {
-      execution:
-        ' 다국어 지원을 통해 다양한 사용자에게 접근할 수 있도록 하였고, UX/UI의 일관성을 유지하기 위해 번역 과정에서 발생하는 문제를 신속하게 해결했습니다.',
       approaches:
-        ' 드리븐 프로젝트에서는 HTML, jQuery, CSS를 활용하여 다국어 번역 작업을 성공적으로 수행했습니다. 번역으로 인해 발생한 UX/UI의 문제를 수정하여 사용자 경험을 개선했습니다.',
+        '기존 웹 애플리케이션은 HTML, CSS, JavaScript 기반으로 구축되어 있었으며, 다국어 지원을 고려하지 않은 상태로 개발된 부분이 많았습니다. 이에 따라 번역된 텍스트 길이가 원본보다 길어지는 경우가 많았고, 이를 해결하기 위해 UI의 가변성을 고려한 수정 작업을 진행했습니다. 또한, 기획서에 명시된 번역본을 검토하고, 레이아웃에 맞춰 최적화하여 반영하였습니다.',
+      execution:
+        '화면 요소들이 번역된 텍스트에 맞춰 자연스럽게 확장될 수 있도록 CSS를 조정하고, JavaScript를 활용하여 일부 UI 요소를 동적으로 변경할 수 있도록 수정했습니다. 번역 적용 후에도 원본 UI와의 일관성을 유지하기 위해 디버깅을 진행하고, 다양한 해상도에서 테스트하여 다국어 지원이 정상적으로 이루어지는지 확인했습니다.',
       challenges:
-        ' 번역 작업으로 인해 UX/UI가 틀어지는 문제가 발생했으며, 이를 수정하는 과정에서 시간과 노력이 필요했습니다. 단순한 코드 구조로 인해 수정이 어렵기도 했지만, 팀원들과의 협업을 통해 문제를 해결했습니다.',
+        '타인이 작성한 코드로 이루어진 프로젝트였기 때문에 코드 구조를 빠르게 이해하고 분석하는 것이 어려웠습니다. 또한, 하드코딩된 값들이 많아 유지보수가 어려운 환경이었으며, 기존 스타일과 충돌 없이 번역본을 적용하는 과정에서 예상치 못한 문제가 발생하기도 했습니다. 이를 해결하기 위해 개발자 도구를 활용하여 문제를 추적하고, 기획서와 실제 UI를 비교하며 하나씩 수정해 나갔습니다.',
     },
   },
   {
-    id: 6,
+    id: 8,
     type: ['Professional'],
     name: 'BIZA SWAP',
     description:
