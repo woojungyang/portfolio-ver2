@@ -23,27 +23,26 @@ export default function CommonLayout({ children }) {
 
   return (
     <MainContainer isDay={isDayTheme} isMobile={isMobile}>
-      <NavBar isDay={isDayTheme} isMobile={isMobile} />
+      {/* <NavBar isDay={isDayTheme} isMobile={isMobile} /> */}
       <div className="content_container">
         {children}
-        <div className="switch-wrap">
+        {/* <div className="switch-wrap">
           <SwitchContainer onClick={toggleTheme} isDay={isDayTheme}>
             <FaMoon size={16} color="#fff" />
             <MdWbSunny size={17} color="var(--color-primary)" />
             <Switch isDay={isDayTheme}></Switch>
           </SwitchContainer>
-        </div>
+        </div> */}
       </div>
-      <div className="footer">
+      {/* <div className="footer">
         <p> woojungyang ⓒ {new Date().getFullYear()} All rights reserved.</p>
-      </div>
+      </div> */}
     </MainContainer>
   );
 }
 
 const MainContainer = styled.div`
-  opacity: 0;
-  animation: fadeInAnimation 1.5s ease forwards;
+  /* animation: fadeInAnimation 1.5s ease forwards; */
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -51,12 +50,12 @@ const MainContainer = styled.div`
   flex-direction: column;
   flex-grow: 1;
   padding-bottom: 0px;
-  /* background-color: orange; */
-
+  background-color: #e9e9df; /* background-color: orange; */
   .content_container {
     flex: 1;
     width: 100%;
-    padding: ${({ isMobile }) => (!isMobile ? '40px 80px' : '20px 16px')};
+    padding: 0;
+    /* padding: ${({ isMobile }) => (!isMobile ? '40px 80px' : '20px 16px')}; */
     padding-bottom: 0px;
     display: flex;
     flex-direction: column;

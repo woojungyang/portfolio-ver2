@@ -1,5 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { motion } from 'framer-motion';
 
 import { MdOutlineEmail } from 'react-icons/md';
 import { FaGithubAlt } from 'react-icons/fa';
@@ -19,62 +21,46 @@ const Home = () => {
 
   return (
     <CommonLayout>
-      <ContentWrapper isDay={isDayTheme}>
-        <div className="emotion-bg">
-          <img
-            src={isDayTheme ? require('assets/img/main7.png') : require('assets/img/main6.png')}
-          />
-        </div>
-        <div className="intro-title-wrap">
-          <hr />
-          <h1 className="greeting-title">
-            I'm Woojung, a <br />
-            Front-End Developer
-          </h1>
-        </div>
-        <div className="description-wrap">
-          <p className="description-title">ABOUT ME</p>
-          <p className="description">
-            사용자에게 매력적이고 친숙한 웹 경험을 제공하는 데 깊은 애정을 가지고 있습니다. 최신 웹
-            기술을 활용하여 창의적이고 실용적인 솔루션을 구현하며, 코드의 품질과 사용자 경험을
-            최우선으로 생각하는 개발자입니다.
-          </p>
-          <div className="description-btn" onClick={() => navigation('/about')}>
-            <p>MORE ➔</p>
+      <ContentWrapper>
+        <motion.p animate={{ y: 30 }} transition={{ duration: 0.8 }} className="main-title">
+          portfolio.
+        </motion.p>
+        <div className="left-side-wrap">
+          <motion.div animate={{ x: 40 }} transition={{ duration: 0.5 }} className="top-line">
+            <p>since 2023-2025</p>
+            <div className="line"></div>
+          </motion.div>
+          <div className="description">
+            <h1 className="name">woojungyang</h1>
+            <h3 className="position">front-end developer</h3>
+            <p>
+              사용자 경험을 세심하게 다듬으며, 더 나은 UI/UX를 고민하는 프론트엔드 개발자입니다.
+              깔끔하고 효율적인 코드를 지향하고, 성능 최적화에도 신경 씁니다. 다양한 프로젝트를
+              경험하며, 기획부터 개발까지 폭넓게 참여해왔어요. 무엇보다 소통과 협업을 중요하게
+              생각하며, 함께 성장하는 개발 문화를 만들어가고 있습니다.
+            </p>
           </div>
-          <p className="description-title">Work</p>
-          <p className="description">
-            여러 프로젝트를 통해 사용자가 쉽게 접근하고 즐길 수 있는 웹사이트와 애플리케이션을
-            설계해왔습니다. HTML, CSS, JavaScript를 기반으로 반응형 디자인을 구현하고, React와 같은
-            현대적인 프레임워크를 활용해 부드럽고 자연스러운 사용자 경험을 제공합니다. 제 작업은
-            기능적이면서도 시각적으로도 즐거움을 주는 것을 지향합니다.
-          </p>
-          <div className="description-btn" onClick={() => navigation('/portfolio')}>
-            <p>MORE ➔</p>
+        </div>
+      </ContentWrapper>
+      <ContentWrapper>
+        <motion.p animate={{ y: 30 }} transition={{ duration: 0.8 }} className="main-title">
+          portfolio.
+        </motion.p>
+        <div className="left-side-wrap">
+          <motion.div animate={{ x: 40 }} transition={{ duration: 0.5 }} className="top-line">
+            <p>since 2023-2025</p>
+            <div className="line"></div>
+          </motion.div>
+          <div className="description">
+            <h1 className="name">woojungyang</h1>
+            <h3 className="position">front-end developer</h3>
+            <p>
+              사용자 경험을 세심하게 다듬으며, 더 나은 UI/UX를 고민하는 프론트엔드 개발자입니다.
+              깔끔하고 효율적인 코드를 지향하고, 성능 최적화에도 신경 씁니다. 다양한 프로젝트를
+              경험하며, 기획부터 개발까지 폭넓게 참여해왔어요. 무엇보다 소통과 협업을 중요하게
+              생각하며, 함께 성장하는 개발 문화를 만들어가고 있습니다.
+            </p>
           </div>
-
-          <p className="description-title">CONTACT</p>
-          <p
-            className="contact"
-            style={{ marginTop: 20 }}
-            onClick={async () => {
-              try {
-                await navigator.clipboard.writeText('woojungyang1113@gmail.com');
-                alert('복사 완료!');
-              } catch (error) {
-                alert('복사 실패!');
-              }
-            }}
-          >
-            <MdOutlineEmail />
-            <span>woojungyang1113@gmail.com</span>
-          </p>
-          <p className="contact">
-            <FaGithubAlt />
-            <span onClick={() => window.open('https://github.com/woojungyang', '_blank')}>
-              github.com/woojungyang
-            </span>
-          </p>
         </div>
       </ContentWrapper>
     </CommonLayout>
@@ -82,209 +68,107 @@ const Home = () => {
 };
 
 const ContentWrapper = styled.div`
-  height: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-type: y mandatory;
 
   flex: 1;
-  ${flex({ justify: 'space-between' })};
+  color: #9a9a9a;
   flex-grow: 1;
   width: 100%;
-
+  overflow-x: hidden;
+  font-family: 'DM Serif Display', serif;
   position: relative;
-  margin-top: 10px;
 
-  /* margin: 20px 0px; */
-
-  .emotion-bg {
+  .main-title {
+    color: #e43625;
     position: absolute;
-    bottom: -5%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    z-index: -1;
-    max-width: 680px;
-    width: 100%;
-
-    img {
-      width: 100%;
-      height: auto;
-      box-shadow: 0 3px 6px hsla(var(--color-dark-300), 0.16),
-        0 3px 6px hsla(var(--color-dark-300), 0.2);
-    }
+    font-weight: 600;
+    right: 0;
+    writing-mode: vertical-rl;
+    font-size: 18vh;
   }
 
-  .intro-title-wrap {
+  .left-side-wrap {
+    ${flex({ justify: 'space-between', align: 'flex-start' })};
+    flex-direction: column;
     width: 100%;
-    text-align: left;
-    hr {
-      width: 200px;
-      border: 7px solid
-        ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
-      margin-bottom: 80px;
-      margin-left: 0% !important;
-    }
-    .greeting-title {
-      font-size: 86px;
+    min-height: 100vh;
+    flex-grow: 1;
 
-      font-weight: 700;
-      line-height: 120%;
-      white-space: pre-wrap;
-    }
-  }
-  .description-wrap {
-    ${flex({ direction: 'column', align: 'flex-end' })};
-    max-width: 50%;
-    height: 100%;
-
-    .description-title {
+    .top-line {
+      padding-top: 20px;
+      ${flex({ justify: 'flex-start' })};
+      gap: 20px;
+      font-size: 14px;
       width: 100%;
-      max-width: 65%;
-      font-weight: 700;
-      font-size: 22px;
-      &:not(:first-child) {
-        margin-top: 20px;
+      .line {
+        width: 60%;
+        height: 1px;
+        background-color: #9a9a9a;
       }
     }
     .description {
-      max-width: 65%;
-      font-size: 17px;
-      margin-top: 20px;
-      line-height: 170%;
-      text-align: justify;
-      text-justify: inter-word;
-    }
-    .description-btn {
-      width: 100%;
+      padding-bottom: 20px;
+      max-width: 400px;
 
-      p {
-        width: 100%;
+      padding-left: 40px;
 
-        margin-right: 5px;
-        padding: 5px;
-        font-size: 15px;
-        margin: 10px 0px;
-        cursor: pointer;
-        text-align: right !important;
+      opacity: 0;
+      animation: fadeInAnimation 1.5s ease forwards;
+
+      .name {
+        color: #eb6352;
+        font-weight: 700;
+
+        font-size: 2.4vw;
+        max-width: 400px;
       }
-    }
-    .contact {
-      max-width: 65%;
-      width: 100%;
-      ${flex({ justify: 'flex-start' })};
-      margin-top: 10px;
-      font-size: 16px;
-      text-decoration: underline;
-      cursor: pointer;
-      span {
-        margin-left: 10px;
+      .position {
+        color: #eb6352;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-weight: 400;
+      }
+      p {
+        font-size: 13px;
+        line-height: 160%;
+        word-break: break-all;
+        text-align: justify;
+        font-weight: 500;
+        font-family: 'Noto Serif KR', serif;
       }
     }
   }
 
   @media (max-width: 1520px) {
-    .emotion-bg {
-      max-width: 600px;
-    }
-    .intro-title-wrap {
-      max-width: 48%;
-      hr {
-        width: 180px;
-        border: 5px solid
-          ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
-        margin-bottom: 50px;
-      }
-
-      .greeting-title {
-        font-size: 80px;
-        font-weight: 700;
-        line-height: 120%;
-        white-space: pre-wrap;
-      }
-    }
-    .description-wrap {
-      .description-title {
-        font-size: 20px;
-        &:not(:first-child) {
-          margin-top: 16px;
-        }
-      }
-      .description {
-        font-size: 16px;
-        margin-top: 16px;
-      }
-      .description-btn {
-        font-size: 14px;
-        margin: 10px 0px;
-        /* ${flex}; */
-        p {
-          margin-right: 5px;
-        }
-      }
-    }
   }
   @media (max-width: ${DeviceSize.Tablet}px) {
-    ${flex({ justify: 'space-between', align: 'flex-start' })};
-    .emotion-bg {
-      left: 30%;
-      bottom: -5%;
-      max-width: 540px;
-    }
-    .intro-title-wrap {
-      width: 100%;
-      hr {
-        border: 4px solid
-          ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
-        margin-bottom: 40px;
-      }
-      .greeting-title {
-        font-size: 48px;
-      }
-    }
-    .description-wrap {
-      margin-left: 40px;
-      width: 100%;
-      ${flex({ direction: 'column', align: 'flex-start' })};
-      .description {
-        max-width: 100%;
-        font-size: 16px;
-        margin-top: 16px;
-      }
-      .description-btn {
-        font-size: 12px;
-        ${flex};
-        p {
-          margin-right: 5px;
-        }
-      }
-    }
   }
 
   @media (max-width: ${DeviceSize.Mobile}px) {
-    flex-direction: column;
-    justify-content: flex-start;
-    .emotion-bg {
-      left: 80%;
-      bottom: -5%;
-      max-width: 200px;
+    .main-title {
+      font-weight: 500;
+
+      font-size: 15vh;
     }
-    .intro-title-wrap {
-      max-width: 100%;
-      hr {
-        width: 150px;
-        border: 3px solid
-          ${({ isDay }) => (isDay ? 'var(--color-dark-300)' : 'var(--color-background-100)')};
-        margin-bottom: 30px;
+    .left-side-wrap {
+      .top-line {
+        .line {
+          display: none;
+        }
       }
-      .greeting-title {
-        font-size: 36px;
-      }
-    }
-    .description-wrap {
-      margin: 40px 0px;
-      max-width: 100%;
-      ${flex({ direction: 'column', align: 'flex-start' })};
       .description {
-        max-width: 100%;
-        font-size: 15px;
-        margin-top: 16px;
+        max-width: 80vw;
+        padding: 20px 20px;
+
+        .name {
+          font-weight: 600;
+          font-size: 9vw;
+        }
+        p {
+          font-size: 10.5px;
+        }
       }
     }
   }
