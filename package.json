@@ -21,6 +21,8 @@
     "react-scripts": "^5.0.1",
     "react-scroll": "^1.8.4",
     "react-slick": "^0.28.1",
+    "sass": "^1.86.0",
+    "sass-loader": "^16.0.5",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.3",
     "web-vitals": "^1.0.1"

@@ -14,10 +14,10 @@ function App() {
         <GlobalStyle />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/about" element={<About />} />
+          {/* <Route path="/about" element={<About />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/:projectName" element={<PortfolioDetail />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

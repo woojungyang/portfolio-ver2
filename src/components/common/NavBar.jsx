@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoIosClose } from 'react-icons/io';
@@ -23,8 +24,11 @@ export default function NavBar({ isDay, isMobile }) {
 
   return (
     <>
-      <NavBarWrapper isMobile={isMobile} isDay={isDay}>
-        <img
+      <div>ddd</div>
+      <motion.nav isMobile={isMobile} isDay={isDay} className="nav-wrapper">
+        <a href="">gitHub</a>
+
+        {/* <img
           src={isDay ? require('assets/img/logo2.png') : require('assets/img/logo1.png')}
           onClick={() => navigation('/')}
         />
@@ -53,28 +57,8 @@ export default function NavBar({ isDay, isMobile }) {
               {menu.label}
             </p>
           ))}
-        </div>
-      </NavBarWrapper>
-      <Drawer open={open} onClose={() => toggleDrawer(false)} anchor="top">
-        <DrawerContent isDay={isDay} isMobile={isMobile}>
-          <div className="drawer-header">
-            <img src={isDay ? require('assets/img/logo2.png') : require('assets/img/logo1.png')} />
-            <IoIosClose size={32} onClick={() => toggleDrawer(false)} />
-          </div>
-
-          {menuList.map((menu, index) => (
-            <p
-              key={index}
-              onClick={() => {
-                if (menu.label == 'Resume') window.location.href = require('assets/resume.pdf');
-                else navigation(menu.link);
-              }}
-            >
-              {menu.label}
-            </p>
-          ))}
-        </DrawerContent>
-      </Drawer>
+        </div> */}
+      </motion.nav>
     </>
   );
 }
