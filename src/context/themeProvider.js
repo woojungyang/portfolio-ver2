@@ -1,12 +1,12 @@
-import { lightTheme, darkTheme } from 'theme/theme';
-import { createContext, useState, useContext, useCallback } from 'react';
-import { ThemeProvider as StyledProvider } from 'styled-components';
+import { lightTheme, darkTheme } from "theme/theme";
+import { createContext, useState, useContext, useCallback } from "react";
+import { ThemeProvider as StyledProvider } from "styled-components";
 
 const ThemeContext = createContext({});
 
 const ThemeProvider = ({ children }) => {
-  const [themeMode, setThemeMode] = useState('day');
-  const themeObject = themeMode == 'day' ? lightTheme : darkTheme;
+  const [themeMode, setThemeMode] = useState("day");
+  const themeObject = themeMode == "day" ? lightTheme : darkTheme;
 
   return (
     <ThemeContext.Provider value={{ themeMode, setThemeMode }}>
@@ -20,8 +20,8 @@ function useTheme() {
   const { themeMode, setThemeMode } = context;
 
   const toggleTheme = useCallback(() => {
-    if (themeMode === 'day') setThemeMode('night');
-    else setThemeMode('day');
+    if (themeMode === "day") setThemeMode("night");
+    else setThemeMode("day");
   }, [themeMode]);
 
   return [themeMode, toggleTheme];

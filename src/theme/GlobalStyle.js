@@ -1,5 +1,5 @@
-import { DeviceSize } from 'models/Device';
-import { createGlobalStyle } from 'styled-components';
+import { DeviceSize } from "models/Device";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root {

@@ -1,18 +1,23 @@
-import React from 'react';
-import styles from 'style/_common.module.scss';
-import { motion } from 'framer-motion';
-import classNames from 'classnames';
+import React from "react";
+import styles from "style/_common.module.scss";
+import { motion } from "framer-motion";
+import classNames from "classnames";
 
-export default function Border({ initial, animate, style, direction = 'width' }) {
-  const animationDirection = direction === 'width';
+export default function Border({
+  initial,
+  animate,
+  style,
+  direction = "width",
+}) {
+  const animationDirection = direction === "width";
 
   return (
     <motion.div
       initial={{
         opacity: 0,
         ...(animationDirection
-          ? { scaleX: 0, transformOrigin: 'left' }
-          : { scaleY: 0, transformOrigin: 'top' }),
+          ? { scaleX: 0, transformOrigin: "left" }
+          : { scaleY: 0, transformOrigin: "top" }),
         ...initial,
       }}
       animate={{
@@ -23,8 +28,8 @@ export default function Border({ initial, animate, style, direction = 'width' })
       }}
       style={style}
       className={classNames({
-        [styles.border]: direction === 'width',
-        [styles.border_length]: direction === 'length',
+        [styles.border]: direction === "width",
+        [styles.border_length]: direction === "length",
       })}
       variants={cardVariants}
     />
@@ -38,7 +43,7 @@ const cardVariants = {
   onscreen: {
     opacity: 1,
     transition: {
-      ease: 'easeOut',
+      ease: "easeOut",
       duration: 0.8,
     },
   },

@@ -1,12 +1,12 @@
-import React, { useRef } from 'react';
-import styles from 'style/_common.module.scss';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef } from "react";
+import styles from "style/_common.module.scss";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Card({ bg, progress, range, children, index }) {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ['start end', 'start start'],
+    offset: ["start end", "start start"],
   });
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [0, 1]);

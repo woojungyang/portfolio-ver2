@@ -1,19 +1,19 @@
-import React, { useLayoutEffect, useMemo } from 'react';
+import React, { useLayoutEffect, useMemo } from "react";
 
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
-import { MdWbSunny } from 'react-icons/md';
-import { FaMoon } from 'react-icons/fa';
+import { MdWbSunny } from "react-icons/md";
+import { FaMoon } from "react-icons/fa";
 
-import { useUserDevice } from 'hooks/useUserDevice';
-import { useTheme } from 'context/themeProvider';
-import { flex } from 'style/mixin';
+import { useUserDevice } from "hooks/useUserDevice";
+import { useTheme } from "context/themeProvider";
+import { flex } from "style/mixin";
 
-import NavBar from './NavBar';
+import NavBar from "./NavBar";
 
 export default function CommonLayout({ children }) {
   const [themeMode, toggleTheme] = useTheme();
-  const isDayTheme = useMemo(() => themeMode == 'day', [themeMode]);
+  const isDayTheme = useMemo(() => themeMode == "day", [themeMode]);
 
   const isMobile = useUserDevice();
 
@@ -55,7 +55,7 @@ const MainContainer = styled.div`
     flex: 1;
     width: 100%;
     padding: 0;
-    /* padding: ${({ isMobile }) => (!isMobile ? '40px 80px' : '20px 16px')}; */
+    /* padding: ${({ isMobile }) => (!isMobile ? "40px 80px" : "20px 16px")}; */
     padding-bottom: 0px;
     display: flex;
     flex-direction: column;
@@ -73,10 +73,11 @@ const MainContainer = styled.div`
   .footer {
     width: 100%;
     text-align: center;
-    height: ${({ isMobile }) => (isMobile ? '35px' : '40px')};
+    height: ${({ isMobile }) => (isMobile ? "35px" : "40px")};
     ${flex};
-    background-color: ${({ isDay }) => (isDay ? 'var(--color-primary)' : 'var(--color-secondary)')};
-    font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
+    background-color: ${({ isDay }) =>
+      isDay ? "var(--color-primary)" : "var(--color-secondary)"};
+    font-size: ${({ isMobile }) => (isMobile ? "14px" : "16px")};
   }
 `;
 
@@ -84,27 +85,28 @@ const SwitchContainer = styled.div`
   width: 57px;
   height: 30px;
   background-color: ${({ isDay }) =>
-    isDay ? 'var(--color-background-100)' : 'var(--color-dark-300)'};
-  border: ${({ isDay }) => (isDay ? '0px' : '1px solid rgba(225,225,225,0.2)')};
+    isDay ? "var(--color-background-100)" : "var(--color-dark-300)"};
+  border: ${({ isDay }) => (isDay ? "0px" : "1px solid rgba(225,225,225,0.2)")};
   border-radius: 50px;
-  ${flex({ justify: 'space-between', align: 'center' })};
+  ${flex({ justify: "space-between", align: "center" })};
   padding: 0 6.5px;
   cursor: pointer;
-  box-shadow: 0 2px 5px ${({ isDay }) => (isDay ? '#ddd' : 'transparent')};
+  box-shadow: 0 2px 5px ${({ isDay }) => (isDay ? "#ddd" : "transparent")};
   transition: background-color 0.5s ease-in 0.3s;
   position: relative;
 `;
 
 const Switch = styled.div`
   border: 2px solid
-    ${({ isDay }) => (isDay ? ' var(--color-primary)' : 'var(--color-background-100)')};
+    ${({ isDay }) =>
+      isDay ? " var(--color-primary)" : "var(--color-background-100)"};
   background-color: ${({ isDay }) =>
-    isDay ? 'var(--color-background-100)' : 'var(--color-dark-300)'};
+    isDay ? "var(--color-background-100)" : "var(--color-dark-300)"};
   width: 20px;
   height: 20px;
   border-radius: 50%;
   position: absolute;
   z-index: 1;
   transition: transform 0.3s ease;
-  transform: ${({ isDay }) => (isDay ? 'translateX(0)' : 'translateX(23px)')};
+  transform: ${({ isDay }) => (isDay ? "translateX(0)" : "translateX(23px)")};
 `;

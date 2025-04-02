@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import classNames from 'classnames';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import classNames from "classnames";
+import { motion } from "framer-motion";
 
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { IoIosClose } from 'react-icons/io';
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoIosClose } from "react-icons/io";
 
-import { flex } from 'style/mixin';
-import { Drawer } from '@mui/material';
-import { DeviceSize } from 'models/Device';
+import { flex } from "style/mixin";
+import { Drawer } from "@mui/material";
+import { DeviceSize } from "models/Device";
 
 export default function NavBar({ isDay, isMobile }) {
   const navigation = useNavigate();
@@ -20,7 +20,7 @@ export default function NavBar({ isDay, isMobile }) {
     setOpen(newOpen);
   }
 
-  const [hoverMenu, setHoverMenu] = useState('');
+  const [hoverMenu, setHoverMenu] = useState("");
 
   return (
     <>
@@ -64,10 +64,10 @@ export default function NavBar({ isDay, isMobile }) {
 }
 
 const menuList = [
-  { id: 0, label: 'Home', link: '/' },
-  { id: 1, label: 'About', link: '/about' },
-  { id: 2, label: 'Portfolio', link: '/portfolio' },
-  { id: 3, label: 'Resume' },
+  { id: 0, label: "Home", link: "/" },
+  { id: 1, label: "About", link: "/about" },
+  { id: 2, label: "Portfolio", link: "/portfolio" },
+  { id: 3, label: "Resume" },
 ];
 
 const NavBarWrapper = styled.div`
@@ -76,16 +76,16 @@ const NavBarWrapper = styled.div`
   left: 0;
   width: 100%;
   background-color: ${({ isDay }) =>
-    isDay ? 'var(--color-background-100)' : 'var(--color-dark-300)'};
+    isDay ? "var(--color-background-100)" : "var(--color-dark-300)"};
   z-index: 99;
-  ${flex({ justify: 'space-between' })};
-  padding: ${({ isMobile }) => (!isMobile ? '40px 80px' : '20px 16px')};
+  ${flex({ justify: "space-between" })};
+  padding: ${({ isMobile }) => (!isMobile ? "40px 80px" : "20px 16px")};
   max-width: var(--size-max-width);
   margin: auto;
   font-size: 18px;
 
   img {
-    max-width: ${({ isMobile }) => (isMobile ? '120px' : '150px')};
+    max-width: ${({ isMobile }) => (isMobile ? "120px" : "150px")};
     width: 100%;
     cursor: pointer;
   }
@@ -122,12 +122,13 @@ const NavBarWrapper = styled.div`
 
 const DrawerContent = styled.div`
   background-color: ${({ isDay }) =>
-    isDay ? 'var(--color-background-100)' : 'var(--color-dark-300)'};
-  margin: ${({ isMobile }) => (isMobile ? '20px 40px' : '40px 80px')};
+    isDay ? "var(--color-background-100)" : "var(--color-dark-300)"};
+  margin: ${({ isMobile }) => (isMobile ? "20px 40px" : "40px 80px")};
 
   height: 100vh;
-  color: ${({ isDay }) => (!isDay ? 'var(--color-background-100)' : 'var(--color-dark-300)')};
-  ${flex({ direction: 'column' })};
+  color: ${({ isDay }) =>
+    !isDay ? "var(--color-background-100)" : "var(--color-dark-300)"};
+  ${flex({ direction: "column" })};
   position: relative;
   .drawer-header {
     position: absolute;
@@ -135,9 +136,9 @@ const DrawerContent = styled.div`
     width: 100%;
     left: 0;
     /* padding: 14px 16px; */
-    ${flex({ justify: 'space-between' })};
+    ${flex({ justify: "space-between" })};
     img {
-      max-width: ${({ isMobile }) => (isMobile ? '120px' : '150px')};
+      max-width: ${({ isMobile }) => (isMobile ? "120px" : "150px")};
       width: 100%;
     }
     margin-bottom: 40px;

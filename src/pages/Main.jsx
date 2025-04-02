@@ -1,53 +1,53 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
-import { motion, transform, useScroll, useTransform } from 'framer-motion';
+import { motion, transform, useScroll, useTransform } from "framer-motion";
 
-import styled from 'styled-components';
-import { flex, media } from 'style/mixin';
+import styled from "styled-components";
+import { flex, media } from "style/mixin";
 
-import { DeviceSize } from 'models/Device';
+import { DeviceSize } from "models/Device";
 
-import NavBar from 'components/common/NavBar';
-import styles from 'style/_common.module.scss';
-import SectionContainer from 'components/common/SectionContainer';
-import Border from 'components/common/Border';
-import Card from 'components/common/Card';
-import Lenis from '@studio-freight/lenis';
+import NavBar from "components/common/NavBar";
+import styles from "style/_common.module.scss";
+import SectionContainer from "components/common/SectionContainer";
+import Border from "components/common/Border";
+import Card from "components/common/Card";
+import Lenis from "@studio-freight/lenis";
 
 const Home = () => {
   const totalCards = 2;
   const titleBorder = [
-    { style: { left: '40%' } },
-    { style: { left: '60%' } },
+    { style: { left: "40%" } },
+    { style: { left: "60%" } },
     {
-      style: { bottom: '5%' },
-      initial: { transformOrigin: 'right' },
+      style: { bottom: "5%" },
+      initial: { transformOrigin: "right" },
       animate: { scaleX: 0.6 },
-      direction: 'width',
+      direction: "width",
     },
   ];
   const aboutBorder = [
-    { style: { left: '20%' } },
-    { style: { left: '90%' } },
+    { style: { left: "20%" } },
+    { style: { left: "90%" } },
     {
-      style: { bottom: '5%' },
-      initial: { transformOrigin: 'right' },
-      direction: 'width',
+      style: { bottom: "5%" },
+      initial: { transformOrigin: "right" },
+      direction: "width",
     },
   ];
   const motionInitial = { opacity: 0 };
   const motionAnimate = { opacity: 1 };
-  const motionTransition = { duration: 1, ease: 'easeInOut' };
+  const motionTransition = { duration: 1, ease: "easeInOut" };
 
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offsets: ['start start', 'end end'],
+    offsets: ["start start", "end end"],
   });
   const adjustedProgress = useTransform(
     scrollYProgress,
     [0, 1], // 원래 범위
-    [0, 1] // 변환 범위 확인
+    [0, 1], // 변환 범위 확인
   );
 
   useEffect(() => {
@@ -64,7 +64,7 @@ const Home = () => {
   const [index, setIndex] = useState(0);
 
   const test = useMemo(() => {
-    const unsubscribe = scrollYProgress.onChange(value => {
+    const unsubscribe = scrollYProgress.onChange((value) => {
       return value;
     });
 
@@ -80,7 +80,7 @@ const Home = () => {
         className={styles.header_wrapper}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, ease: 'easeInOut', delay: 0.2 }}
+        transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
       >
         <a href="/resume.pdf" target="_blank">
           resume
@@ -88,14 +88,18 @@ const Home = () => {
         <a href="/report.pdf" target="_blank">
           working report
         </a>
-        <a href="https://github.com/woojungyang" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/woojungyang"
+          target="_blank"
+          rel="noreferrer"
+        >
           github
         </a>
         <div className={styles.last_border} />
         <div className={styles.top_border_wrap}>
           <motion.span
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1, delay: 4, duration: 1, ease: 'easeInOut' }}
+            animate={{ opacity: 1, delay: 4, duration: 1, ease: "easeInOut" }}
           >
             woojungyang1113@gmail.com
           </motion.span>
@@ -109,12 +113,12 @@ const Home = () => {
           animate={motionAnimate}
           transition={motionTransition}
         >
-          {titleBorder.map(e => (
+          {titleBorder.map((e) => (
             <Border
               style={e.style}
               animate={{ delay: 1, ...e?.animate }}
               initial={e?.initial}
-              direction={e?.direction ?? 'length'}
+              direction={e?.direction ?? "length"}
             />
           ))}
 
@@ -125,7 +129,7 @@ const Home = () => {
             transition={{ ...motionTransition, delay: 0.3 }}
           >
             <img
-              src={require('assets/img/title.png')}
+              src={require("assets/img/title.png")}
               className={styles.main_image}
               alt="메인배경이미지"
             />
@@ -147,7 +151,7 @@ const Home = () => {
           animate={motionAnimate}
           transition={motionTransition}
         >
-          {aboutBorder.map(e => (
+          {aboutBorder.map((e) => (
             <Border
               style={e.style}
               animate={{
@@ -155,7 +159,7 @@ const Home = () => {
                 // scale: imageScale,
               }}
               initial={e?.initial}
-              direction={e?.direction ?? 'length'}
+              direction={e?.direction ?? "length"}
             />
           ))}
 
@@ -188,19 +192,22 @@ const Home = () => {
                 Mission
               </h3>
               <p className={styles.description}>
-                저는 신뢰할 수 있는 코드를 작성하고, 사용자 중심의 경험을 설계하는 프론트엔드
-                개발자입니다. 프론트엔드 개발은 단순히 화면을 구현하는 것이 아니라, 사용자가 더 쉽고
-                빠르게 서비스를 이용할 수 있도록 만드는 일이라 생각합니다. 이를 위해 클린 코드, 성능
-                최적화, 그리고 유지보수 가능한 구조를 중요하게 여기며 개발합니다. 다양한 도메인의
-                프로젝트를 통해 필터링 시스템, 대시보드, 다국어 지원 등 사용자 경험을 개선하는
-                기능을 개발하며, 기획자, 디자이너, 백엔드 개발자와의 협업을 통해 최적의 솔루션을
-                찾는 데 집중해왔습니다. 빠르게 변화하는 기술 환경 속에서 성능 최적화, 디자인 시스템
-                구축, 웹 접근성 개선 등을 통해 더 나은 사용자 경험을 제공하는 방법을 지속적으로
-                배우고 있습니다. 궁극적으로는 사용자와 팀, 그리고 제품의 가치를 극대화하는 개발자가
-                되고자 합니다.
+                저는 신뢰할 수 있는 코드를 작성하고, 사용자 중심의 경험을
+                설계하는 프론트엔드 개발자입니다. 프론트엔드 개발은 단순히
+                화면을 구현하는 것이 아니라, 사용자가 더 쉽고 빠르게 서비스를
+                이용할 수 있도록 만드는 일이라 생각합니다. 이를 위해 클린 코드,
+                성능 최적화, 그리고 유지보수 가능한 구조를 중요하게 여기며
+                개발합니다. 다양한 도메인의 프로젝트를 통해 필터링 시스템,
+                대시보드, 다국어 지원 등 사용자 경험을 개선하는 기능을 개발하며,
+                기획자, 디자이너, 백엔드 개발자와의 협업을 통해 최적의 솔루션을
+                찾는 데 집중해왔습니다. 빠르게 변화하는 기술 환경 속에서 성능
+                최적화, 디자인 시스템 구축, 웹 접근성 개선 등을 통해 더 나은
+                사용자 경험을 제공하는 방법을 지속적으로 배우고 있습니다.
+                궁극적으로는 사용자와 팀, 그리고 제품의 가치를 극대화하는
+                개발자가 되고자 합니다.
               </p>
               <img
-                src={require('assets/img/about2.png')}
+                src={require("assets/img/about2.png")}
                 className={styles.main_image}
                 alt="소개페이지"
               />
@@ -297,10 +304,10 @@ const MainContainer = styled.main`
   }
   color: #212121;
   /* font-family: 'DM Serif Display', serif; */
-  font-family: 'Gaegu', sans-serif;
+  font-family: "Gaegu", sans-serif;
   background-color: #eae5d9;
   .section-wrapper {
-    ${flex({ justify: 'center' })};
+    ${flex({ justify: "center" })};
     padding: 20px;
   }
   .nav-wrapper {
@@ -311,7 +318,7 @@ const MainContainer = styled.main`
     top: 0;
 
     z-index: 999;
-    ${flex({ justify: 'flex-start' })};
+    ${flex({ justify: "flex-start" })};
     gap: 60px;
     padding: 0px 40px;
     ul {
@@ -340,7 +347,7 @@ const FirstSection = styled.div`
   }
 
   .left-side-wrap {
-    ${flex({ justify: 'space-between', align: 'flex-start' })};
+    ${flex({ justify: "space-between", align: "flex-start" })};
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
@@ -348,7 +355,7 @@ const FirstSection = styled.div`
 
     .top-line {
       padding-top: 20px;
-      ${flex({ justify: 'flex-start' })};
+      ${flex({ justify: "flex-start" })};
       gap: 20px;
       font-size: 14px;
       width: 100%;
@@ -359,7 +366,7 @@ const FirstSection = styled.div`
       }
     }
     .description {
-      font-family: 'Gowun Dodum', sans-serif;
+      font-family: "Gowun Dodum", sans-serif;
       padding-bottom: 20px;
       max-width: 400px;
 
@@ -424,7 +431,7 @@ const SecondSection = styled.div`
   padding-top: 60px;
   padding-left: 20px;
 
-  ${flex({ justify: 'flex-start', align: 'flex-start' })};
+  ${flex({ justify: "flex-start", align: "flex-start" })};
   height: 100vh;
   position: relative;
   gap: 8vw;
@@ -437,7 +444,7 @@ const SecondSection = styled.div`
   .description-wrapper {
     max-width: 600px;
     height: 100%;
-    ${flex({ justify: 'space-between', align: 'flex-start' })};
+    ${flex({ justify: "space-between", align: "flex-start" })};
     flex-direction: column;
     .image-wrap {
       width: 80%;
@@ -453,7 +460,7 @@ const SecondSection = styled.div`
       text-align: justify;
       font-weight: 500;
       letter-spacing: -1px;
-      font-family: 'Gowun Dodum', sans-serif;
+      font-family: "Gowun Dodum", sans-serif;
       /* margin-bottom: 70px; */
     }
   }

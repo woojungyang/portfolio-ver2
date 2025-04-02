@@ -1,15 +1,15 @@
 export const lightTheme = {
-  bgColor: '#fff',
-  textColor: '#000',
+  bgColor: "#fff",
+  textColor: "#000",
 };
 
 export const darkTheme = {
-  bgColor: '#000',
-  textColor: '#fff',
+  bgColor: "#000",
+  textColor: "#fff",
 };
 
 export const theme = {
   lightTheme,
   darkTheme,
-  primary: '#0020C2',
+  primary: "#0020C2",
 };

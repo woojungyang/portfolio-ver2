@@ -1,9 +1,14 @@
-import React, { useRef } from 'react';
-import styles from 'style/_common.module.scss';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import Border from './Border';
+import React, { useRef } from "react";
+import styles from "style/_common.module.scss";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Border from "./Border";
 
-export default function SectionContainer({ children, index, progress, currentIndex }) {
+export default function SectionContainer({
+  children,
+  index,
+  progress,
+  currentIndex,
+}) {
   return (
     <motion.section
       className={styles.section_container}
@@ -12,7 +17,7 @@ export default function SectionContainer({ children, index, progress, currentInd
         opacity: index === currentIndex ? 1 : 0.6, // 완전히 사라지지 않게 설정
         y: index === currentIndex ? 0 : index < currentIndex ? -50 : 50, // 스크롤 방향 반영
       }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {children}
     </motion.section>
@@ -83,7 +88,7 @@ const cardVariants = {
   onscreen: {
     opacity: 1,
     transition: {
-      ease: 'easeOut',
+      ease: "easeOut",
       duration: 0.8,
     },
   },

@@ -1,10 +1,10 @@
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
 export default styled;
 export { css };
 
-export * from './common';
+export * from "./common";
 
 export const font = {
   // kr: `'Gowun Dodum'`,
@@ -12,23 +12,23 @@ export const font = {
 };
 
 export const color = {
-  dark: '#4a6163',
-  danger: '#f17a7e',
-  secondary: '#f9a66c',
-  light: '#f9faf4',
-  black: '#000',
-  lightBlack: '#dedede',
-  success: '#ffc94b',
-  white: '#FFFFFF',
+  dark: "#4a6163",
+  danger: "#f17a7e",
+  secondary: "#f9a66c",
+  light: "#f9faf4",
+  black: "#000",
+  lightBlack: "#dedede",
+  success: "#ffc94b",
+  white: "#FFFFFF",
 };
 
 export const size = {
-  xxl: '1599px',
-  xl: '1399px',
-  lg: '1199px',
-  md: '991px',
-  sm: '767px',
-  xs: '575px',
+  xxl: "1599px",
+  xl: "1399px",
+  lg: "1199px",
+  md: "991px",
+  sm: "767px",
+  xs: "575px",
 };
 
 export const media = {
@@ -40,7 +40,7 @@ export const media = {
   xs: ` screen and (max-width: ${size.xs})`,
 };
 
-export const flex = ({ w = 'nowrap', h = 'flex-start', v = 'stretch' }) => {
+export const flex = ({ w = "nowrap", h = "flex-start", v = "stretch" }) => {
   return css`
     display: flex;
     flex-wrap: ${w};
