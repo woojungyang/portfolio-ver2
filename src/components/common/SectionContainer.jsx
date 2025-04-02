@@ -1,41 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from 'style/_common.module.scss';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Border from './Border';
 
 export default function SectionContainer({ children, index, progress, currentIndex }) {
   return (
-    <motion.section className={styles.section_container} viewport={{ once: false, amount: 0.8 }}>
-      {/* <motion.header
-        className={styles.header_wrapper}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, ease: 'easeInOut', delay: 0.2 }}
-        variants={cardVariants}
-        viewport={{ once: false, amount: 0.8 }}
-      >
-        <a href="/resume.pdf" target="_blank">
-          resume
-        </a>
-        <a href="/report.pdf" target="_blank">
-          working report
-        </a>
-        <a href="https://github.com/woojungyang" target="_blank" rel="noreferrer">
-          github
-        </a>
-        <div className={styles.last_border} />
-      </motion.header>
-      <div className={styles.top_border_wrap}>
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, delay: 4, duration: 1, ease: 'easeInOut' }}
-        >
-          woojungyang1113@gmail.com
-        </motion.span>
-        <Border animate={{ delay: 0.6 }} />
-      </div>
-       */}
-      <article className={styles.article_wrap}>{children}</article>
+    <motion.section
+      className={styles.section_container}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{
+        opacity: index === currentIndex ? 1 : 0.6, // 완전히 사라지지 않게 설정
+        y: index === currentIndex ? 0 : index < currentIndex ? -50 : 50, // 스크롤 방향 반영
+      }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
+      {children}
     </motion.section>
     // <motion.section
     //   className={styles.section_container}
@@ -109,3 +88,34 @@ const cardVariants = {
     },
   },
 };
+
+/* 
+<motion.header
+        className={styles.header_wrapper}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: 'easeInOut', delay: 0.2 }}
+        variants={cardVariants}
+        viewport={{ once: false, amount: 0.8 }}
+      >
+        <a href="/resume.pdf" target="_blank">
+          resume
+        </a>
+        <a href="/report.pdf" target="_blank">
+          working report
+        </a>
+        <a href="https://github.com/woojungyang" target="_blank" rel="noreferrer">
+          github
+        </a>
+        <div className={styles.last_border} />
+      </motion.header>
+      <div className={styles.top_border_wrap}>
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, delay: 4, duration: 1, ease: 'easeInOut' }}
+        >
+          woojungyang1113@gmail.com
+        </motion.span>
+        <Border animate={{ delay: 0.6 }} />
+      </div>
+*/
