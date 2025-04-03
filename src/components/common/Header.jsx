@@ -32,7 +32,7 @@ export const Header = () => {
       let currentSection = "";
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        if (window.scrollY > sectionTop - 60) {
+        if (window.scrollY > sectionTop - 300) {
           currentSection = section.getAttribute("id");
         }
       });
@@ -91,6 +91,9 @@ export const Header = () => {
               ))}
             </ul>
           </nav>
+          <Link to="/contact" className="btn-primary hidden md:inline-flex">
+            Contact
+          </Link>
           <button
             className="cursor-pointer text-gray-90 md:hidden"
             onClick={() => setToggleMenu(!toggleMenu)}

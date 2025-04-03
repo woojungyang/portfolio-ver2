@@ -1,4 +1,3 @@
-
 export const navbarVariants = {
   default: {
     backgroundColor: "rgba(255,255,255,0)",
@@ -10,9 +9,7 @@ export const navbarVariants = {
     boxShadow: "0px 3px 5px rgba(0,0,0,0.1)",
     height: "56px",
   },
-  slideStart: {
-    y: -100,
-  },
+  slideStart: { y: -100 },
   slideEnd: {
     y: 0,
     transition: {
@@ -24,10 +21,7 @@ export const navbarVariants = {
 };
 
 export const mobileNavbarVariants = {
-  hidden: {
-    right: "-40%",
-    opacity: 0,
-  },
+  hidden: { right: "-40%", opacity: 0 },
   visible: {
     right: 0,
     opacity: 1,
@@ -39,10 +33,7 @@ export const mobileNavbarVariants = {
 };
 
 export const leftSideVariants = {
-  hidden: {
-    opacity: 0,
-    x: -100,
-  },
+  hidden: { opacity: 0, x: -100 },
   visible: {
     opacity: 1,
     x: 0,
@@ -55,19 +46,43 @@ export const leftSideVariants = {
   },
 };
 
-export const rightSideVariants ={
-  hidden:{
-    opacity:0,
-    x:100,
+export const rightSideVariants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      duration: 2,
+      bounce: 0.3,
+      delay: 0.5,
+    },
   },
-  visible:{
-    opacity:1,
-    x:0,
-    transition:{
-      type:"spring",
-      duration:2,
-      bounce:0.3,
-      delay:0.5
-    }
-  }
-}
+};
+
+export const centerVariants = {
+  hidden: { opacity: 0, y: -50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 2,
+      type: "spring",
+      bounce: 0.1,
+    },
+  },
+};
+
+export const fadeInVariants = {
+  hidden: { opacity: 0, y: -50 },
+  visible: (index) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 2,
+      type: "spring",
+      bounce: 0.1,
+      delay: index * 0.2,
+    },
+  }),
+};

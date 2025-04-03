@@ -25,3 +25,5 @@ yarn-error.log*
 
 **/resume.pdf
 **/report.pdf
+
+.env

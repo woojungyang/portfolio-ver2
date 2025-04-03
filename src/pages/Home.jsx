@@ -1,10 +1,10 @@
-import { About, Hero, Portfolio, Services } from "src/components";
+import { About, Main, Portfolio, Skills } from "src/components";
 
 export default function Home() {
   return (
     <main className="overflow-hidden">
-      <Hero />
-      <Services />
+      <Main />
+      <Skills />
       <About />
       <Portfolio />
     </main>

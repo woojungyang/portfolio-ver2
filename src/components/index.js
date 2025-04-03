@@ -1,4 +1,4 @@
 export * from "./About";
-export * from "./Hero";
+export * from "./Main";
 export * from "./Portfolio";
-export * from "./Services";
+export * from "./Skills";
