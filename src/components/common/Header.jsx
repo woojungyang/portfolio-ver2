@@ -32,7 +32,7 @@ export const Header = () => {
       let currentSection = "";
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        if (window.scrollY > sectionTop - 300) {
+        if (window.scrollY > sectionTop - 50) {
           currentSection = section.getAttribute("id");
         }
       });
