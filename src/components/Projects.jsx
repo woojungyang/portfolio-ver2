@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { motion } from "framer-motion";
-import { forwardRef, useMemo, useState } from "react";
+import { forwardRef, useEffect, useMemo, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { PiArrowSquareOutBold } from "react-icons/pi";
 import { centerVariants, fadeInVariants } from "src/constants";
@@ -88,14 +88,17 @@ const ModalProject = ({ selected, setSelected }) => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 xl:grid-cols-4 xl:gap-x-10 h-full ">
+          <div className="grid grid-cols-1 xl:grid-cols-4 xl:gap-x-10 h-full  ">
             <article className="col-span-1 xl:col-span-2 gap-9 h-full flex flex-col">
               <ModalTitle title="Overview" />
               <div className="flex flex-col flex-grow ">
                 <span className="text-gray-50 font-semibold font-sm">01</span>
                 <div className="flex flex-col gap-y-5 flex-grow justify-start md:justify-end">
                   <div>
-                    <img src={selectedProject?.modalImage} />
+                    <img
+                      src={selectedProject?.modalImage}
+                      className="max-w-[50%]"
+                    />
                     <p className="font-semibold text-5xl py-3 mb-1 text-[--text-gray]">
                       About Project
                     </p>
@@ -166,7 +169,7 @@ const ModalProject = ({ selected, setSelected }) => {
                       </ul>
                     </div>
                   </div>
-                  <div className="border-t-4 border-t-[--text-gray] flex gap-x-3 py-2">
+                  <div className="border-t-4 border-t-[--text-gray] flex gap-x-3 py- min-h-[48px]">
                     <a
                       href={selectedProject?.webSite}
                       target="_blank"
@@ -252,6 +255,12 @@ const ProjectMotion = motion(Project);
 
 export const Projects = () => {
   const [selected, setSelected] = useState("");
+
+  useEffect(() => {
+    if (selected) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "auto";
+  }, [selected]);
+
   return (
     <>
       <section id="projects">
@@ -272,7 +281,6 @@ export const Projects = () => {
                   scale: 1.025,
                   transition: { duration: 0.2 },
                 }}
-                whileTap={{ scale: 0.95 }}
                 setSelected={setSelected}
               />
             ))}
@@ -414,7 +422,7 @@ const projects = [
       "ApexCharts",
       "React-Big-Calendar",
     ],
-    webSite: "",
+    webSite: "https://togethertraining.kr/",
     personnel: 2,
     aboutProject:
       "같이운동은 지점 관리자가 회원, 강사, 수업 및 매출을 효율적으로 관리할 수 있도록 설계된 웹 어플리케이션입니다. 이 프로젝트는 다양한 운동센터의 운영 방식을 반영하여, 관리자들이 보다 체계적으로 업무를 수행할 수 있도록 지원하는 것을 목표로 했습니다. \n\n주요 기능으로는 회원 및 강사 관리, 일정 예약 시스템, 결제 내역 관리, 수업 진행 상태 확인 등이 있으며, React-Big-Calendar를 활용하여 수업 스케줄을 직관적으로 확인할 수 있도록 구현했습니다. 또한, ApexCharts를 이용한 데이터 시각화를 적용하여, 매출 현황을 한눈에 파악할 수 있도록 했습니다.",
