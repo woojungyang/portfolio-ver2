@@ -95,7 +95,7 @@ const ModalProject = ({ selected, setSelected }) => {
                 <span className="text-gray-50 font-semibold font-sm">01</span>
                 <div className="flex flex-col gap-y-5 flex-grow justify-start md:justify-end">
                   <div>
-                    {/* <img src={selectedProject?.image} className="max-w-[20%]" /> */}
+                    <img src={selectedProject?.modalImage} />
                     <p className="font-semibold text-5xl py-3 mb-1 text-[--text-gray]">
                       About Project
                     </p>
@@ -295,6 +295,7 @@ const projects = [
     description:
       "다양한 브랜드와 트렌드를 한곳에서 즐기는 가상의 복합 쇼핑 플랫폼입니다.",
     image: require("src/assets/thumbnail/wooteek.png"),
+    modalImage: require("src/assets/modal/wooteek.png"),
     client: "WOOTEEK",
     service: "Web Responsive Development",
     stacks: [
@@ -346,6 +347,7 @@ const projects = [
     description:
       "원무브는  개인의 운동 수행능력을 더욱 섬세하게 고려한 맞춤형 운동 프로그램을 제공 경력 개발을 원하는 사용자와 전문가 멘토를 연결하여 맞춤형 상담과 지도를 제공하는 운동센터 입니다.",
     image: require("src/assets/thumbnail/onemove.png"),
+    modalImage: require("src/assets/modal/onemove.png"),
     client: "주식회사 9052두",
     service: "Web Development",
     stacks: [
@@ -398,6 +400,7 @@ const projects = [
     description:
       "같이운동은 건강하고 행복한 삶을 위해 최적의 운동 환경과 프로그램을 제공하며, 운동을 삶의 중요한 부분으로 만들어주는 운동센터입니다.",
     image: require("src/assets/thumbnail/together.png"),
+    modalImage: require("src/assets/modal/together.png"),
     client: "같이운동",
     service: "Web Development",
     stacks: [
@@ -444,6 +447,7 @@ const projects = [
     description:
       "사수래는 멘토링 서비스 제공하며, 경력 개발을 원하는 사용자와 전문가 멘토를 연결하여 맞춤형 상담과 지도를 제공하는 플랫폼입니다.",
     image: require("src/assets/thumbnail/sasurea.png"),
+    modalImage: require("src/assets/modal/sasurea.png"),
     client: "(주)인트윈",
     service: "Web Development",
     stacks: ["React", "Redux", "React-Query", "Scss", "CometChat", "i18n"],
@@ -481,6 +485,7 @@ const projects = [
     description:
       "이벤트플러스는 온라인 이벤트 관리, 티켓팅 등 사용자가 손쉽게 이벤트를 계획하고 관리할 수 있는 기능을 제공하는 플랫폼입니다.",
     image: require("src/assets/thumbnail/eventplus.png"),
+    modalImage: require("src/assets/modal/eventplus.png"),
     client: "(주)플러스닷",
     service: "Web Development",
     stacks: ["Next.js", "React-Query", "Scss", "CkEditor5"],
@@ -523,6 +528,7 @@ const projects = [
     description:
       "핏닥은 개인 맞춤형 건강 관리 및 운동 프로그램을 제공하며, 사용자가 자신의 건강 상태에 맞는 운동과 식단을 계획하고 관리할 수 있도록 지원하는 플랫폼입니다.",
     image: require("src/assets/thumbnail/fitdoc.png"),
+    modalImage: require("src/assets/modal/fitdoc.png"),
     client: "핏닥",
     service: "Web Development, Mobile Development",
     stacks: [
@@ -574,6 +580,7 @@ const projects = [
     description:
       "드리븐은 AI 기반의 데이터 분석 및 비즈니스 인사이트를 제공하며 사용자가 데이터를 효율적으로 분석하고 실시간으로 비즈니스 성과를 모니터링할 수 있도록 지원하는 플랫폼입니다.",
     image: require("src/assets/thumbnail/driven.png"),
+    modalImage: require("src/assets/modal/driven.png"),
     client: "DRIVEN",
     service: "Web Maintenance & Localization",
     stacks: ["HTML5", "CSS", "JavaScript"],
@@ -608,6 +615,7 @@ const projects = [
     description:
       "비자스왑은 암호화폐의 분산형 거래소로 사용자 간의 직접 거래를 지원하여 빠르고 안전한 자산 교환을 가능하게 하는 플랫폼입니다.",
     image: require("src/assets/thumbnail/biza.png"),
+    modalImage: require("src/assets/modal/biza.png"),
     client: "AMAXG",
     service: "Web Development",
     stacks: ["Next.js", "i18n", "Scss"],
