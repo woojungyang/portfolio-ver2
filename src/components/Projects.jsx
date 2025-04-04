@@ -66,7 +66,7 @@ const ModalProject = ({ selected, setSelected }) => {
         initial="hidden"
         whileInView="visible"
         onClick={(e) => e.stopPropagation()}
-        className="absolute inset-0 m-auto w-full overflow-y-auto lg:max-w-[55vw] max-w-[90vw]  h-[70vh] cursor-default bg-white p-10 rounded-md"
+        className="absolute inset-0 m-auto w-full overflow-y-auto max-w-[90vw] lg:max-w-[55vw] h-[70vh] cursor-default bg-white p-10 rounded-md"
       >
         <div className="flex flex-col h-full">
           <div className=" border-b-4 border-gray-50 mb-4 w-full">
