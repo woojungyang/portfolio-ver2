@@ -154,7 +154,7 @@ const ModalProject = ({ selected, setSelected }) => {
                           <li
                             key={index}
                             className={classNames(
-                              "flex flex-row md:flex-col xl:flex-row justify-between text-sm/7 text-[--text-gray] border-b border-b-gray-30 py-1",
+                              "flex flex-row justify-between items-center text-sm/7 text-[--text-gray] border-b border-b-gray-30 py-1",
                               {
                                 "border-none pb-0":
                                   index + 1 ===
@@ -163,13 +163,13 @@ const ModalProject = ({ selected, setSelected }) => {
                             )}
                           >
                             <p className="w-full mr-2">{task.label}</p>
-                            <p className="text-right">{task.program}</p>
+                            <p className="text-right w-full ">{task.program}</p>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
-                  <div className="border-t-4 border-t-[--text-gray] flex gap-x-3 py- min-h-[48px]">
+                  <div className="border-t-4 border-t-[--text-gray] flex gap-x-3  min-h-[48px]">
                     <a
                       href={selectedProject?.webSite}
                       target="_blank"
@@ -206,11 +206,7 @@ const ModalProject = ({ selected, setSelected }) => {
                       />
                     </div>
                   </div>
-                  <div className="border-t-4 border-t-[--text-gray] flex gap-x-3 py-2">
-                    <p className="text-sm/7 text-right xl:text-right">
-                      {selectedProject.serviceArea}
-                    </p>
-                  </div>
+                  <div className="border-t-0 xl:border-t-4 border-t-[--text-gray] flex gap-x-3 py-2 min-h-[48px]"></div>
                 </div>
               </div>
             </article>
@@ -305,7 +301,7 @@ const projects = [
     image: require("src/assets/thumbnail/wooteek.png"),
     modalImage: require("src/assets/modal/wooteek.png"),
     client: "WOOTEEK",
-    service: "Web Responsive Development",
+    service: "이용자 페이지",
     stacks: [
       "React",
       "Redux",
@@ -357,7 +353,7 @@ const projects = [
     image: require("src/assets/thumbnail/onemove.png"),
     modalImage: require("src/assets/modal/onemove.png"),
     client: "주식회사 9052두",
-    service: "Web Development",
+    service: "관리자 페이지",
     stacks: [
       "Next.js",
       "Typescript",
@@ -410,7 +406,7 @@ const projects = [
     image: require("src/assets/thumbnail/together.png"),
     modalImage: require("src/assets/modal/together.png"),
     client: "같이운동",
-    service: "Web Development",
+    service: "관리자 페이지",
     stacks: [
       "Next.js",
       "Typescript",
@@ -457,7 +453,8 @@ const projects = [
     image: require("src/assets/thumbnail/sasurea.png"),
     modalImage: require("src/assets/modal/sasurea.png"),
     client: "(주)인트윈",
-    service: "Web Development",
+    service:
+      "멘티 서비스 페이지, 멘토 서비스 페이지, 기업 관리자페이지, 슈퍼관리자 페이지",
     stacks: ["React", "Redux", "React-Query", "Scss", "CometChat", "i18n"],
     webSite: "https://sasurae.kr/sasurae/main.do",
     personnel: 3,
@@ -495,7 +492,7 @@ const projects = [
     image: require("src/assets/thumbnail/eventplus.png"),
     modalImage: require("src/assets/modal/eventplus.png"),
     client: "(주)플러스닷",
-    service: "Web Development",
+    service: "파트너사 관리자 페이지, 이벤트플러스 관리자 페이지",
     stacks: ["Next.js", "React-Query", "Scss", "CkEditor5"],
     webSite: "https://www.eventplus.co.kr/",
     personnel: 2,
@@ -538,7 +535,8 @@ const projects = [
     image: require("src/assets/thumbnail/fitdoc.png"),
     modalImage: require("src/assets/modal/fitdoc.png"),
     client: "핏닥",
-    service: "Web Development, Mobile Development",
+    service:
+      "이용자 앱, 기업 예약관리 페이지, 핏닥터 예약관리 페이지, 슈퍼관리자 예약관리 페이지, 슈퍼관리자 페이지 ",
     stacks: [
       "React",
       "React Native",
@@ -590,7 +588,7 @@ const projects = [
     image: require("src/assets/thumbnail/driven.png"),
     modalImage: require("src/assets/modal/driven.png"),
     client: "DRIVEN",
-    service: "Web Maintenance & Localization",
+    service: "이용자 페이지",
     stacks: ["HTML5", "CSS", "JavaScript"],
     webSite: "",
     personnel: 1,
@@ -625,7 +623,7 @@ const projects = [
     image: require("src/assets/thumbnail/biza.png"),
     modalImage: require("src/assets/modal/biza.png"),
     client: "AMAXG",
-    service: "Web Development",
+    service: "이용자 페이지",
     stacks: ["Next.js", "i18n", "Scss"],
     webSite: "https://amaxg.bizauto.io/",
     personnel: 1,
